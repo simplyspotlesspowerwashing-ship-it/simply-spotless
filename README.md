@@ -89,6 +89,14 @@ node build.js
 The generated `.html` files in the project root are what you upload. They are
 overwritten on every build, so make your edits in `src/`.
 
+## Live site
+
+**https://simplyspotlesspowerwashing-ship-it.github.io/simply-spotless/**
+
+Published by GitHub Pages from the `claude/spotless-pressure-washing-site-dc5jzw`
+branch (repo root). Every push redeploys automatically. A `.nojekyll` file is
+present so Pages serves the files as-is instead of running them through Jekyll.
+
 ## Run it locally
 
 ```bash
@@ -114,8 +122,8 @@ python3 -m http.server 8080
 8. **Gallery photos** — replace the placeholder illustrations with real
    before/after JPGs (same angle, same crop). The gallery page has a short
    guide on shooting them.
-8. **Domain** — set `SITE.url` at the top of `build.js` and re-run
-   `node build.js` so the canonical URLs are correct.
+8. **Domain** — when you move to a custom domain, set `url` at the top of
+   `build.js` and re-run `node build.js` so the canonical URLs match.
 9. **Social links** — the footer's Facebook / Instagram / Google icons point
     at `#`. Update them in `src/partials/footer.html`.
 

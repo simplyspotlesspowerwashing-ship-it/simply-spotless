@@ -32,7 +32,9 @@ const HERO_FORM = partial("hero-form");
 
 const SITE = {
   name: "Simply Spotless Pressure Washing",
-  url: "https://example.com", // TODO: set to your real domain before launch
+  // Live URL — used for canonical + social-preview tags.
+  // Change this if you move to a custom domain, then re-run: node build.js
+  url: "https://simplyspotlesspowerwashing-ship-it.github.io/simply-spotless",
 };
 
 /* ---------------------------------------------------------------------

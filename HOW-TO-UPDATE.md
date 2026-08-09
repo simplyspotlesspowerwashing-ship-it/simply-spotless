@@ -200,7 +200,38 @@ day and test it once.
 
 ---
 
-## 7. Seeing your changes before you publish
+## 7. Your live website
+
+Your site is published free through GitHub Pages at:
+
+**https://simplyspotlesspowerwashing-ship-it.github.io/simply-spotless/**
+
+**Every time you push a change, the site updates itself** — usually within
+about a minute. There is nothing to re-upload.
+
+If it hasn't updated, check the **Actions** tab in your GitHub repo: a
+"pages build and deployment" job runs on each push, and a green check means
+it published.
+
+### Turning it on (one time only)
+
+If the link above doesn't work yet:
+
+1. Go to your repo on GitHub → **Settings** → **Pages** (left sidebar)
+2. Under **Source**, pick **Deploy from a branch**
+3. Branch: **`claude/spotless-pressure-washing-site-dc5jzw`**, folder: **`/ (root)`**
+4. Click **Save**, wait about a minute, then refresh the link
+
+### Later: using your own domain
+
+When you buy a domain (simplyspotlesspw.com or similar), go to
+Settings → Pages → **Custom domain**, enter it, and follow the DNS steps your
+registrar gives you. Then update `url:` near the top of `build.js` to the new
+domain and run `node build.js` so the search-engine tags match.
+
+---
+
+## 8. Seeing your changes before you publish
 
 In the project folder, run:
 
@@ -209,7 +240,8 @@ python3 -m http.server 8080
 ```
 
 Then open **http://localhost:8080** in your browser. That's your site, running
-on your own computer. Press `Ctrl+C` in the terminal to stop it.
+on your own computer, before anyone else can see it. Press `Ctrl+C` in the
+terminal to stop it.
 
 ---
 

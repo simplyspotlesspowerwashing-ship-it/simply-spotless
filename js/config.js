@@ -8,12 +8,12 @@ window.SPOTLESS_CONFIG = {
   businessName: "Simply Spotless Pressure Washing",
 
   // TODO: replace with your real business phone number before launch.
-  phoneDisplay: "(555) 555-0199",
-  phoneDial: "+15555550199",
+  phoneDisplay: "(845) 650 7548",
+  phoneDial: "+18456507548",
 
   email: "simply.spotless.powerwashing@gmail.com",
 
-  hours: "Mon–Sat: 8am–6pm",
+  hours: "Mon–Sun: 8am–6pm",
 
   // The quote form posts to FormSubmit (free, no backend needed).
   // First submission emails you a one-time activation link — click it once

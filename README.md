@@ -98,9 +98,8 @@ python3 -m http.server 8080
 
 ## Launch checklist
 
-1. **Phone number** — edit `js/config.js` (`phoneDisplay` and `phoneDial`).
-   The placeholder `(555) 555-0199` appears site-wide until you change it.
-2. **Hours and email** — same file (`hours`, `email`).
+1. ~~**Phone number**~~ — done: `(845) 650 7548`, set in `js/config.js`.
+2. ~~**Hours and email**~~ — done: Mon–Sun 8am–6pm.
 3. **Quote form** — posts to [FormSubmit](https://formsubmit.co) using your
    Gmail address. After deploying, submit the form once yourself: FormSubmit
    emails a one-time activation link. Click it and every request after that
@@ -111,15 +110,13 @@ python3 -m http.server 8080
 5. **Service area** — `service-area.html` has placeholder town names. Put
    your real towns, cities and ZIP codes there; it is one of the highest-impact
    things you can do for local search.
-6. **Google review link** — paste it into `googleReviewLink` in
-   `js/config.js` and the button on the Reviews page will point at it.
-7. **Hero videos** — add `hero-1.mp4`, `hero-2.mp4`, `hero-3.mp4`.
+6. **Hero videos** — add `hero-1.mp4`, `hero-2.mp4`, `hero-3.mp4`.
 8. **Gallery photos** — replace the placeholder illustrations with real
    before/after JPGs (same angle, same crop). The gallery page has a short
    guide on shooting them.
-9. **Domain** — set `SITE.url` at the top of `build.js` and re-run
+8. **Domain** — set `SITE.url` at the top of `build.js` and re-run
    `node build.js` so the canonical URLs are correct.
-10. **Social links** — the footer's Facebook / Instagram / Google icons point
+9. **Social links** — the footer's Facebook / Instagram / Google icons point
     at `#`. Update them in `src/partials/footer.html`.
 
 Full step-by-step instructions for all of the above are in
@@ -128,6 +125,8 @@ Full step-by-step instructions for all of the above are in
 ## What's built in
 
 - Video hero slider with illustrated fallback and rotating headlines
+- Quote form built into the hero, with tap-to-call as the primary CTA
+- Services icon bar mirroring the reference site
 - Dropdown navigation (hover on desktop, accordion on mobile)
 - Draggable before/after comparison sliders — any number per page
 - Accessible FAQ accordions on every service page

@@ -6,7 +6,7 @@ There are only **three kinds of edits**, and they live in three places:
 
 | What you want to change | Where you go |
 |---|---|
-| Phone, email, hours, review link | `js/config.js` |
+| Phone, email, hours | `js/config.js` |
 | Hero videos and photos | the `assets/` folder |
 | Any words on any page | `src/pages/` |
 
@@ -29,18 +29,17 @@ details exist — change it once and it updates every page, the top bar, the
 footer, and the mobile "Call Now" button.
 
 ```js
-phoneDisplay: "(555) 555-0199",     // how it LOOKS on the page
-phoneDial:    "+15555550199",       // what it DIALS when tapped
+phoneDisplay: "(845) 650 7548",     // how it LOOKS on the page
+phoneDial:    "+18456507548",       // what it DIALS when tapped
 email:        "simply.spotless.powerwashing@gmail.com",
-hours:        "Mon–Sat: 8am–6pm",
-googleReviewLink: "",               // paste your Google review link here
+hours:        "Mon–Sun: 8am–6pm",
 ```
 
 Rules for `phoneDial`: no spaces, no dashes, no parentheses. US numbers start
-with `+1`. So `(845) 555-0123` becomes `+18455550123`.
+with `+1`. So `(845) 650 7548` becomes `+18456507548`.
 
-**The `(555) 555-0199` number is fake and it's currently on every page.**
-This is the single most important thing to change before you go live.
+Your real details are already in here — this is just where to change them
+if anything moves.
 
 ---
 
@@ -167,7 +166,7 @@ and every page updates.
 
 ---
 
-## 5. The three things that need your real content
+## 5. The two things that need your real content
 
 These are currently placeholders and should be replaced before you launch:
 
@@ -183,10 +182,6 @@ trust with a customer who spots them.
 Put your real towns, cities and ZIP codes there. This is genuinely one of the
 highest-impact things you can do for showing up in local Google searches, so
 be thorough — list every town you'd drive to.
-
-### Google review link
-Get it from your Google Business Profile, paste it into `googleReviewLink` in
-`js/config.js`, and the "Leave A Google Review" button starts working.
 
 ---
 
@@ -220,13 +215,12 @@ on your own computer. Press `Ctrl+C` in the terminal to stop it.
 
 ## Quick checklist before you go live
 
-- [ ] Real phone number in `js/config.js` (the `(555)` one is fake)
-- [ ] Real email and hours
+- [x] Real phone number in `js/config.js` — done
+- [x] Real email and hours — done
 - [ ] Hero videos added, each under ~8 MB
 - [ ] Real before/after photos in the Gallery
 - [ ] Real customer reviews replacing the samples
 - [ ] Real town names on the Service Area page
-- [ ] Google review link added
 - [ ] Social links in `src/partials/footer.html` (they point nowhere yet)
 - [ ] Your domain set in `build.js` (`SITE.url`), then `node build.js`
 - [ ] Quote form tested and FormSubmit link clicked

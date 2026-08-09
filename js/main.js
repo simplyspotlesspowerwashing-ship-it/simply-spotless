@@ -30,16 +30,14 @@
     document.querySelectorAll("[data-hours]").forEach(function (el) {
       if (CFG.hours) el.textContent = CFG.hours;
     });
-    document.querySelectorAll("[data-review-link]").forEach(function (el) {
-      if (CFG.googleReviewLink) {
-        el.setAttribute("href", CFG.googleReviewLink);
-        el.setAttribute("target", "_blank");
-        el.setAttribute("rel", "noopener");
-      }
-    });
-
-    var form = document.getElementById("quoteForm");
-    if (form && CFG.formEndpoint) form.setAttribute("action", CFG.formEndpoint);
+    // Every quote form on the page posts to the same endpoint. There can be
+    // more than one (the hero card and a full form lower down), so this is a
+    // querySelectorAll rather than a lookup by id.
+    if (CFG.formEndpoint) {
+      document.querySelectorAll("form[data-quote-form]").forEach(function (form) {
+        form.setAttribute("action", CFG.formEndpoint);
+      });
+    }
 
     var year = document.getElementById("year");
     if (year) year.textContent = String(new Date().getFullYear());

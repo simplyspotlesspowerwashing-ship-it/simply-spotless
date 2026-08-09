@@ -1,0 +1,39 @@
+        <div class="hero__card">
+          <div class="hero__card-head">
+            <p class="hero__card-eyebrow">Free · No Obligation</p>
+            <h2 class="hero__card-title">Get A Fast Quote</h2>
+            <p class="hero__card-sub">Most quotes go out within 24 hours.</p>
+          </div>
+          <form class="hero-form" data-quote-form method="POST">
+            <input type="hidden" name="_subject" value="New quote request — Simply Spotless website">
+            <input type="hidden" name="_captcha" value="false">
+            <div class="field">
+              <label for="hfName">Name</label>
+              <input id="hfName" name="name" type="text" autocomplete="name" required placeholder="Jane Smith">
+            </div>
+            <div class="field">
+              <label for="hfPhone">Phone</label>
+              <input id="hfPhone" name="phone" type="tel" autocomplete="tel" required placeholder="Your best number">
+            </div>
+            <div class="field">
+              <label for="hfEmail">Email</label>
+              <input id="hfEmail" name="email" type="email" autocomplete="email" required placeholder="jane@email.com">
+            </div>
+            <div class="field">
+              <label for="hfService">What do you need cleaned?</label>
+              <select id="hfService" name="service">
+                <option value="House Washing">House Washing</option>
+                <option value="Driveway / Concrete">Driveway / Concrete</option>
+                <option value="Patio / Walkway">Patio / Walkway</option>
+                <option value="Deck / Fence">Deck / Fence</option>
+                <option value="Gutter Cleaning">Gutter Cleaning</option>
+                <option value="More than one / Not sure">More than one / Not sure</option>
+              </select>
+            </div>
+            <button class="btn btn--primary btn--lg hero-form__submit" type="submit">
+              Get A Fast Quote
+              <svg viewBox="0 0 24 24" class="icon"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="hero-form__fine">No spam. No pressure. Just a fast, honest quote.</p>
+          </form>
+        </div>

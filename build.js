@@ -28,6 +28,7 @@ const HEADER = partial("header");
 const FOOTER = partial("footer");
 const CTA = partial("cta");
 const QUOTE_FORM = partial("quote-form");
+const HERO_FORM = partial("hero-form");
 
 const SITE = {
   name: "Simply Spotless Pressure Washing",
@@ -157,7 +158,8 @@ files.forEach((file) => {
 
   const expanded = body
     .replace(/\{\{CTA\}\}/g, CTA)
-    .replace(/\{\{QUOTE_FORM\}\}/g, QUOTE_FORM);
+    .replace(/\{\{QUOTE_FORM\}\}/g, QUOTE_FORM)
+    .replace(/\{\{HERO_FORM\}\}/g, HERO_FORM);
 
   fs.writeFileSync(path.join(ROOT, slug + ".html"), layout({ meta, body: expanded, slug }));
   built++;

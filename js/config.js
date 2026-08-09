@@ -7,7 +7,6 @@
 window.SPOTLESS_CONFIG = {
   businessName: "Simply Spotless Pressure Washing",
 
-  // TODO: replace with your real business phone number before launch.
   phoneDisplay: "(845) 650 7548",
   phoneDial: "+18456507548",
 
@@ -18,9 +17,5 @@ window.SPOTLESS_CONFIG = {
   // The quote form posts to FormSubmit (free, no backend needed).
   // First submission emails you a one-time activation link — click it once
   // and every request after that lands in your inbox.
-  formEndpoint: "https://formsubmit.co/simply.spotless.powerwashing@gmail.com",
-
-  // TODO: paste your Google review link here and the "Leave A Google
-  // Review" button on the Reviews page will point at it.
-  googleReviewLink: ""
+  formEndpoint: "https://formsubmit.co/simply.spotless.powerwashing@gmail.com"
 };

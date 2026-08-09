@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7dc4ec"/><stop offset="1" stop-color="#dff2fc"/>
+    </linearGradient>
+    <linearGradient id="lawn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#84b96c"/><stop offset="1" stop-color="#66a04f"/>
+    </linearGradient>
+    <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#37506a"/><stop offset="1" stop-color="#22303f"/>
+    </linearGradient>
+    <linearGradient id="spray" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#bfe9ff" stop-opacity=".25"/>
+    </linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff8dd" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#fff8dd" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="230" cy="170" r="220" fill="url(#sun)"/>
+  <g fill="#ffffff" opacity=".9">
+    <ellipse cx="380" cy="150" rx="110" ry="34"/>
+    <ellipse cx="470" cy="130" rx="80" ry="28"/>
+    <ellipse cx="1230" cy="110" rx="130" ry="36"/>
+    <ellipse cx="1330" cy="95" rx="85" ry="26"/>
+  </g>
+
+  <!-- lawn -->
+  <rect y="690" width="1600" height="210" fill="url(#lawn)"/>
+  <ellipse cx="800" cy="700" rx="900" ry="26" fill="#78ad60"/>
+
+  <!-- house -->
+  <g>
+    <polygon points="655,345 1075,140 1495,345" fill="url(#roof)"/>
+    <rect x="640" y="338" width="870" height="20" rx="6" fill="#5b6b7a"/>
+    <rect x="700" y="356" width="750" height="344" fill="#edf3f7"/>
+    <!-- siding laps -->
+    <g stroke="#d3e0ea" stroke-width="3">
+      <path d="M700 386h750M700 416h750M700 446h750M700 476h750M700 506h750M700 536h750M700 566h750M700 596h750M700 626h750M700 656h750"/>
+    </g>
+    <!-- lingering grime on the left side, mid-wash -->
+    <g>
+      <path d="M700 356h190q-14 60 8 106t-6 96q-16 52 6 92t-8 50H700z" fill="#a09a83" opacity=".75"/>
+      <path d="M700 356h150q-10 55 6 100t-8 90q-12 48 6 88t-6 66H700z" fill="#8d8770" opacity=".55"/>
+      <rect x="712" y="356" width="14" height="150" rx="7" fill="#6e6a52" opacity=".5"/>
+      <rect x="762" y="356" width="10" height="120" rx="5" fill="#6e6a52" opacity=".45"/>
+      <rect x="828" y="356" width="12" height="140" rx="6" fill="#6e6a52" opacity=".4"/>
+    </g>
+    <!-- windows -->
+    <g>
+      <rect x="960" y="410" width="150" height="120" rx="8" fill="#ffffff"/>
+      <rect x="972" y="422" width="126" height="96" rx="4" fill="#bfe3f5"/>
+      <path d="M1035 422v96M972 470h126" stroke="#ffffff" stroke-width="6"/>
+      <path d="M984 506l60-72" stroke="#ffffff" stroke-width="10" opacity=".55" stroke-linecap="round"/>
+      <rect x="1250" y="410" width="150" height="120" rx="8" fill="#ffffff"/>
+      <rect x="1262" y="422" width="126" height="96" rx="4" fill="#bfe3f5"/>
+      <path d="M1325 422v96M1262 470h126" stroke="#ffffff" stroke-width="6"/>
+      <path d="M1274 506l60-72" stroke="#ffffff" stroke-width="10" opacity=".55" stroke-linecap="round"/>
+    </g>
+    <!-- door -->
+    <rect x="1110" y="560" width="110" height="140" rx="8" fill="#ffb400"/>
+    <rect x="1122" y="574" width="86" height="70" rx="5" fill="#e6a200"/>
+    <circle cx="1198" cy="640" r="6" fill="#22303f"/>
+    <!-- foundation -->
+    <rect x="700" y="678" width="750" height="22" fill="#b9c4cd"/>
+  </g>
+
+  <!-- sparkles where it's clean -->
+  <g fill="#ffffff">
+    <path d="M1060 320l6 16 16 6-16 6-6 16-6-16-16-6 16-6z" opacity=".95"/>
+    <path d="M1330 380l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" opacity=".85"/>
+    <path d="M1180 470l4 11 11 4-11 4-4 11-4-11-11-4 11-4z" opacity=".8"/>
+  </g>
+  <g fill="#ffd766">
+    <path d="M1430 330l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/>
+  </g>
+
+  <!-- water jet -->
+  <polygon points="612,505 700,388 760,428 636,528" fill="url(#spray)"/>
+  <g fill="#eaf7ff">
+    <circle cx="742" cy="404" r="7"/><circle cx="766" cy="440" r="5"/>
+    <circle cx="726" cy="382" r="4"/><circle cx="702" cy="452" r="6"/>
+    <circle cx="756" cy="470" r="4"/><circle cx="718" cy="500" r="5"/>
+  </g>
+
+  <!-- washer figure -->
+  <g>
+    <rect x="548" y="620" width="22" height="86" rx="9" fill="#22303f"/>
+    <rect x="580" y="620" width="22" height="86" rx="9" fill="#22303f"/>
+    <path d="M544 540q30-22 62 0l6 88h-74z" fill="#0274be"/>
+    <rect x="588" y="536" width="64" height="20" rx="10" transform="rotate(-32 588 546)" fill="#0274be"/>
+    <circle cx="566" cy="508" r="24" fill="#f2c9a0"/>
+    <path d="M540 502q26-18 52 0l-4-16q-22-12-44 0z" fill="#002b47"/>
+    <rect x="536" y="498" width="60" height="9" rx="4.5" fill="#002b47"/>
+    <!-- wand -->
+    <rect x="596" y="472" width="66" height="10" rx="5" transform="rotate(-30 596 477)" fill="#33424f"/>
+    <rect x="648" y="440" width="22" height="14" rx="5" transform="rotate(-30 648 447)" fill="#002b47"/>
+    <!-- backpack hose to machine -->
+    <path d="M552 600q-90 40-150 30" fill="none" stroke="#33424f" stroke-width="9" stroke-linecap="round"/>
+    <rect x="330" y="606" width="86" height="60" rx="10" fill="#d61f26"/>
+    <rect x="342" y="592" width="62" height="20" rx="8" fill="#9c1418"/>
+    <circle cx="352" cy="672" r="12" fill="#22303f"/>
+    <circle cx="398" cy="672" r="12" fill="#22303f"/>
+  </g>
+
+  <!-- bushes / walkway -->
+  <g fill="#4f7d3f">
+    <ellipse cx="920" cy="702" rx="66" ry="34"/>
+    <ellipse cx="1470" cy="704" rx="72" ry="36"/>
+    <ellipse cx="1410" cy="712" rx="48" ry="26"/>
+  </g>
+  <polygon points="1130,700 1200,700 1290,900 1040,900" fill="#cfd8de"/>
+  <path d="M1108 760h150M1085 830h196" stroke="#b9c4cd" stroke-width="4"/>
+</svg>

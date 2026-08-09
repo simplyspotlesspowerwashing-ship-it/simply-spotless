@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simply Spotless Pressure Washing — House Washing, Driveways, Roofs &amp; More</title>
+  <meta name="description" content="Simply Spotless Pressure Washing — professional house washing, driveway cleaning, roof soft washing and more. Licensed &amp; insured. Get your free quote today and claim $25 off all house washes.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ======================= TOP BAR ======================= -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__item">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a data-tel href="#">Call for a free quote</a>
+      </div>
+      <div class="topbar__item topbar__item--hours">
+        <svg viewBox="0 0 24 24" class="icon"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span data-hours>Mon–Sat: 8am–6pm</span>
+      </div>
+      <div class="topbar__item topbar__item--badge">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Licensed &amp; Insured</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================= HEADER / NAV ======================= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="#home" aria-label="Simply Spotless Pressure Washing — home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <defs>
+              <linearGradient id="lgMark" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#1d4ed8"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#lgMark)"/>
+            <path d="M24 10c5 6.5 9 11.2 9 16a9 9 0 1 1-18 0c0-4.8 4-9.5 9-16z" fill="#fff"/>
+            <path d="M20.5 27.5a4.5 4.5 0 0 0 3 4.2" fill="none" stroke="#7dd3fc" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M36 8l1.1 2.9L40 12l-2.9 1.1L36 16l-1.1-2.9L32 12l2.9-1.1z" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">Simply Spotless</span>
+          <span class="brand__tag">Pressure Washing</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <a class="nav__link" href="#home">Home</a>
+        <a class="nav__link" href="#services">Services</a>
+        <a class="nav__link" href="#before-after">Before &amp; After</a>
+        <a class="nav__link nav__link--deal" href="#claim-your-deal">
+          <svg viewBox="0 0 24 24" class="icon"><path d="M20.6 13.4L12.6 21.4a2 2 0 0 1-2.8 0l-7.2-7.2a2 2 0 0 1 0-2.8l8-8A2 2 0 0 1 12 2.8L19.2 3a2 2 0 0 1 1.9 1.9l.1 7.1a2 2 0 0 1-.6 1.4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="16" cy="8" r="1.6" fill="currentColor"/></svg>
+          Claim Your Deal
+        </a>
+        <a class="nav__link" href="#reviews">Reviews</a>
+        <a class="nav__link" href="#contact">Contact</a>
+        <a class="btn btn--primary nav__cta" href="#contact">Get A Fast Quote</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======================= HERO (video slider) ======================= -->
+  <section class="hero" id="home" aria-label="Welcome">
+    <div class="hero__slides" id="heroSlides">
+
+      <!--
+        Each slide plays an MP4 if one exists in assets/videos/ (hero-1.mp4, hero-2.mp4, hero-3.mp4).
+        Until real footage is added, the animated illustration behind it is shown instead,
+        so the site always looks finished. See assets/videos/README.md.
+      -->
+      <div class="hero-slide is-active" data-slide>
+        <div class="hero-slide__art" style="background-image:url('assets/img/hero-house.svg')"></div>
+        <video class="hero-slide__video" muted loop playsinline preload="metadata" aria-hidden="true">
+          <source src="assets/videos/hero-1.mp4" type="video/mp4">
+        </video>
+        <div class="hero-slide__shade"></div>
+      </div>
+
+      <div class="hero-slide" data-slide>
+        <div class="hero-slide__art" style="background-image:url('assets/img/hero-driveway.svg')"></div>
+        <video class="hero-slide__video" muted loop playsinline preload="metadata" aria-hidden="true">
+          <source src="assets/videos/hero-2.mp4" type="video/mp4">
+        </video>
+        <div class="hero-slide__shade"></div>
+      </div>
+
+      <div class="hero-slide" data-slide>
+        <div class="hero-slide__art" style="background-image:url('assets/img/hero-roof.svg')"></div>
+        <video class="hero-slide__video" muted loop playsinline preload="metadata" aria-hidden="true">
+          <source src="assets/videos/hero-3.mp4" type="video/mp4">
+        </video>
+        <div class="hero-slide__shade"></div>
+      </div>
+    </div>
+
+    <div class="container hero__content">
+      <p class="hero__eyebrow">
+        <span class="stars" aria-label="Five star rated">★★★★★</span>
+        5-Star Rated Local Service
+      </p>
+      <div class="hero__headlines" id="heroHeadlines" aria-live="polite">
+        <h1 class="hero__title is-active" data-headline>Pressure Washing That <span class="accent">Completely Restores</span> The Look of Your Home</h1>
+        <h1 class="hero__title" data-headline>Driveways So Clean, <span class="accent">The Neighbors Will Ask</span></h1>
+        <h1 class="hero__title" data-headline>Gentle On Your Roof. <span class="accent">Ruthless On Grime.</span></h1>
+      </div>
+      <p class="hero__sub">Dirty home? Don't have time? We would love to help you!</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="#contact">
+          Get A Fast Quote
+          <svg viewBox="0 0 24 24" class="icon"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--call btn--lg" data-tel href="#">
+          <svg viewBox="0 0 24 24" class="icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Click To Call
+        </a>
+      </div>
+      <a class="hero__deal-ribbon" href="#claim-your-deal">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M20.6 13.4L12.6 21.4a2 2 0 0 1-2.8 0l-7.2-7.2a2 2 0 0 1 0-2.8l8-8A2 2 0 0 1 12 2.8L19.2 3a2 2 0 0 1 1.9 1.9l.1 7.1a2 2 0 0 1-.6 1.4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="16" cy="8" r="1.6" fill="currentColor"/></svg>
+        Swipe to claim <strong>&nbsp;$25 OFF&nbsp;</strong> all house washes <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="hero__controls">
+      <button class="hero__arrow" id="heroPrev" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="hero__dots" id="heroDots" role="tablist" aria-label="Slides"></div>
+      <button class="hero__arrow" id="heroNext" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="hero__wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 60 C 240 100 480 10 720 40 C 960 70 1200 90 1440 30 L1440 90 L0 90 Z" fill="#ffffff"/></svg>
+    </div>
+  </section>
+
+  <!-- ======================= TRUST BAR ======================= -->
+  <section class="trustbar" aria-label="Why choose us">
+    <div class="container trustbar__inner">
+      <div class="trust reveal">
+        <svg viewBox="0 0 24 24" class="trust__icon"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong>Licensed &amp; Insured</strong><span>Fully covered, zero worries</span></div>
+      </div>
+      <div class="trust reveal">
+        <svg viewBox="0 0 24 24" class="trust__icon"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <div><strong>5-Star Local Service</strong><span>Neighbors you can trust</span></div>
+      </div>
+      <div class="trust reveal">
+        <svg viewBox="0 0 24 24" class="trust__icon"><path d="M20 7L10 17l-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong>Spotless Guarantee</strong><span>Not happy? We re-wash free</span></div>
+      </div>
+      <div class="trust reveal">
+        <svg viewBox="0 0 24 24" class="trust__icon"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <div><strong>Fast, Free Quotes</strong><span>Most quotes within 24 hours</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= SERVICES ======================= -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">Our Services</p>
+        <h2>Everything Exterior, <span class="accent-text">Made Spotless</span></h2>
+        <p class="section__sub">From siding to sidewalks, we use pro-grade equipment and the right pressure for every surface — powerful where it's tough, gentle where it matters.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10h14V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 13.5c1.4 1.8 2.4 3 2.4 4.3a2.4 2.4 0 1 1-4.8 0c0-1.3 1-2.5 2.4-4.3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>House Washing</h3>
+          <p>Soft wash siding treatment that lifts dirt, algae and cobwebs without damaging paint or vinyl. Instant curb appeal.</p>
+          <a class="service-card__link" href="#contact">Get a quote <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M2 13L12 4l10 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 9.5V7h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 16c1.5-1 3-1 4.5 0s3 1 4.5 0M8 19.5c1.5-1 3-1 4.5 0s3 1 4.5 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Roof Soft Washing</h3>
+          <p>Low-pressure roof cleaning that safely removes black streaks, moss and lichen — and helps your shingles last longer.</p>
+          <a class="service-card__link" href="#contact">Get a quote <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M9 3L4 21M15 3l5 18M8 9h9M6.5 15h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Driveways &amp; Concrete</h3>
+          <p>Surface cleaning for driveways, sidewalks and patios that strips away years of stains, tire marks and grime.</p>
+          <a class="service-card__link" href="#contact">Get a quote <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M4 21V8l3-4 3 4v13M14 21V8l3-4 3 4v13M4 12h6M14 12h6M4 17h6M14 17h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Decks &amp; Fences</h3>
+          <p>Careful cleaning that revives wood and composite surfaces — perfect prep before staining or sealing.</p>
+          <a class="service-card__link" href="#contact">Get a quote <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M3 7h18v3a3 3 0 0 1-3 3h-1a3 3 0 0 0-3 3v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 7V5h18v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 20.5a1.6 1.6 0 1 1-3.2 0c0-.9 1.6-2.5 1.6-2.5s1.6 1.6 1.6 2.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Gutter Cleaning &amp; Brightening</h3>
+          <p>Clear, free-flowing gutters inside — and streak-free, bright gutter faces outside. The full package.</p>
+          <a class="service-card__link" href="#contact">Get a quote <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M15 9h4a2 2 0 0 1 2 2v10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7h3M8 11h3M8 15h3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Commercial Properties</h3>
+          <p>Storefronts, sidewalks, dumpster pads and fleets — keep your business looking as professional as you are.</p>
+          <a class="service-card__link" href="#contact">Get a quote <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= BEFORE / AFTER ======================= -->
+  <section class="section section--tint" id="before-after">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">Before &amp; After</p>
+        <h2>See the <span class="accent-text">Spotless Difference</span></h2>
+        <p class="section__sub">Drag the handle to compare. This is what a Simply Spotless visit does for your curb appeal.</p>
+      </div>
+
+      <div class="ba reveal" id="baWidget">
+        <div class="ba__frame">
+          <img class="ba__img ba__img--before" src="assets/img/ba-before.svg" alt="Home exterior before pressure washing — stained siding and driveway">
+          <div class="ba__after-wrap" id="baAfterWrap">
+            <img class="ba__img" src="assets/img/ba-after.svg" alt="Home exterior after pressure washing — bright, spotless siding and driveway">
+          </div>
+          <span class="ba__label ba__label--before">Before</span>
+          <span class="ba__label ba__label--after">After</span>
+          <div class="ba__handle" id="baHandle" aria-hidden="true">
+            <span class="ba__handle-btn">
+              <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+        <label class="visually-hidden" for="baRange">Compare before and after</label>
+        <input class="ba__range" type="range" id="baRange" min="0" max="100" value="50" step="0.1">
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CLAIM YOUR DEAL ======================= -->
+  <section class="section section--deal" id="claim-your-deal">
+    <div class="container">
+      <div class="section__head section__head--light reveal">
+        <p class="eyebrow eyebrow--deal">Claim Your Deal</p>
+        <h2>Grab the Wand. <span class="accent-text--warm">Wash Away the Grime.</span></h2>
+        <p class="section__sub">This house needs your help. Press and swipe across the dirty siding — a few good passes — to uncover a special offer underneath.</p>
+      </div>
+
+      <div class="deal reveal">
+        <div class="deal__stage" id="dealStage">
+          <img class="deal__clean" id="dealClean" src="assets/img/deal-house-clean.svg" alt="">
+          <canvas class="deal__canvas" id="dealCanvas" aria-label="Interactive: swipe to pressure wash the house and reveal your deal" role="img"></canvas>
+          <canvas class="deal__spray" id="sprayCanvas" aria-hidden="true"></canvas>
+          <div class="deal__wand" id="dealWand" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <g transform="rotate(38 32 32)">
+                <rect x="26" y="34" width="9" height="22" rx="3" fill="#0f2a43"/>
+                <rect x="27.5" y="12" width="6" height="24" rx="2.6" fill="#3b82f6"/>
+                <rect x="25" y="8" width="11" height="7" rx="2.4" fill="#0f2a43"/>
+                <path d="M30.5 7V2M25 8l-2.6-3.6M36 8l2.6-3.6" stroke="#7dd3fc" stroke-width="2.4" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </div>
+          <div class="deal__hint" id="dealHint">
+            <svg viewBox="0 0 24 24" class="icon"><path d="M9 11.5V5a1.7 1.7 0 0 1 3.4 0v5.2M12.4 10.2V8.6a1.7 1.7 0 0 1 3.4 0v2.6M15.8 11.2v-.4a1.7 1.7 0 0 1 3.4 0v4.1c0 4.2-2.6 7.1-6.5 7.1-3.1 0-4.6-1.5-6.3-4.2-1-1.6-2.3-3.9-2.9-5a1.6 1.6 0 0 1 .6-2.2 1.9 1.9 0 0 1 2.4.5L9 11.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Press &amp; swipe to wash</span>
+          </div>
+          <div class="deal__progress" id="dealProgress" aria-hidden="true">
+            <span class="deal__progress-bar" id="dealProgressBar"></span>
+          </div>
+        </div>
+
+        <div class="deal__panel">
+          <div class="deal__panel-inner" id="dealPanelLocked">
+            <h3>There's a deal under all that dirt…</h3>
+            <p>Give the siding a few passes with your cursor (or finger on mobile). When the house is clean, your reward appears — just like the real thing, minus the wet shoes.</p>
+            <p class="deal__meter-note"><span id="dealPercent">0</span>% clean</p>
+            <button class="deal__skip" id="dealSkip" type="button">In a hurry? Reveal my deal →</button>
+          </div>
+          <div class="deal__panel-inner deal__panel-inner--won" id="dealPanelWon" hidden>
+            <p class="deal__won-eyebrow">Nice washing! You've unlocked:</p>
+            <p class="deal__won-offer">$25 OFF</p>
+            <p class="deal__won-sub">All House Washes</p>
+            <a class="btn btn--deal btn--lg" href="#contact" id="dealClaimBtn">
+              Claim This Deal
+              <svg viewBox="0 0 24 24" class="icon"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <p class="deal__won-fine">Mention code <strong>SPOTLESS25</strong> — we'll apply it to your quote automatically.</p>
+          </div>
+        </div>
+      </div>
+      <p class="deal__live visually-hidden" aria-live="polite" id="dealLive"></p>
+    </div>
+  </section>
+
+  <!-- ======================= HOW IT WORKS ======================= -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">How It Works</p>
+        <h2>Spotless in <span class="accent-text">Three Easy Steps</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step__num">1</span>
+          <h3>Request Your Free Quote</h3>
+          <p>Fill out our 60-second form or give us a call. We'll get back to you fast with straightforward, honest pricing.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step__num">2</span>
+          <h3>We Make It Spotless</h3>
+          <p>Our crew shows up on time with professional equipment and surface-safe detergents, and treats your home like our own.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step__num">3</span>
+          <h3>You Enjoy the Shine</h3>
+          <p>Walk the job with us. If anything's not spotless, we make it right on the spot — guaranteed.</p>
+        </div>
+      </div>
+      <div class="section__cta reveal">
+        <a class="btn btn--primary btn--lg" href="#contact">Get A Fast Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= REVIEWS ======================= -->
+  <section class="section section--tint" id="reviews">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">Reviews</p>
+        <h2>Neighbors Are <span class="accent-text">Talking</span></h2>
+        <p class="section__sub">Real results speak loudest. Here's the kind of thing we love to hear after a wash day.</p>
+      </div>
+
+      <!-- SAMPLE CONTENT: replace these with your real customer reviews (see README checklist). -->
+      <div class="reviews-grid">
+        <figure class="review reveal">
+          <div class="stars" aria-label="Five stars">★★★★★</div>
+          <blockquote>“Our siding hadn't been cleaned in years — it honestly looks like a brand new house. They were on time, careful with the flower beds, and the price was exactly what they quoted.”</blockquote>
+          <figcaption>Jessica M. <span>House Wash</span></figcaption>
+        </figure>
+        <figure class="review reveal">
+          <div class="stars" aria-label="Five stars">★★★★★</div>
+          <blockquote>“The driveway transformation is unreal. You can see the exact line where they stopped to show us the difference. Booked them again for the roof before they even left.”</blockquote>
+          <figcaption>David R. <span>Driveway &amp; Concrete</span></figcaption>
+        </figure>
+        <figure class="review reveal">
+          <div class="stars" aria-label="Five stars">★★★★★</div>
+          <blockquote>“Professional from the first text to the final walkthrough. The black streaks on our roof are completely gone and they didn't blast a single shingle. Highly recommend.”</blockquote>
+          <figcaption>Sandra K. <span>Roof Soft Wash</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= ABOUT / SERVICE AREA ======================= -->
+  <section class="section about" id="about">
+    <div class="container about__inner">
+      <div class="about__copy reveal">
+        <p class="eyebrow">About Us</p>
+        <h2>Local. Family-Run. <span class="accent-text">Obsessed With Clean.</span></h2>
+        <p>Simply Spotless Pressure Washing is a local, owner-operated exterior cleaning company. That means the person quoting your job cares personally about how your home looks when we pull away — because your street is our street too.</p>
+        <p>We proudly serve homeowners and businesses throughout our local area. Not sure if we cover your neighborhood? Reach out — if we can get our hoses there, we'll make it spotless.</p>
+        <ul class="about__points">
+          <li><svg viewBox="0 0 24 24" class="icon"><path d="M20 7L10 17l-6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Owner on every job</li>
+          <li><svg viewBox="0 0 24 24" class="icon"><path d="M20 7L10 17l-6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Surface-safe, eco-conscious detergents</li>
+          <li><svg viewBox="0 0 24 24" class="icon"><path d="M20 7L10 17l-6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Straightforward pricing, no surprises</li>
+        </ul>
+        <a class="btn btn--primary" href="#contact">Check Your Address — Free Quote</a>
+      </div>
+      <div class="about__art reveal" aria-hidden="true">
+        <img src="assets/img/hero-house.svg" alt="">
+        <div class="about__badge">
+          <span class="about__badge-big">100%</span>
+          <span>Spotless<br>Guarantee</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CONTACT / QUOTE ======================= -->
+  <section class="section section--contact" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__copy reveal">
+        <p class="eyebrow eyebrow--light">Free Quote</p>
+        <h2>Ready to Make It <span class="accent-text--warm">Spotless?</span></h2>
+        <p>Tell us about your project and we'll send a fast, no-obligation quote. Most quotes go out within 24 hours.</p>
+        <div class="contact__channels">
+          <a data-tel-wrap href="#" class="contact__channel">
+            <svg viewBox="0 0 24 24" class="icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><small>Call or text</small><strong data-phone>—</strong></span>
+          </a>
+          <a data-mailto href="#" class="contact__channel">
+            <svg viewBox="0 0 24 24" class="icon"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M22 7l-10 6L2 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><small>Email us</small><strong data-email>—</strong></span>
+          </a>
+        </div>
+        <div class="contact__deal-flag" id="contactDealFlag" hidden>
+          <svg viewBox="0 0 24 24" class="icon"><path d="M20.6 13.4L12.6 21.4a2 2 0 0 1-2.8 0l-7.2-7.2a2 2 0 0 1 0-2.8l8-8A2 2 0 0 1 12 2.8L19.2 3a2 2 0 0 1 1.9 1.9l.1 7.1a2 2 0 0 1-.6 1.4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="16" cy="8" r="1.6" fill="currentColor"/></svg>
+          Deal applied: <strong>&nbsp;$25 off your house wash (SPOTLESS25)</strong>
+        </div>
+      </div>
+
+      <form class="quote-form reveal" id="quoteForm" method="POST">
+        <input type="hidden" name="_subject" value="New quote request — Simply Spotless website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="promo_code" id="promoField" value="">
+        <div class="quote-form__row">
+          <div class="field">
+            <label for="qfName">Name</label>
+            <input id="qfName" name="name" type="text" autocomplete="name" required placeholder="Jane Smith">
+          </div>
+          <div class="field">
+            <label for="qfPhone">Phone</label>
+            <input id="qfPhone" name="phone" type="tel" autocomplete="tel" required placeholder="(555) 555-0199">
+          </div>
+        </div>
+        <div class="quote-form__row">
+          <div class="field">
+            <label for="qfEmail">Email</label>
+            <input id="qfEmail" name="email" type="email" autocomplete="email" required placeholder="jane@email.com">
+          </div>
+          <div class="field">
+            <label for="qfAddress">Address or neighborhood</label>
+            <input id="qfAddress" name="address" type="text" autocomplete="street-address" placeholder="123 Main St">
+          </div>
+        </div>
+        <fieldset class="field field--services">
+          <legend>What can we clean for you?</legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="services[]" value="House Washing" id="svcHouse"><span>House Washing</span></label>
+            <label class="chip"><input type="checkbox" name="services[]" value="Roof Soft Wash"><span>Roof Soft Wash</span></label>
+            <label class="chip"><input type="checkbox" name="services[]" value="Driveway / Concrete"><span>Driveway / Concrete</span></label>
+            <label class="chip"><input type="checkbox" name="services[]" value="Deck / Fence"><span>Deck / Fence</span></label>
+            <label class="chip"><input type="checkbox" name="services[]" value="Gutters"><span>Gutters</span></label>
+            <label class="chip"><input type="checkbox" name="services[]" value="Commercial"><span>Commercial</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="qfMessage">Anything else we should know?</label>
+          <textarea id="qfMessage" name="message" rows="4" placeholder="Tell us about the job — size, surfaces, problem spots…"></textarea>
+        </div>
+        <button class="btn btn--primary btn--lg quote-form__submit" type="submit">
+          Send My Free Quote Request
+          <svg viewBox="0 0 24 24" class="icon"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="quote-form__fine">No spam, no pressure — just a fast, honest quote.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="brand brand--footer" href="#home">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+              <defs>
+                <linearGradient id="lgMarkF" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#1d4ed8"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#lgMarkF)"/>
+              <path d="M24 10c5 6.5 9 11.2 9 16a9 9 0 1 1-18 0c0-4.8 4-9.5 9-16z" fill="#fff"/>
+              <path d="M20.5 27.5a4.5 4.5 0 0 0 3 4.2" fill="none" stroke="#7dd3fc" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M36 8l1.1 2.9L40 12l-2.9 1.1L36 16l-1.1-2.9L32 12l2.9-1.1z" fill="#fff"/>
+            </svg>
+          </span>
+          <span class="brand__text">
+            <span class="brand__name">Simply Spotless</span>
+            <span class="brand__tag">Pressure Washing</span>
+          </span>
+        </a>
+        <p>Professional exterior cleaning for homes and businesses. Licensed, insured, and obsessed with the details.</p>
+      </div>
+      <nav class="footer__col" aria-label="Site">
+        <h4>Explore</h4>
+        <a href="#services">Services</a>
+        <a href="#before-after">Before &amp; After</a>
+        <a href="#claim-your-deal">Claim Your Deal</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Free Quote</a>
+      </nav>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <a href="#contact">House Washing</a>
+        <a href="#contact">Roof Soft Washing</a>
+        <a href="#contact">Driveways &amp; Concrete</a>
+        <a href="#contact">Decks &amp; Fences</a>
+        <a href="#contact">Gutter Cleaning</a>
+      </div>
+      <div class="footer__col">
+        <h4>Get In Touch</h4>
+        <a data-tel href="#"><span data-phone>—</span></a>
+        <a data-mailto href="#"><span data-email>—</span></a>
+        <span data-hours>Mon–Sat: 8am–6pm</span>
+        <span>Serving our local area</span>
+      </div>
+    </div>
+    <div class="container footer__legal">
+      <span>© <span id="year"></span> Simply Spotless Pressure Washing. All rights reserved.</span>
+      <a href="#claim-your-deal">$25 off all house washes — claim your deal</a>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile call-to-action -->
+  <div class="mobile-cta" aria-hidden="false">
+    <a data-tel href="#" class="mobile-cta__call">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Call Now
+    </a>
+    <a href="#contact" class="mobile-cta__quote">Free Quote</a>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

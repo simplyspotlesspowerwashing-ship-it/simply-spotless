@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="skyA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7dc4ec"/><stop offset="1" stop-color="#dff2fc"/>
+    </linearGradient>
+    <linearGradient id="lawnA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#84b96c"/><stop offset="1" stop-color="#66a04f"/>
+    </linearGradient>
+    <linearGradient id="roofA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#41586f"/><stop offset="1" stop-color="#2b3c4e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#skyA)"/>
+  <g fill="#ffffff" opacity=".9">
+    <ellipse cx="300" cy="130" rx="120" ry="34"/>
+    <ellipse cx="395" cy="110" rx="82" ry="26"/>
+    <ellipse cx="1300" cy="150" rx="130" ry="36"/>
+  </g>
+  <rect y="660" width="1600" height="240" fill="url(#lawnA)"/>
+
+  <!-- roof (spotless) -->
+  <polygon points="350,320 800,140 1250,320" fill="url(#roofA)"/>
+  <rect x="336" y="312" width="928" height="18" rx="6" fill="#5b6b7a"/>
+
+  <!-- bright walls -->
+  <rect x="400" y="330" width="800" height="310" fill="#edf3f7"/>
+  <g stroke="#d3e0ea" stroke-width="3">
+    <path d="M400 360h800M400 390h800M400 420h800M400 450h800M400 480h800M400 510h800M400 540h800M400 570h800M400 600h800M400 630h800"/>
+  </g>
+
+  <!-- windows (sparkling) -->
+  <g>
+    <rect x="470" y="380" width="150" height="120" rx="8" fill="#ffffff"/>
+    <rect x="482" y="392" width="126" height="96" rx="4" fill="#bfe3f5"/>
+    <path d="M545 392v96M482 440h126" stroke="#ffffff" stroke-width="6"/>
+    <path d="M494 476l58-70" stroke="#ffffff" stroke-width="10" opacity=".55" stroke-linecap="round"/>
+    <rect x="980" y="380" width="150" height="120" rx="8" fill="#ffffff"/>
+    <rect x="992" y="392" width="126" height="96" rx="4" fill="#bfe3f5"/>
+    <path d="M1055 392v96M992 440h126" stroke="#ffffff" stroke-width="6"/>
+    <path d="M1004 476l58-70" stroke="#ffffff" stroke-width="10" opacity=".55" stroke-linecap="round"/>
+  </g>
+
+  <!-- door (bright brand yellow) -->
+  <rect x="740" y="490" width="120" height="150" rx="8" fill="#ffb400"/>
+  <rect x="754" y="506" width="92" height="72" rx="5" fill="#e6a200"/>
+  <circle cx="836" cy="572" r="6" fill="#22303f"/>
+
+  <!-- clean foundation -->
+  <rect x="400" y="640" width="800" height="20" fill="#b9c4cd"/>
+
+  <!-- spotless driveway -->
+  <polygon points="640,660 900,660 1080,900 460,900" fill="#dfe6eb"/>
+  <g stroke="#b9c4cd" stroke-width="5">
+    <path d="M620 740h340"/>
+    <path d="M585 820h430"/>
+  </g>
+
+  <!-- lush bushes -->
+  <g fill="#4f7d3f">
+    <ellipse cx="360" cy="668" rx="80" ry="36"/>
+    <ellipse cx="1240" cy="670" rx="86" ry="38"/>
+    <ellipse cx="1310" cy="680" rx="52" ry="26"/>
+  </g>
+
+  <!-- sparkles -->
+  <g fill="#ffffff">
+    <path d="M700 300l7 18 18 7-18 7-7 18-7-18-18-7 18-7z" opacity=".95"/>
+    <path d="M1150 380l5 14 14 5-14 5-5 14-5-14-14-5 14-5z" opacity=".9"/>
+    <path d="M520 560l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" opacity=".9"/>
+    <path d="M880 700l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" opacity=".85"/>
+  </g>
+  <g fill="#ffd766">
+    <path d="M960 250l5 13 13 5-13 5-5 13-5-13-13-5 13-5z"/>
+    <path d="M620 690l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/>
+  </g>
+</svg>

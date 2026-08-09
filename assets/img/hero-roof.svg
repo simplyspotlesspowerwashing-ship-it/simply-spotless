@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7dc4ec"/><stop offset="1" stop-color="#dff2fc"/>
+    </linearGradient>
+    <linearGradient id="lawn3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#84b96c"/><stop offset="1" stop-color="#66a04f"/>
+    </linearGradient>
+    <linearGradient id="shingleClean" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#41586f"/><stop offset="1" stop-color="#2b3c4e"/>
+    </linearGradient>
+    <linearGradient id="spray3" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#bfe9ff" stop-opacity=".2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1600" height="900" fill="url(#sky3)"/>
+  <g fill="#ffffff" opacity=".9">
+    <ellipse cx="280" cy="130" rx="120" ry="34"/>
+    <ellipse cx="380" cy="110" rx="82" ry="26"/>
+    <ellipse cx="1330" cy="150" rx="130" ry="36"/>
+  </g>
+
+  <!-- big roof plane -->
+  <polygon points="120,560 800,170 1480,560" fill="url(#shingleClean)"/>
+  <!-- shingle course lines -->
+  <g stroke="#22303f" stroke-width="3" opacity=".6">
+    <path d="M290,462 L800,170 L1310,462" fill="none"/>
+    <path d="M232,496 L800,170"  fill="none" transform="translate(0,0)"/>
+  </g>
+  <g stroke="#22303f" stroke-width="3" opacity=".5">
+    <path d="M188,520 L800,225 L1412,520" fill="none"/>
+    <path d="M256,481 L800,265 L1344,481" fill="none"/>
+    <path d="M324,442 L800,305 L1276,442" fill="none"/>
+    <path d="M392,403 L800,345 L1208,403" fill="none"/>
+  </g>
+  <!-- ridge cap -->
+  <polygon points="770,160 800,144 830,160 800,186" fill="#22303f"/>
+
+  <!-- dark streaks on the (still dirty) left side -->
+  <g fill="#131c26" opacity=".55">
+    <polygon points="300,455 360,420 470,560 400,560"/>
+    <polygon points="420,390 470,362 580,560 520,560"/>
+    <polygon points="540,320 585,295 690,560 630,560"/>
+    <polygon points="255,485 300,458 380,560 330,560"/>
+  </g>
+  <g fill="#3f5136" opacity=".6">
+    <ellipse cx="380" cy="500" rx="80" ry="26" transform="rotate(-24 380 500)"/>
+    <ellipse cx="540" cy="430" rx="66" ry="22" transform="rotate(-26 540 430)"/>
+  </g>
+
+  <!-- soft-wash foam edge working across -->
+  <path d="M760 210q40 120 4 200t22 150" fill="none" stroke="#ffffff" stroke-width="16" opacity=".9" stroke-linecap="round"/>
+  <g fill="#ffffff" opacity=".9">
+    <circle cx="768" cy="250" r="12"/><circle cx="756" cy="330" r="10"/>
+    <circle cx="774" cy="420" r="12"/><circle cx="768" cy="500" r="9"/>
+  </g>
+
+  <!-- chimney -->
+  <rect x="1120" y="260" width="90" height="150" fill="#b06a4a"/>
+  <rect x="1108" y="248" width="114" height="24" rx="6" fill="#8f5039"/>
+
+  <!-- house body below roof -->
+  <rect x="250" y="560" width="1100" height="180" fill="#edf3f7"/>
+  <g stroke="#d3e0ea" stroke-width="3">
+    <path d="M250 596h1100M250 632h1100M250 668h1100M250 704h1100"/>
+  </g>
+  <rect x="410" y="600" width="120" height="96" rx="8" fill="#bfe3f5" stroke="#ffffff" stroke-width="8"/>
+  <rect x="1060" y="600" width="120" height="96" rx="8" fill="#bfe3f5" stroke="#ffffff" stroke-width="8"/>
+  <rect x="740" y="600" width="110" height="140" rx="8" fill="#ffb400"/>
+
+  <!-- lawn -->
+  <rect y="740" width="1600" height="160" fill="url(#lawn3)"/>
+
+  <!-- operator with telescoping wand -->
+  <g>
+    <rect x="1362" y="700" width="20" height="82" rx="9" fill="#22303f"/>
+    <rect x="1392" y="700" width="20" height="82" rx="9" fill="#22303f"/>
+    <path d="M1356 620q30-22 62 0l6 88h-74z" fill="#0274be"/>
+    <circle cx="1386" cy="588" r="24" fill="#f2c9a0"/>
+    <path d="M1360 582q26-18 52 0l-4-16q-22-12-44 0z" fill="#002b47"/>
+    <rect x="1356" y="578" width="60" height="9" rx="4.5" fill="#002b47"/>
+    <rect x="1180" y="380" width="10" height="300" rx="5" transform="rotate(28 1185 530)" fill="#33424f"/>
+    <!-- arcing spray to the roof -->
+    <path d="M1236 430q-160-160-420-190" fill="none" stroke="url(#spray3)" stroke-width="22" stroke-linecap="round"/>
+    <g fill="#eaf7ff">
+      <circle cx="1050" cy="272" r="7"/><circle cx="940 " cy="248" r="6"/>
+      <circle cx="1140" cy="320" r="6"/><circle cx="860" cy="242" r="5"/>
+    </g>
+  </g>
+
+  <!-- sparkles on cleaned side -->
+  <g fill="#ffffff">
+    <path d="M1000 380l6 16 16 6-16 6-6 16-6-16-16-6 16-6z" opacity=".95"/>
+    <path d="M1130 470l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" opacity=".9"/>
+    <path d="M900 300l4 11 11 4-11 4-4 11-4-11-11-4 11-4z" opacity=".85"/>
+  </g>
+  <g fill="#ffd766">
+    <path d="M1240 520l5 13 13 5-13 5-5 13-5-13-13-5 13-5z"/>
+  </g>
+
+  <!-- bushes -->
+  <g fill="#4f7d3f">
+    <ellipse cx="180" cy="760" rx="90" ry="38"/>
+    <ellipse cx="620" cy="762" rx="70" ry="32"/>
+    <ellipse cx="1520" cy="764" rx="80" ry="34"/>
+  </g>
+</svg>

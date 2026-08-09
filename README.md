@@ -1,66 +1,133 @@
 # Simply Spotless Pressure Washing — Website
 
-A fast, professional one-page website for Simply Spotless Pressure Washing.
-No build step, no framework — plain HTML/CSS/JS that can be hosted anywhere
-static files are served (Netlify, Vercel, GitHub Pages, Cloudflare Pages…).
+A fast, professional 15-page website for Simply Spotless Pressure Washing,
+modeled on the structure and design language of the reference site
+(rocklandhousewashing.com). No frameworks and no dependencies — plain static
+HTML/CSS/JS that will host anywhere: Netlify, Vercel, GitHub Pages,
+Cloudflare Pages, or ordinary shared hosting.
 
-## What's inside
+## Pages
 
-- **Hero video slider** — three rotating slides with headline changes, dots and
-  arrows. Plays real MP4 footage when you add it (see
-  `assets/videos/README.md`); until then it shows polished animated scenes.
-- **Strong calls to action** — "Get A Fast Quote" and "Click To Call"
-  everywhere, plus a sticky call bar on mobile.
-- **Services grid** — house washing, roof soft wash, driveways, decks &
-  fences, gutters, commercial.
-- **Interactive before/after slider** — drag to compare.
-- **Claim Your Deal** — the signature feature: visitors "pressure wash" a
-  grimy house with their cursor or finger (HTML5 canvas). A few passes reveal
-  red **$25 OFF ALL HOUSE WASHES** lettering and unlock a claim button that
-  pre-fills the quote form with promo code `SPOTLESS25`.
-- **Reviews, about, three-step process, quote form, footer.**
+| Page | File |
+|---|---|
+| Home | `index.html` |
+| About Us | `about.html` |
+| Careers | `careers.html` |
+| Power Washing | `power-washing.html` |
+| House Washing | `house-washing.html` |
+| Roof Cleaning | `roof-cleaning.html` |
+| Gutter Cleaning | `gutter-cleaning.html` |
+| Solar Panel Cleaning | `solar-panel-cleaning.html` |
+| Junk Removal | `junk-removal.html` |
+| Benefits of Soft Washing | `benefits-of-soft-washing.html` |
+| Service Area | `service-area.html` |
+| Gallery | `gallery.html` |
+| Reviews | `reviews.html` |
+| Contact | `contact.html` |
+| Prepare For Your Service | `prepare-for-your-service.html` |
+
+Navigation mirrors the reference: Home · About (About Us, Careers) ·
+Services (7 pages) · Service Area · Gallery · Reviews · Contact, with a
+yellow **Get A Fast Quote** button always visible.
+
+## Design
+
+Colors and typography are taken directly from the reference site:
+
+| Token | Value | Used for |
+|---|---|---|
+| Navy | `#002B47` | Headings, dark sections, footer |
+| Blue | `#148FD7` | Hero gradient, accents |
+| Yellow | `#FFB400` | Every primary call-to-action |
+| Montserrat | 600–900 | Headings and buttons |
+| Roboto | 400–700 | Body text |
+
+The hero overlay is the reference's exact recipe:
+`linear-gradient(20deg, #148FD7 0%, #002B47 100%)` at 70% opacity, layered
+over the background video.
+
+## The hero video
+
+The home page hero is a three-slide video slider with rotating headlines,
+dots and arrows. Each slide plays a video from `assets/videos/`:
+
+| File | Slide |
+|---|---|
+| `hero-1.mp4` | House washing |
+| `hero-2.mp4` | Driveway / power washing |
+| `hero-3.mp4` | Roof cleaning |
+
+**Drop those three files in and they play automatically — no code changes.**
+Until then each slide shows an animated illustration, so the hero always
+looks finished rather than broken. A video only fades in once the browser
+confirms it can actually play it, so a missing or corrupt file silently
+falls back to the illustration.
+
+See `assets/videos/README.md` for shooting and compression tips.
+
+## Editing the site
+
+Pages are assembled from shared parts by a tiny build script, so the header,
+footer and CTA band only exist in one place instead of being copy-pasted 15
+times.
+
+```
+src/partials/   header, footer, CTA band, quote form  (shared by every page)
+src/pages/      the unique content of each page
+build.js        stitches them together
+*.html          the generated files you deploy — do not hand-edit
+```
+
+To change something:
+
+```bash
+# edit src/pages/… or src/partials/…
+node build.js
+```
+
+The generated `.html` files in the project root are what you upload. They are
+overwritten on every build, so make your edits in `src/`.
 
 ## Run it locally
 
-Any static server works:
-
 ```bash
-cd simply-spotless
 python3 -m http.server 8080
 # open http://localhost:8080
 ```
 
-(Opening `index.html` directly also works — the interactive deal is written so
-it doesn't depend on a server.)
+## Launch checklist
 
-## Launch checklist (do these before going live)
+1. **Phone number** — edit `js/config.js` (`phoneDisplay` and `phoneDial`).
+   The placeholder `(555) 555-0199` appears site-wide until you change it.
+2. **Hours and email** — same file (`hours`, `email`).
+3. **Quote form** — posts to [FormSubmit](https://formsubmit.co) using your
+   Gmail address. After deploying, submit the form once yourself: FormSubmit
+   emails a one-time activation link. Click it and every request after that
+   lands in your inbox. (Netlify Forms or Formspree work too — just change
+   `formEndpoint` in `js/config.js`.)
+4. **Reviews** — the testimonials on `reviews.html` and the home page are
+   clearly-marked **sample text**. Replace them with real customer reviews.
+5. **Service area** — `service-area.html` has placeholder town names. Put
+   your real towns, cities and ZIP codes there; it is one of the highest-impact
+   things you can do for local search.
+6. **Google review link** — paste it into `googleReviewLink` in
+   `js/config.js` and the button on the Reviews page will point at it.
+7. **Hero videos** — add `hero-1.mp4`, `hero-2.mp4`, `hero-3.mp4`.
+8. **Gallery photos** — replace the placeholder illustrations with real
+   before/after JPGs (same angle, same crop). The gallery page has a short
+   guide on shooting them.
+9. **Domain** — set `SITE.url` at the top of `build.js` and re-run
+   `node build.js` so the canonical URLs are correct.
+10. **Social links** — the footer's Facebook / Instagram / Google icons point
+    at `#`. Update them in `src/partials/footer.html`.
 
-1. **Phone number** — edit `js/config.js` (`phoneDisplay` + `phoneDial`).
-   The placeholder `(555) 555-0199` appears everywhere until you do.
-2. **Hours & email** — same file, `hours` and `email`.
-3. **Quote form** — the form posts to [FormSubmit](https://formsubmit.co)
-   using your Gmail address. After deploying, submit the form once yourself:
-   FormSubmit emails you a one-time activation link. Click it and every
-   request after that lands in your inbox. (Alternatives: Netlify Forms or
-   Formspree — swap `formEndpoint` in `js/config.js`.)
-4. **Reviews** — the three testimonials in `index.html` are **sample
-   placeholder text** (marked with an HTML comment). Replace them with real
-   customer reviews before launch.
-5. **Service area** — the About section says "our local area". Add your real
-   city/town names for better local search results.
-6. **Hero videos** — add `hero-1.mp4`, `hero-2.mp4`, `hero-3.mp4` to
-   `assets/videos/` (see the README there).
-7. **Photos** — when you have real before/after photos, replace
-   `assets/img/ba-before.svg` / `ba-after.svg` with same-angle JPGs (update
-   the two `<img>` tags in the Before & After section to point at them).
+## What's built in
 
-## Changing the deal
-
-Everything about the offer lives in `js/config.js`:
-
-- `promoCode` — the code shown after the reveal.
-- `revealThreshold` — how much grime (percent) must be washed off before the
-  deal unlocks (default 60).
-
-The red lettering itself is in `assets/img/deal-house-clean.svg`, and the
-grime layer is the `DIRTY_HOUSE_SVG` string at the top of `js/main.js`.
+- Video hero slider with illustrated fallback and rotating headlines
+- Dropdown navigation (hover on desktop, accordion on mobile)
+- Draggable before/after comparison sliders — any number per page
+- Accessible FAQ accordions on every service page
+- Sticky Call Now / Free Quote bar on mobile
+- Scroll reveal animations that respect `prefers-reduced-motion`
+- Skip-to-content link, keyboard-accessible menus, labelled form fields
+- Per-page titles, meta descriptions, canonical URLs and Open Graph tags

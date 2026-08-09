@@ -1,0 +1,44 @@
+      <form class="quote-form reveal" id="quoteForm" method="POST">
+        <input type="hidden" name="_subject" value="New quote request — Simply Spotless website">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="quote-form__row">
+          <div class="field">
+            <label for="qfName">Name</label>
+            <input id="qfName" name="name" type="text" autocomplete="name" required placeholder="Jane Smith">
+          </div>
+          <div class="field">
+            <label for="qfPhone">Phone</label>
+            <input id="qfPhone" name="phone" type="tel" autocomplete="tel" required placeholder="(555) 555-0199">
+          </div>
+        </div>
+        <div class="quote-form__row">
+          <div class="field">
+            <label for="qfEmail">Email</label>
+            <input id="qfEmail" name="email" type="email" autocomplete="email" required placeholder="jane@email.com">
+          </div>
+          <div class="field">
+            <label for="qfAddress">Address or neighborhood</label>
+            <input id="qfAddress" name="address" type="text" autocomplete="street-address" placeholder="123 Main St">
+          </div>
+        </div>
+        <fieldset class="field field--services">
+          <legend>What can we clean for you?</legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="services[]" value="House Washing"><span>House Washing</span></label>
+            <label class="chip"><input type="checkbox" name="services[]" value="Power Washing"><span>Power Washing</span></label>
+            <label class="chip"><input type="checkbox" name="services[]" value="Roof Cleaning"><span>Roof Cleaning</span></label>
+            <label class="chip"><input type="checkbox" name="services[]" value="Gutter Cleaning"><span>Gutter Cleaning</span></label>
+            <label class="chip"><input type="checkbox" name="services[]" value="Solar Panel Cleaning"><span>Solar Panels</span></label>
+            <label class="chip"><input type="checkbox" name="services[]" value="Junk Removal"><span>Junk Removal</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="qfMessage">Anything else we should know?</label>
+          <textarea id="qfMessage" name="message" rows="4" placeholder="Tell us about the job — size, surfaces, problem spots…"></textarea>
+        </div>
+        <button class="btn btn--primary btn--lg quote-form__submit" type="submit">
+          Send My Free Quote Request
+          <svg viewBox="0 0 24 24" class="icon"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="quote-form__fine">No spam, no pressure — just a fast, honest quote.</p>
+      </form>

@@ -1,7 +1,8 @@
 /* =====================================================================
    Simply Spotless — business details.
-   Edit THIS file only; every phone number, email, etc. on the site
-   updates automatically. See README.md for the full launch checklist.
+   Edit THIS file only; every phone number, email and hours listing
+   across all pages updates automatically.
+   See README.md for the full launch checklist.
    ===================================================================== */
 window.SPOTLESS_CONFIG = {
   businessName: "Simply Spotless Pressure Washing",
@@ -19,8 +20,7 @@ window.SPOTLESS_CONFIG = {
   // and every request after that lands in your inbox.
   formEndpoint: "https://formsubmit.co/simply.spotless.powerwashing@gmail.com",
 
-  // Claim-your-deal settings
-  promoCode: "SPOTLESS25",
-  // Percent of grime that must be washed off before the deal is revealed.
-  revealThreshold: 60
+  // TODO: paste your Google review link here and the "Leave A Google
+  // Review" button on the Reviews page will point at it.
+  googleReviewLink: ""
 };

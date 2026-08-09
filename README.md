@@ -81,8 +81,14 @@ To change something:
 node build.js
 ```
 
-The generated `.html` files in the project root are what you upload. They are
-overwritten on every build, so make your edits in `src/`.
+The generated `.html` files in the project root are what gets served. They are
+overwritten on every build, so make edits in `src/`.
+
+**Editing from the GitHub web UI works too.** `.github/workflows/build.yml`
+runs `node build.js` on any push that touches `src/**` or `build.js` and
+commits the regenerated pages, so the published site never goes stale when
+files are edited in the browser. That commit only touches root `*.html`,
+which the workflow's `paths` filter excludes, so it cannot loop.
 
 ## Live site
 
@@ -121,6 +127,8 @@ python3 -m http.server 8080
    `build.js` and re-run `node build.js` so the canonical URLs match.
 9. **Social links** — the footer's Facebook / Instagram / Google icons point
     at `#`. Update them in `src/partials/footer.html`.
+10. **Logo** — drop your file at `assets/img/logo.png`; the header and footer
+    pick it up automatically.
 
 Full step-by-step instructions for all of the above are in
 [HOW-TO-UPDATE.md](HOW-TO-UPDATE.md).
@@ -128,6 +136,7 @@ Full step-by-step instructions for all of the above are in
 ## What's built in
 
 - Full-bleed hero background video with illustrated fallback
+- Logo image with an automatic drawn fallback if the file is absent
 - Quote form built into the hero, with tap-to-call as the primary CTA
 - Services icon bar mirroring the reference site
 - Dropdown navigation (hover on desktop, accordion on mobile)

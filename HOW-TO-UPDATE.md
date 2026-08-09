@@ -10,15 +10,14 @@ There are only **three kinds of edits**, and they live in three places:
 | Hero video and photos | the `assets/` folder |
 | Any words on any page | `src/pages/` |
 
-> **One rule to remember:** after editing anything in `src/pages/` or
-> `src/partials/`, run this command once in the project folder:
+> **You can do all of this from the GitHub website — no software needed.**
+> Open a file, click the pencil icon, make your change, click *Commit changes*.
+> The site rebuilds and republishes itself within a minute or two.
 >
-> ```bash
-> node build.js
-> ```
->
-> That rebuilds the real pages. If you only changed `js/config.js` or added
-> photos/videos, you do **not** need to run it.
+> (There's a robot that runs the page build for you whenever you edit
+> anything in `src/`. You'll see it under the **Actions** tab. If you ever
+> work on the files locally instead, run `node build.js` yourself after
+> editing `src/`.)
 
 ---
 
@@ -81,7 +80,35 @@ scene, so the page never looks empty.
 
 ---
 
-## 3. Your photos
+## 3. Your logo
+
+Your logo goes here, named exactly this:
+
+```
+assets/img/logo.png
+```
+
+Upload it and it appears in **both the header and the footer** automatically.
+Nothing else to change.
+
+**How to upload it:**
+1. Rename your file to `logo.png` **on your computer first**
+2. On GitHub go to the **`assets/img`** folder
+3. **Add file → Upload files**, drag it in, **Commit changes**
+
+A transparent-background **PNG** works best. A square image is ideal, since
+it's displayed in a 52 × 52 box — your round badge fits that perfectly.
+
+Until the file exists, the site shows a simple drawn water-drop mark, so the
+header never looks broken. As soon as `logo.png` is there, it takes over.
+
+If your logo already contains the words "Simply Spotless Pressure Washing"
+and you'd rather not have the text repeated beside it, say so and the text
+next to the logo can be removed.
+
+---
+
+## 4. Your photos
 
 Right now the site uses hand-drawn illustrations as placeholders. Here's every
 image and where it shows up:
@@ -99,7 +126,11 @@ image and where it shows up:
 1. Put your photo in `assets/img/` — for example `my-house-wash.jpg`
 2. Find where the old file is named and change it to your new filename
 
-For the **hero fallback image**, open `src/pages/index.html` and look for:
+Photos live in `assets/img/`. Upload them the same way as the logo:
+**Add file → Upload files** inside that folder.
+
+For the **hero fallback image** (what shows before the video loads), open
+`src/pages/index.html` and look for:
 
 ```html
 <div class="hero__art" style="background-image:url('assets/img/hero-house.svg')"></div>
@@ -129,7 +160,7 @@ with your filenames, and update the caption underneath. Run `node build.js`.
 
 ---
 
-## 4. Changing words on a page
+## 5. Changing words on a page
 
 Every page's text lives in `src/pages/`, one file per page:
 
@@ -146,7 +177,9 @@ src/pages/reviews.html                   Reviews
 src/pages/contact.html                   Contact
 ```
 
-Open one, find the sentence, type over it, save, then run `node build.js`.
+**On the GitHub website:** open the file, click the **pencil icon** (top
+right), find the sentence, type over it, then **Commit changes** at the
+bottom. Give it a minute and your live site updates.
 
 Text sits between angle-bracket tags. Only change the words, not the tags:
 
@@ -162,9 +195,18 @@ updating those too.
 `src/partials/header.html` and `src/partials/footer.html`. Change them once
 and every page updates.
 
+**A tip for finding the right file:** on GitHub, press the **`t`** key inside
+the repo to search filenames, or use the search box at the top-left and pick
+"In this repository" to search the actual wording you want to change. That
+usually lands you straight on the right line.
+
+**If something goes wrong**, nothing is lost — every change is saved
+separately. Open the **Commits** list, find the change you want to undo,
+and click **Revert**.
+
 ---
 
-## 5. The two things that need your real content
+## 6. The two things that need your real content
 
 These are currently placeholders and should be replaced before you launch:
 
@@ -183,7 +225,7 @@ be thorough — list every town you'd drive to.
 
 ---
 
-## 6. Making the quote form actually email you
+## 7. Making the quote form actually email you
 
 The form is already pointed at your Gmail through a free service called
 FormSubmit. It needs **one activation step**:
@@ -198,7 +240,7 @@ day and test it once.
 
 ---
 
-## 7. Your live website
+## 8. Your live website
 
 Your site is published free through GitHub Pages at:
 
@@ -229,7 +271,7 @@ domain and run `node build.js` so the search-engine tags match.
 
 ---
 
-## 8. Seeing your changes before you publish
+## 9. Seeing your changes before you publish
 
 In the project folder, run:
 

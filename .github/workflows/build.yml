@@ -1,0 +1,48 @@
+name: Rebuild site pages
+
+# Pages are assembled from src/ by build.js. Editing src/ in GitHub's web
+# editor would otherwise leave the published .html files stale, because the
+# build normally runs on a developer's machine. This runs it automatically
+# so the site can be edited entirely from the browser.
+on:
+  push:
+    paths:
+      - "src/**"
+      - "build.js"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rebuild-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build pages
+        run: node build.js
+
+      - name: Commit rebuilt pages
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Only the generated root .html files are ever written by the build.
+          if [ -n "$(git status --porcelain -- ':(glob)*.html')" ]; then
+            git add -- ':(glob)*.html'
+            # This commit touches no files matched by the `paths` filter above,
+            # so it cannot retrigger this workflow.
+            git commit -m "Rebuild pages from src"
+            git push
+            echo "Pages rebuilt and pushed."
+          else
+            echo "Pages already up to date."
+          fi

@@ -40,8 +40,11 @@
   <header class="header" id="header">
     <div class="container header__inner">
       <a class="brand" href="index.html" aria-label="Simply Spotless Pressure Washing — home">
-        <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 48 48">
+        <!-- Uses assets/img/logo.png when that file exists; falls back to the
+             drawn mark below so the header is never broken. -->
+        <span class="brand__mark" data-brand-mark aria-hidden="true">
+          <img class="brand__logo" src="assets/img/logo.png" alt="" data-brand-logo>
+          <svg class="brand__fallback" viewBox="0 0 48 48">
             <defs>
               <linearGradient id="lgMark" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#1d4ed8"/>
@@ -199,8 +202,11 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <a class="brand brand--footer" href="index.html">
-          <span class="brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 48 48">
+<!-- Uses assets/img/logo.png when that file exists; falls back to the
+               drawn mark below so the footer is never broken. -->
+          <span class="brand__mark" data-brand-mark aria-hidden="true">
+            <img class="brand__logo" src="assets/img/logo.png" alt="" data-brand-logo>
+            <svg class="brand__fallback" viewBox="0 0 48 48">
               <defs>
                 <linearGradient id="lgMarkF" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#1d4ed8"/>

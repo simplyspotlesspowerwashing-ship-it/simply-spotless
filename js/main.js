@@ -105,6 +105,24 @@
   }
 
   /* =========================================================
+     2b. Brand logo
+     The header/footer use assets/img/logo.png. If that file
+     isn't there (or fails to load) we fall back to the drawn
+     mark instead of showing a broken-image icon.
+     ========================================================= */
+  function initBrandLogo() {
+    document.querySelectorAll("[data-brand-logo]").forEach(function (img) {
+      function fallback() {
+        var mark = img.closest("[data-brand-mark]");
+        if (mark) mark.classList.add("is-fallback");
+      }
+      img.addEventListener("error", fallback);
+      // Already finished loading (and failed) before this script ran.
+      if (img.complete && img.naturalWidth === 0) fallback();
+    });
+  }
+
+  /* =========================================================
      3. Hero background video
      One full-bleed looping video. The illustration behind it
      shows while the video loads and stays put if the file is
@@ -208,6 +226,7 @@
   function init() {
     applyConfig();
     initHeader();
+    initBrandLogo();
     initHeroVideo();
     initBeforeAfter();
     initReveals();

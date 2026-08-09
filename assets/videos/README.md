@@ -6,8 +6,8 @@ this folder and they will automatically fade in over the illustrated scenes:
 | File | Slide |
 |---|---|
 | `hero-1.mp4` | House washing |
-| `hero-2.mp4` | Driveway / concrete cleaning |
-| `hero-3.mp4` | Roof soft washing |
+| `hero-2.mp4` | Driveway / power washing |
+| `hero-3.mp4` | Deck & fence cleaning |
 
 Until these files exist, the animated illustrations are shown instead, so the
 site always looks finished.

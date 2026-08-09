@@ -93,7 +93,7 @@ function escapeAttr(s) {
 function layout({ meta, body, slug }) {
   const title =
     slug === "index"
-      ? `${meta.title} | House Washing, Roof &amp; Power Washing`
+      ? `${meta.title} | House Washing, Driveways &amp; Gutters`
       : `${meta.title} | ${SITE.name}`;
 
   // Mark the active nav item so the current page is highlighted.
@@ -103,16 +103,11 @@ function layout({ meta, body, slug }) {
     new RegExp(`(<a[^>]*data-nav="${navKey}")`),
     "$1 aria-current=\"page\""
   );
-  // Open/highlight the parent group of an active dropdown child.
-  if (["about", "careers"].includes(navKey)) {
-    header = header.replace('data-nav="about-group"', 'data-nav="about-group" data-active-group');
-  }
-  if (
-    [
-      "power-washing", "house-washing", "roof-cleaning", "gutter-cleaning",
-      "solar-panel-cleaning", "junk-removal", "benefits-of-soft-washing",
-    ].includes(navKey)
-  ) {
+  // Highlight the Services parent when one of its children is the active page.
+  const SERVICE_PAGES = [
+    "house-washing", "power-washing", "gutter-cleaning", "benefits-of-soft-washing",
+  ];
+  if (SERVICE_PAGES.includes(navKey)) {
     header = header.replace('data-nav="services-group"', 'data-nav="services-group" data-active-group');
   }
 

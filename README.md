@@ -1,6 +1,6 @@
 # Simply Spotless Pressure Washing — Website
 
-A fast, professional 15-page website for Simply Spotless Pressure Washing,
+A fast, professional 10-page website for Simply Spotless Pressure Washing,
 modeled on the structure and design language of the reference site
 (rocklandhousewashing.com). No frameworks and no dependencies — plain static
 HTML/CSS/JS that will host anywhere: Netlify, Vercel, GitHub Pages,
@@ -11,24 +11,22 @@ Cloudflare Pages, or ordinary shared hosting.
 | Page | File |
 |---|---|
 | Home | `index.html` |
-| About Us | `about.html` |
-| Careers | `careers.html` |
-| Power Washing | `power-washing.html` |
+| About | `about.html` |
 | House Washing | `house-washing.html` |
-| Roof Cleaning | `roof-cleaning.html` |
+| Power Washing | `power-washing.html` |
 | Gutter Cleaning | `gutter-cleaning.html` |
-| Solar Panel Cleaning | `solar-panel-cleaning.html` |
-| Junk Removal | `junk-removal.html` |
 | Benefits of Soft Washing | `benefits-of-soft-washing.html` |
 | Service Area | `service-area.html` |
 | Gallery | `gallery.html` |
 | Reviews | `reviews.html` |
 | Contact | `contact.html` |
-| Prepare For Your Service | `prepare-for-your-service.html` |
 
-Navigation mirrors the reference: Home · About (About Us, Careers) ·
-Services (7 pages) · Service Area · Gallery · Reviews · Contact, with a
-yellow **Get A Fast Quote** button always visible.
+Navigation: Home · About · Services (House Washing, Power Washing, Gutter
+Cleaning, Benefits of Soft Washing) · Service Area · Gallery · Reviews ·
+Contact, with a yellow **Get A Fast Quote** button always visible.
+
+Services offered are house washing, power washing (driveways, patios, decks,
+fences, walkways) and gutter cleaning — residential only.
 
 ## Design
 
@@ -55,7 +53,7 @@ dots and arrows. Each slide plays a video from `assets/videos/`:
 |---|---|
 | `hero-1.mp4` | House washing |
 | `hero-2.mp4` | Driveway / power washing |
-| `hero-3.mp4` | Roof cleaning |
+| `hero-3.mp4` | Deck / fence cleaning |
 
 **Drop those three files in and they play automatically — no code changes.**
 Until then each slide shows an animated illustration, so the hero always
@@ -67,8 +65,11 @@ See `assets/videos/README.md` for shooting and compression tips.
 
 ## Editing the site
 
+**New to this? Read [HOW-TO-UPDATE.md](HOW-TO-UPDATE.md)** — a plain-English
+walkthrough of adding your photos, videos, contact details and page text.
+
 Pages are assembled from shared parts by a tiny build script, so the header,
-footer and CTA band only exist in one place instead of being copy-pasted 15
+footer and CTA band only exist in one place instead of being copy-pasted 10
 times.
 
 ```
@@ -120,6 +121,9 @@ python3 -m http.server 8080
    `node build.js` so the canonical URLs are correct.
 10. **Social links** — the footer's Facebook / Instagram / Google icons point
     at `#`. Update them in `src/partials/footer.html`.
+
+Full step-by-step instructions for all of the above are in
+[HOW-TO-UPDATE.md](HOW-TO-UPDATE.md).
 
 ## What's built in
 

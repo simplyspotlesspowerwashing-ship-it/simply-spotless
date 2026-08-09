@@ -614,6 +614,7 @@ p { margin: 0 0 1em; }
 
 /* ---------- Services grid ---------- */
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.services-grid--4 { grid-template-columns: repeat(4, 1fr); }
 
 .service-card {
   position: relative;
@@ -930,29 +931,6 @@ p { margin: 0 0 1em; }
 
 .review-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.6rem 0 0; }
 
-/* ---------- Jobs (careers) ---------- */
-.jobs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
-
-.job {
-  background: var(--white);
-  border: 1px solid var(--line-200);
-  border-top: 4px solid var(--yellow-500);
-  border-radius: var(--radius-lg);
-  padding: 1.9rem 1.7rem;
-  box-shadow: var(--shadow-sm);
-}
-.job__meta {
-  font-family: var(--font-head);
-  font-size: .82rem;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--blue-500);
-}
-.job p { color: var(--ink-600); font-size: .96rem; }
-.job ul { margin: 0; padding-left: 1.1rem; color: var(--ink-600); font-size: .94rem; }
-.job li { margin-bottom: .35em; }
-
 /* ---------- Service area ---------- */
 .area-grid { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; }
 
@@ -968,20 +946,6 @@ p { margin: 0 0 1em; }
   padding: .6em 1.3em;
   box-shadow: var(--shadow-sm);
 }
-
-/* ---------- Prepare page ---------- */
-.prep { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
-
-.prep__col {
-  background: var(--white);
-  border: 1px solid var(--line-200);
-  border-radius: var(--radius-lg);
-  padding: 1.8rem 1.7rem;
-  box-shadow: var(--shadow-sm);
-}
-.prep__col h3 { display: flex; align-items: center; gap: .55em; margin-bottom: .3em; }
-.prep__icon { font-size: 1.3rem; }
-.prep .checklist { margin-top: .8rem; }
 
 /* ---------- About ---------- */
 .about__inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3.5rem; align-items: center; }
@@ -1252,7 +1216,7 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
 }
 
 @media (max-width: 1024px) {
-  .services-grid, .tiles { grid-template-columns: repeat(2, 1fr); }
+  .services-grid, .services-grid--4, .tiles { grid-template-columns: repeat(2, 1fr); }
   .steps--4 { grid-template-columns: repeat(2, 1fr); }
   .split, .about__inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .contact__inner { grid-template-columns: 1fr; }
@@ -1312,8 +1276,8 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
 @media (max-width: 720px) {
   .section { padding: 3.8rem 0; }
   .trustbar__inner { grid-template-columns: 1fr 1fr; }
-  .services-grid, .tiles, .steps, .steps--4, .reviews-grid, .reviews-grid--page,
-  .jobs, .prep { grid-template-columns: 1fr; }
+  .services-grid, .services-grid--4, .tiles, .steps, .steps--4,
+  .reviews-grid, .reviews-grid--page { grid-template-columns: 1fr; }
   .checklist { grid-template-columns: 1fr; }
   .quote-form__row { grid-template-columns: 1fr; gap: 0; }
   .quote-form { padding: 1.6rem 1.3rem; }

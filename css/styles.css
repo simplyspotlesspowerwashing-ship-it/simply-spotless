@@ -31,7 +31,7 @@
   --shadow-md: 0 10px 30px rgba(0, 27, 45, .12);
   --shadow-lg: 0 24px 60px rgba(0, 27, 45, .22);
 
-  --header-h: 78px;
+  --header-h: 86px;
   --topbar-h: 40px;
 }
 
@@ -190,9 +190,9 @@ p { margin: 0 0 1em; }
 
 .header__inner { height: var(--header-h); display: flex; align-items: center; gap: 1.5rem; }
 
-.brand { display: inline-flex; align-items: center; gap: .7rem; }
+.brand { display: inline-flex; align-items: center; gap: .7rem; flex: none; }
 .brand:hover { text-decoration: none; }
-.brand__mark { width: 52px; height: 52px; flex: none; }
+.brand__mark { width: 72px; height: 72px; flex: none; }
 .brand__mark svg, .brand__mark img { width: 100%; height: 100%; }
 .brand__logo { object-fit: contain; }
 
@@ -200,25 +200,6 @@ p { margin: 0 0 1em; }
 .brand__fallback { display: none; }
 .brand__mark.is-fallback .brand__logo { display: none; }
 .brand__mark.is-fallback .brand__fallback { display: block; }
-.brand__text { display: flex; flex-direction: column; gap: 3px; }
-.brand__name {
-  font-family: var(--font-head);
-  font-weight: 800;
-  font-size: 1.18rem;
-  line-height: 1;
-  color: var(--navy-700);
-  letter-spacing: -.01em;
-}
-.brand__tag {
-  font-family: var(--font-head);
-  font-size: .64rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--blue-500);
-}
-
 .nav { margin-left: auto; display: flex; align-items: center; gap: 1.15rem; }
 
 .nav__link {
@@ -605,6 +586,7 @@ p { margin: 0 0 1em; }
   display: flex;
   align-items: center;
   gap: .85rem;
+  min-width: 0;   /* grid items default to min-width:auto and refuse to shrink */
   padding: 1rem 1.1rem;
   border-radius: var(--radius-md);
   background: var(--white);
@@ -619,7 +601,8 @@ p { margin: 0 0 1em; }
   color: var(--yellow-500);
   flex: none;
 }
-.trust strong { display: block; font-family: var(--font-head); font-size: .93rem; color: var(--navy-700); }
+.trust > div { min-width: 0; }
+.trust strong { display: block; font-family: var(--font-head); font-size: .93rem; color: var(--navy-700); overflow-wrap: anywhere; }
 .trust span { font-size: .82rem; color: var(--ink-600); }
 
 /* ---------- Sections ---------- */
@@ -1036,7 +1019,7 @@ p { margin: 0 0 1em; }
 
 .about__badge {
   position: absolute;
-  right: -18px;
+  right: 0;
   bottom: -24px;
   width: 132px; height: 132px;
   border-radius: 50%;
@@ -1057,6 +1040,13 @@ p { margin: 0 0 1em; }
   transform: rotate(6deg);
 }
 .about__badge-big { font-size: 1.7rem; font-weight: 900; letter-spacing: 0; }
+
+/* The overhang is decorative, and its 6deg rotation widens the box by ~7px on
+   top of the offset. Only allow it once the viewport is wider than the
+   1180px container plus that slack, otherwise it forces a horizontal scroll. */
+@media (min-width: 1260px) {
+  .about__badge { right: -18px; }
+}
 
 /* ---------- CTA band ---------- */
 .ctaband {
@@ -1188,8 +1178,6 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
   padding: 3.8rem 0 2.6rem;
 }
 .footer__brand p { font-size: .9rem; margin-top: 1.1rem; max-width: 34ch; }
-.brand--footer .brand__name { color: var(--white); }
-.brand--footer .brand__tag { color: var(--sky-300); }
 
 .footer__social { display: flex; gap: .6rem; margin-top: 1.2rem; }
 .footer__social a {
@@ -1348,11 +1336,13 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
   .nav__cta { margin-top: .9rem; border-bottom: 0; }
   .nav-toggle { display: flex; }
   .topbar__item--hours { display: none; }
+  .brand__mark { width: 62px; height: 62px; }
 }
 
 @media (max-width: 720px) {
   .section { padding: 3.8rem 0; }
   .trustbar__inner { grid-template-columns: 1fr 1fr; }
+  .about__badge { bottom: -18px; }
   .services-grid, .services-grid--4, .tiles, .steps, .steps--4,
   .reviews-grid, .reviews-grid--page { grid-template-columns: 1fr; }
   .checklist { grid-template-columns: 1fr; }
@@ -1371,6 +1361,10 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
   .topbar__item--badge { display: none; }
   .ctaband__inner { flex-direction: column; align-items: flex-start; }
   .ratingbar { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .trustbar__inner { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

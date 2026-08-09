@@ -7,7 +7,7 @@ There are only **three kinds of edits**, and they live in three places:
 | What you want to change | Where you go |
 |---|---|
 | Phone, email, hours | `js/config.js` |
-| Hero videos and photos | the `assets/` folder |
+| Hero video and photos | the `assets/` folder |
 | Any words on any page | `src/pages/` |
 
 > **One rule to remember:** after editing anything in `src/pages/` or
@@ -43,43 +43,41 @@ if anything moves.
 
 ---
 
-## 2. The hero videos
+## 2. The hero video
 
-The big rotating hero on the home page is already wired for three videos.
-You don't touch any code — you just add three files.
-
-**Put your videos here, named exactly this:**
+The big video across the top of the home page is one file:
 
 ```
-assets/videos/hero-1.mp4     ← house washing
-assets/videos/hero-2.mp4     ← driveway / power washing
-assets/videos/hero-3.mp4     ← deck / fence
+assets/videos/hero-1.mp4
 ```
 
-That's it. Refresh the page and they play, fading in behind the blue overlay
-and rotating every 6.5 seconds.
+**To change it, replace that file.** Same name, same folder. That's the whole
+job — no code to edit, nothing to rebuild. Your current clip is already in
+place.
 
 **Filming tips:**
 - **Hold your phone sideways** (landscape). This matters most — a vertical
   video will look wrong.
-- 10–20 seconds each is plenty. They loop automatically.
+- 10-20 seconds is plenty. It loops automatically.
 - Best shots: the wand moving across dirty siding, a surface cleaner leaving
   a clean stripe on concrete, a slow pan across a finished job.
 - Keep the camera fairly steady and move slowly.
-- Sound doesn't matter — hero videos are always muted by browsers.
+- Sound doesn't matter — the hero is always muted by browsers.
 
-**Important — file size:** keep each video **under about 8 MB**, or your site
-will load slowly on phones. Raw phone video is often 50 MB+. Use a free
-compressor first:
-- **HandBrake** (free, Mac/Windows) — use the preset "Web → Vimeo YouTube 720p30"
-- or any "compress video" web tool, set to 720p
+**Important — file size:** keep it **under about 8 MB**, or the page will be
+slow on phones. Raw phone video is often 50 MB+. Compress it first with
+**HandBrake** (free) using the preset "Web → Vimeo YouTube 720p30", or send
+it over and it can be compressed for you.
 
-**If you only have one video:** name it `hero-1.mp4` and delete the other two
-slide blocks — or just leave them; slides 2 and 3 will keep showing the
-illustrations, which still looks fine.
+**Uploading through GitHub — two traps:**
+1. **Rename the file on your computer first, then upload it.** Never use
+   GitHub's rename button on a video: its editor treats the file as text and
+   will silently destroy it. This already happened once.
+2. **`.mov` is not `.mp4`.** Renaming an iPhone `.mov` doesn't convert it.
+   Convert with HandBrake, or send it over.
 
-**Until you add videos**, the hero shows animated illustrations, so the site
-never looks broken or empty.
+**If the video is missing or broken**, the hero falls back to an illustrated
+scene, so the page never looks empty.
 
 ---
 
@@ -90,9 +88,9 @@ image and where it shows up:
 
 | File | Where it appears |
 |---|---|
-| `assets/img/hero-house.svg` | Hero slide 1, About page, Gutter Cleaning page |
-| `assets/img/hero-driveway.svg` | Hero slide 2, Power Washing page |
-| `assets/img/hero-deck.svg` | Hero slide 3, Gallery |
+| `assets/img/hero-house.svg` | Hero fallback, About page, Gutter Cleaning page |
+| `assets/img/hero-driveway.svg` | Power Washing page |
+| `assets/img/hero-deck.svg` | Gallery |
 | `assets/img/ba-before.svg` | "Before" in the comparison sliders |
 | `assets/img/ba-after.svg` | "After" in the comparison sliders |
 
@@ -101,10 +99,10 @@ image and where it shows up:
 1. Put your photo in `assets/img/` — for example `my-house-wash.jpg`
 2. Find where the old file is named and change it to your new filename
 
-For the **hero slides**, open `src/pages/index.html` and look for lines like:
+For the **hero fallback image**, open `src/pages/index.html` and look for:
 
 ```html
-<div class="hero-slide__art" style="background-image:url('assets/img/hero-house.svg')"></div>
+<div class="hero__art" style="background-image:url('assets/img/hero-house.svg')"></div>
 ```
 
 Change `hero-house.svg` to `my-house-wash.jpg`. Then run `node build.js`.
@@ -249,7 +247,7 @@ terminal to stop it.
 
 - [x] Real phone number in `js/config.js` — done
 - [x] Real email and hours — done
-- [ ] Hero videos added, each under ~8 MB
+- [x] Hero video added — done
 - [ ] Real before/after photos in the Gallery
 - [ ] Real customer reviews replacing the samples
 - [ ] Real town names on the Service Area page

@@ -4,51 +4,32 @@ description: Professional pressure washing, house washing, driveway cleaning and
 nav: home
 -->
 
-  <!-- ======================= HERO (video slider) ======================= -->
+  <!-- ======================= HERO =======================
+       Single full-bleed background video (no slider). The illustration
+       behind it shows while the video loads, and stays if the video is
+       missing or the browser can't play it, so the hero is never blank.
+       ==================================================== -->
   <section class="hero" id="home" aria-label="Welcome">
-    <div class="hero__slides" id="heroSlides">
-      <!--
-        Each slide plays assets/videos/hero-N.mp4 when that file exists.
-        Until real footage is added the animated illustration behind it is
-        shown, so the hero always looks finished. See assets/videos/README.md.
-      -->
-      <div class="hero-slide is-active" data-slide>
-        <div class="hero-slide__art" style="background-image:url('assets/img/hero-house.svg')"></div>
-        <video class="hero-slide__video" muted loop playsinline preload="metadata" aria-hidden="true">
-          <source src="assets/videos/hero-1.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="hero-slide" data-slide>
-        <div class="hero-slide__art" style="background-image:url('assets/img/hero-driveway.svg')"></div>
-        <video class="hero-slide__video" muted loop playsinline preload="metadata" aria-hidden="true">
-          <source src="assets/videos/hero-2.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="hero-slide" data-slide>
-        <div class="hero-slide__art" style="background-image:url('assets/img/hero-deck.svg')"></div>
-        <video class="hero-slide__video" muted loop playsinline preload="metadata" aria-hidden="true">
-          <source src="assets/videos/hero-3.mp4" type="video/mp4">
-        </video>
-      </div>
+    <div class="hero__media">
+      <div class="hero__art" style="background-image:url('assets/img/hero-house.svg')"></div>
+      <video class="hero__video" id="heroVideo"
+             autoplay muted loop playsinline preload="auto"
+             disablepictureinpicture aria-hidden="true" tabindex="-1">
+        <source src="assets/videos/hero-1.mp4" type="video/mp4">
+      </video>
     </div>
 
-    <!-- The blue gradient wash that sits over the video, matching the
-         reference design: 20deg, #148FD7 → #002B47 at 70% opacity. -->
+    <!-- The blue gradient wash over the video, matching the reference
+         design: 20deg, #148FD7 -> #002B47 at 70% opacity. -->
     <div class="hero__shade" aria-hidden="true"></div>
 
     <div class="container hero__inner">
       <div class="hero__content">
         <p class="hero__eyebrow">
-          <span class="stars" aria-label="Five star rated">★★★★★</span>
+          <span class="stars" aria-label="Five star rated">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           5-Star Rated Local Service
         </p>
-        <div class="hero__headlines" id="heroHeadlines" aria-live="polite">
-          <h1 class="hero__title is-active" data-headline>Pressure Washing That <span class="accent">Completely Restores</span> The Look of Your Home</h1>
-          <h1 class="hero__title" data-headline>Driveways So Clean, <span class="accent">The Neighbors Will Ask</span></h1>
-          <h1 class="hero__title" data-headline>Gentle On Your Home. <span class="accent">Ruthless On Grime.</span></h1>
-        </div>
+        <h1 class="hero__title">Pressure Washing That <span class="accent">Completely Restores</span> The Look of Your Home</h1>
         <p class="hero__sub">Dirty home? Don't have time? We would love to help you!</p>
         <div class="hero__actions">
           <!-- The phone number is the hero's primary call to action; the quote
@@ -59,20 +40,10 @@ nav: home
             <span data-phone>Call Us</span>
           </a>
         </div>
-        <p class="hero__callnote">Tap to call — or fill out the form for a quote in under a minute.</p>
+        <p class="hero__callnote">Tap to call &mdash; or fill out the form for a quote in under a minute.</p>
       </div>
 
 {{HERO_FORM}}
-    </div>
-
-    <div class="hero__controls">
-      <button class="hero__arrow" id="heroPrev" aria-label="Previous slide">
-        <svg viewBox="0 0 24 24" class="icon"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="hero__dots" id="heroDots" role="tablist" aria-label="Slides"></div>
-      <button class="hero__arrow" id="heroNext" aria-label="Next slide">
-        <svg viewBox="0 0 24 24" class="icon"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
     </div>
 
     <div class="hero__wave" aria-hidden="true">

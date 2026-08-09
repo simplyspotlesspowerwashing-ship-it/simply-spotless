@@ -46,20 +46,15 @@ over the background video.
 
 ## The hero video
 
-The home page hero is a three-slide video slider with rotating headlines,
-dots and arrows. Each slide plays a video from `assets/videos/`:
+The home page hero is a single full-bleed looping background video:
+`assets/videos/hero-1.mp4`. Swap that file to change the hero — no code
+changes and no rebuild.
 
-| File | Slide |
-|---|---|
-| `hero-1.mp4` | House washing |
-| `hero-2.mp4` | Driveway / power washing |
-| `hero-3.mp4` | Deck / fence cleaning |
-
-**Drop those three files in and they play automatically — no code changes.**
-Until then each slide shows an animated illustration, so the hero always
-looks finished rather than broken. A video only fades in once the browser
-confirms it can actually play it, so a missing or corrupt file silently
-falls back to the illustration.
+It carries `autoplay muted playsinline` and `preload="auto"`, and the script
+listens for several readiness events rather than just one, because browsers
+disagree about which of `loadeddata` / `canplay` / `playing` fires. The video
+only fades in once it can actually play, so a missing or undecodable file
+silently leaves the illustration in place instead of showing a black box.
 
 See `assets/videos/README.md` for shooting and compression tips.
 
@@ -118,7 +113,7 @@ python3 -m http.server 8080
 5. **Service area** — `service-area.html` has placeholder town names. Put
    your real towns, cities and ZIP codes there; it is one of the highest-impact
    things you can do for local search.
-6. **Hero videos** — add `hero-1.mp4`, `hero-2.mp4`, `hero-3.mp4`.
+6. ~~**Hero video**~~ — done: `assets/videos/hero-1.mp4` is in place.
 8. **Gallery photos** — replace the placeholder illustrations with real
    before/after JPGs (same angle, same crop). The gallery page has a short
    guide on shooting them.
@@ -132,7 +127,7 @@ Full step-by-step instructions for all of the above are in
 
 ## What's built in
 
-- Video hero slider with illustrated fallback and rotating headlines
+- Full-bleed hero background video with illustrated fallback
 - Quote form built into the hero, with tap-to-call as the primary CTA
 - Services icon bar mirroring the reference site
 - Dropdown navigation (hover on desktop, accordion on mobile)

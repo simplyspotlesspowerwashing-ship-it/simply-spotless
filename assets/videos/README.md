@@ -1,16 +1,26 @@
-# Hero videos
+# Hero video
 
-The hero slider is already wired to play real video. Drop three MP4 files in
-this folder and they will automatically fade in over the illustrated scenes:
+The home page hero plays one full-bleed looping background video:
 
-| File | Slide |
-|---|---|
-| `hero-1.mp4` | House washing |
-| `hero-2.mp4` | Driveway / power washing |
-| `hero-3.mp4` | Deck & fence cleaning |
+```
+assets/videos/hero-1.mp4
+```
 
-Until these files exist, the animated illustrations are shown instead, so the
-site always looks finished.
+Replace that file and the hero changes — no code edits, no rebuild needed.
+
+If the file is missing or the browser can't play it, the illustrated scene
+behind it stays visible, so the hero is never blank or black.
+
+## Tips for great hero footage
+
+- **10-20 seconds** is plenty; it loops automatically.
+- Shoot **landscape (horizontal)**, ideally 1080p. Phone footage works great.
+- Best shots: a wand moving across dirty siding, a surface cleaner leaving a
+  clean stripe on concrete, a slow pan across a finished job.
+- Keep the camera fairly steady and move slowly.
+- Sound doesn't matter - hero video is always muted by browsers.
+- Keep it **under ~8 MB** so the page stays fast. Raw phone video is often
+  50 MB+; HandBrake's "Web / Vimeo YouTube 720p30" preset gets you there.
 
 ## Uploading through the GitHub website — two gotchas
 

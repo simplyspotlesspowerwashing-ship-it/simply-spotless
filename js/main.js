@@ -105,94 +105,62 @@
   }
 
   /* =========================================================
-     3. Hero video slider
-     Each slide holds an illustrated background plus an optional
-     MP4. A video only fades in once the browser confirms it can
-     actually play it, so a missing file degrades silently to the
-     illustration instead of showing a black rectangle.
+     3. Hero background video
+     One full-bleed looping video. The illustration behind it
+     shows while the video loads and stays put if the file is
+     missing or the browser can't decode it, so the hero is
+     never a blank rectangle.
+
+     The markup carries `autoplay`, so in most browsers this
+     runs before JS does. Everything below is belt-and-braces:
+     browsers differ over which of loadeddata / canplay /
+     playing actually fires, and relying on only one of them
+     is what leaves the video invisible.
      ========================================================= */
-  function initHero() {
-    var slides = Array.prototype.slice.call(document.querySelectorAll("[data-slide]"));
-    var headlines = Array.prototype.slice.call(document.querySelectorAll("[data-headline]"));
-    var dotsWrap = document.getElementById("heroDots");
-    var prevBtn = document.getElementById("heroPrev");
-    var nextBtn = document.getElementById("heroNext");
-    if (!slides.length || !dotsWrap) return;
+  function initHeroVideo() {
+    var video = document.getElementById("heroVideo");
+    if (!video) return;
 
-    var current = 0;
-    var timer = null;
-    var INTERVAL = 6500;
+    var revealed = false;
 
-    var dots = slides.map(function (_, i) {
-      var b = document.createElement("button");
-      b.className = "hero__dot" + (i === 0 ? " is-active" : "");
-      b.type = "button";
-      b.setAttribute("role", "tab");
-      b.setAttribute("aria-label", "Go to slide " + (i + 1));
-      b.addEventListener("click", function () { goTo(i); restart(); });
-      dotsWrap.appendChild(b);
-      return b;
-    });
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      video.classList.add("is-playing");
+    }
 
-    slides.forEach(function (slide) {
-      var video = slide.querySelector("video");
-      if (!video) return;
-      video.addEventListener("loadeddata", function () {
-        video.dataset.ready = "1";
-        if (slide.classList.contains("is-active")) playSlideVideo(video);
-      });
-      // A missing or unplayable file simply leaves the illustration in place.
-      video.addEventListener("error", function () { delete video.dataset.ready; }, true);
-    });
-
-    function playSlideVideo(video) {
-      if (prefersReducedMotion) return;
+    function tryPlay() {
       var p = video.play();
-      if (p && p.then) {
-        p.then(function () { video.classList.add("is-playing"); }).catch(function () {});
-      } else {
-        video.classList.add("is-playing");
-      }
+      if (p && p.catch) p.catch(function () { /* autoplay refused; first frame still shows */ });
     }
 
-    function syncVideos() {
-      slides.forEach(function (slide, i) {
-        var video = slide.querySelector("video");
-        if (!video) return;
-        if (i === current && video.dataset.ready) {
-          playSlideVideo(video);
-        } else if (!video.paused) {
-          video.pause();
-        }
-      });
+    if (prefersReducedMotion) {
+      // Show a still frame rather than motion, but never a black box.
+      video.removeAttribute("autoplay");
+      video.addEventListener("loadeddata", reveal);
+      if (video.readyState >= 2) reveal();
+      video.pause();
+      return;
     }
 
-    function goTo(i) {
-      current = (i + slides.length) % slides.length;
-      slides.forEach(function (s, n) { s.classList.toggle("is-active", n === current); });
-      headlines.forEach(function (h, n) { h.classList.toggle("is-active", n === current); });
-      dots.forEach(function (d, n) { d.classList.toggle("is-active", n === current); });
-      syncVideos();
-    }
-
-    function restart() {
-      if (timer) clearInterval(timer);
-      if (prefersReducedMotion || slides.length < 2) return;
-      timer = setInterval(function () { goTo(current + 1); }, INTERVAL);
-    }
-
-    if (prevBtn) prevBtn.addEventListener("click", function () { goTo(current - 1); restart(); });
-    if (nextBtn) nextBtn.addEventListener("click", function () { goTo(current + 1); restart(); });
-
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) {
-        if (timer) clearInterval(timer);
-      } else {
-        restart();
-      }
+    ["loadeddata", "canplay", "canplaythrough", "playing"].forEach(function (evt) {
+      video.addEventListener(evt, function () { reveal(); tryPlay(); });
     });
 
-    restart();
+    // Already buffered before this script ran.
+    if (video.readyState >= 2) { reveal(); tryPlay(); }
+
+    // A missing or undecodable file must leave the illustration in place.
+    video.addEventListener("error", function () {
+      revealed = true;                       // stop later events re-showing it
+      video.classList.remove("is-playing");
+    }, true);
+
+    // Don't burn battery decoding video in a background tab.
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) video.pause();
+      else if (video.classList.contains("is-playing")) tryPlay();
+    });
   }
 
   /* =========================================================
@@ -240,7 +208,7 @@
   function init() {
     applyConfig();
     initHeader();
-    initHero();
+    initHeroVideo();
     initBeforeAfter();
     initReveals();
   }

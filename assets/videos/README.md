@@ -12,6 +12,17 @@ this folder and they will automatically fade in over the illustrated scenes:
 Until these files exist, the animated illustrations are shown instead, so the
 site always looks finished.
 
+## Uploading through the GitHub website — two gotchas
+
+1. **Upload the file already named correctly.** Do NOT upload it under one
+   name and then use GitHub's "rename" on it. GitHub's web editor opens the
+   file as text to rename it, which corrupts binary files — it will silently
+   turn your video into a 2-byte text file. Rename it on your computer first,
+   then upload.
+2. **`.mov` is not `.mp4`.** Renaming an iPhone `.mov` to `.mp4` does not
+   convert it — it just relabels a QuickTime file. Convert properly with
+   HandBrake, or send it over and it can be converted for you.
+
 ## Tips for great hero footage
 
 - **10–20 seconds** per clip is plenty — they loop automatically.

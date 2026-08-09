@@ -472,6 +472,15 @@ p { margin: 0 0 1em; }
 
 .hero__title .accent { color: var(--yellow-500); }
 
+/* The brand-name headline is only a few words, so it can run much larger
+   than a sentence-length one and still fill the same block of space. */
+.hero__title--brand {
+  font-size: clamp(2.6rem, 6.4vw, 4.9rem);
+  line-height: 1.04;
+  letter-spacing: -.025em;
+}
+.hero__title--brand .accent { display: block; }
+
 .hero__sub {
   font-family: var(--font-head);
   color: #e7f2fa;

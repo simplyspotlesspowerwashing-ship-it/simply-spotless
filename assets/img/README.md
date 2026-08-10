@@ -4,8 +4,8 @@
 
 | File | Where it appears |
 | --- | --- |
-| `hero.jpg` | Home page hero behind the video on desktop, **and** the banner on the Benefits of Soft Washing page. See `assets/videos/README.md`. |
-| `hero-m.jpg` | Home page hero on phones — a tall crop of the same frame. The phone hero is roughly 1:3 and its lower two thirds sit behind the quote form, so a landscape photo shows nothing but blank siding. |
+| `hero.jpg` | Home page hero behind the video on desktop, **and** the banner on both the House Washing and Benefits of Soft Washing pages. See `assets/videos/README.md`. |
+| `hero-m.jpg` | Home page hero on phones — a taller crop of the same frame, shaped to the phone hero's roughly 5:9 box. |
 | `hero-gallery.jpg` | Banner at the top of the Gallery page (the tan apartment building). |
 | `hero-sign.jpg` | Banner at the top of the Reviews and Contact pages (the yard sign), on laptops and tablets. |
 | `hero-sign-m.jpg` | The same banner reframed for phones — sign lower and smaller, so it sits under the buttons rather than behind them. |

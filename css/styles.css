@@ -360,13 +360,19 @@ p { margin: 0 0 1em; }
 /* Phones get a portrait crop of the same frame instead — see the comment in
    src/pages/index.html. Both layers are in the markup; only one is ever shown. */
 .hero__art--m { display: none; }
+/* Mobile-only stand-in for the hidden quote form card. */
+.hero__quote-m { display: none; }
 @media (max-width: 900px) {
   .hero__art { display: none; }
-  .hero__art--m { display: block; background-position: 30% 50%; }
+  .hero__art--m { display: block; background-position: 50% 50%; }
   /* The desktop wash sits at .7, which is fine over a wide scene but flattens
      a single figure into the blue. Ease it off so the phone still shows a
      person washing a house; the scrim below keeps the copy legible. */
   .hero__shade { opacity: .55; }
+  /* The form card covered the photo edge to edge on a phone, so phones get
+     the second button instead — the form still lives on the contact page. */
+  .hero__card { display: none; }
+  .hero__quote-m { display: inline-flex; }
 }
 
 @keyframes kenburns {

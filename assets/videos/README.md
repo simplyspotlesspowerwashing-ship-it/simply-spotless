@@ -5,24 +5,34 @@ The home page hero has two backgrounds:
 | Screen width | What visitors see |
 | --- | --- |
 | 900px and up (laptops, desktops, tablets in landscape) | `hero-1.mp4` playing on a loop |
-| Under 900px (phones) | the still photo `assets/img/hero-m.jpg` |
+| Under 900px (phones) | the still photo `assets/img/hero-m.jpg`, with the quote form moved off the hero so the photo is visible |
 
 Both stills are crops of a frame from the video, so they match it.
 `assets/img/hero.jpg` is the wide version that sits behind the video on
 desktop; `hero-m.jpg` is a tall crop for phones, where the hero is roughly 1:3
 and its lower two thirds sit behind the quote form.
 
-## A note on what goes in the video
+## Mixing portrait and landscape clips
 
-The clip must be **landscape all the way through**. The footage this was cut
-from ran 17.6s and switched to portrait phone clips at about 10.3s — those
-carry black bars baked into the frame, which show up as black columns across a
-full-bleed hero. It is trimmed to the landscape section for that reason. If you
-send a new clip, either shoot it all landscape or say where to cut.
+The full 17.6s compilation is used. Its first two clips are landscape; from
+about 10.3s it switches to portrait phone footage with black bars baked into
+the frame, which would otherwise show as black columns across a full-bleed
+hero.
+
+Rather than cut those clips, the portrait section is rebuilt: the real picture
+is cropped out of the bars, stabilised (`vidstabdetect` + `vidstabtransform`,
+because the handheld portrait shots are much shakier than the tripod-ish
+landscape ones), and laid over a blown-up blurred copy of itself that fills the
+16:9 frame. The blurred backing is the same footage, so the colours match and
+the edges read as depth of field rather than as a border.
+
+The rebuild lives in `hero-full.mp4`'s ffmpeg recipe — see the project history
+for the exact filter chain. If you send a new compilation, landscape throughout
+is still cleaner and sharper; the blur fill is a rescue, not a preference.
 
 ## Why phones get the still
 
-The video is about 3.4 MB. On a phone that is the single most expensive thing
+The video is about 4.9 MB. On a phone that is the single most expensive thing
 on the page — data, battery, and time-to-first-paint — and the video reads
 poorly at that size anyway.
 

@@ -120,9 +120,9 @@ python3 -m http.server 8080
    your real towns, cities and ZIP codes there; it is one of the highest-impact
    things you can do for local search.
 6. ~~**Hero video**~~ — done: `assets/videos/hero-1.mp4` is in place.
-8. **Gallery photos** — replace the placeholder illustrations with real
-   before/after JPGs (same angle, same crop). The gallery page has a short
-   guide on shooting them.
+7. **Gallery photos** — one real before/after pair is in place
+   (`assets/img/ba-before.jpg` / `ba-after.jpg`, used on the home page and the
+   Gallery). Add more pairs as jobs finish.
 8. **Domain** — when you move to a custom domain, set `url` at the top of
    `build.js` and re-run `node build.js` so the canonical URLs match.
 9. **Social links** — the footer's Facebook / Instagram / Google icons point

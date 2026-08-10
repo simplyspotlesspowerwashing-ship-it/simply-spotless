@@ -837,7 +837,7 @@ p { margin: 0 0 1em; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   background: var(--navy-600);
   --pos: 50%;
 }

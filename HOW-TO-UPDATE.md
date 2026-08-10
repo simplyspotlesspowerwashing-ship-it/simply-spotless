@@ -119,8 +119,8 @@ image and where it shows up:
 | `assets/img/hero-house.svg` | Hero fallback, About page, Gutter Cleaning page |
 | `assets/img/hero-driveway.svg` | Power Washing page |
 | `assets/img/hero-deck.svg` | Gallery |
-| `assets/img/ba-before.svg` | "Before" in the comparison sliders |
-| `assets/img/ba-after.svg` | "After" in the comparison sliders |
+| `assets/img/ba-before.jpg` | "Before" in the comparison sliders (real photo) |
+| `assets/img/ba-after.jpg` | "After" in the comparison sliders (real photo) |
 
 **To swap in a real photo**, you need to do two small things:
 
@@ -156,8 +156,9 @@ photos line up. When you're on a job:
 - Hold the phone level, get the whole surface in frame
 - Crop both photos to the same size before uploading
 
-Then in `src/pages/gallery.html`, replace `ba-before.svg` / `ba-after.svg`
-with your filenames, and update the caption underneath. Run `node build.js`.
+**Sending more pairs is the easy way:** paste them straight into the chat and
+they can be cropped, aligned, compressed and wired in for you — that is how
+the siding pair already on the site got there.
 
 ---
 
@@ -291,7 +292,8 @@ terminal to stop it.
 - [x] Real phone number in `js/config.js` — done
 - [x] Real email and hours — done
 - [x] Hero video added — done
-- [ ] Real before/after photos in the Gallery
+- [x] First real before/after pair added (siding algae removal)
+- [ ] More before/after pairs as jobs finish
 - [x] Logo installed (header, footer and browser tab)
 - [ ] Real customer reviews replacing the samples
 - [ ] Real town names on the Service Area page

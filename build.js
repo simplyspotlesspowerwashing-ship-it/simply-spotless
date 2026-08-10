@@ -128,7 +128,11 @@ function layout({ meta, body, slug }) {
   <meta property="og:title" content="${escapeAttr(title.replace(/&amp;/g, "&"))}">
   <meta property="og:description" content="${escapeAttr(meta.description || "")}">
   <meta property="og:site_name" content="${SITE.name}">
+  <!-- Tab-sized icons use a simplified mark from the logo's palette: three
+       lines of type cannot resolve at 16-32px. Larger icons use the badge. -->
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <meta name="theme-color" content="#002b47">

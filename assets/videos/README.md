@@ -5,13 +5,24 @@ The home page hero has two backgrounds:
 | Screen width | What visitors see |
 | --- | --- |
 | 900px and up (laptops, desktops, tablets in landscape) | `hero-1.mp4` playing on a loop |
-| Under 900px (phones) | the still photo `assets/img/hero.jpg` |
+| Under 900px (phones) | the still photo `assets/img/hero-m.jpg` |
 
-The still is a frame lifted straight out of the video, so the two match.
+Both stills are crops of a frame from the video, so they match it.
+`assets/img/hero.jpg` is the wide version that sits behind the video on
+desktop; `hero-m.jpg` is a tall crop for phones, where the hero is roughly 1:3
+and its lower two thirds sit behind the quote form.
+
+## A note on what goes in the video
+
+The clip must be **landscape all the way through**. The footage this was cut
+from ran 17.6s and switched to portrait phone clips at about 10.3s — those
+carry black bars baked into the frame, which show up as black columns across a
+full-bleed hero. It is trimmed to the landscape section for that reason. If you
+send a new clip, either shoot it all landscape or say where to cut.
 
 ## Why phones get the still
 
-The video is about 4 MB. On a phone that is the single most expensive thing
+The video is about 3.4 MB. On a phone that is the single most expensive thing
 on the page — data, battery, and time-to-first-paint — and the video reads
 poorly at that size anyway.
 

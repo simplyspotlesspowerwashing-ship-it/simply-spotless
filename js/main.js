@@ -123,62 +123,87 @@
   }
 
   /* =========================================================
-     3. Hero background video
-     One full-bleed looping video. The illustration behind it
-     shows while the video loads and stays put if the file is
-     missing or the browser can't decode it, so the hero is
-     never a blank rectangle.
+     3. Hero background video — desktop only
+     The hero always has the still photo behind it. On screens
+     at least HERO_VIDEO_MIN wide, the looping video is attached
+     and fades in over that still.
 
-     The markup carries `autoplay`, so in most browsers this
-     runs before JS does. Everything below is belt-and-braces:
-     browsers differ over which of loadeddata / canplay /
-     playing actually fires, and relying on only one of them
-     is what leaves the video invisible.
+     Phones deliberately keep the still: the file is several
+     megabytes, and a looping autoplay video is the most
+     expensive thing on the page for battery and data. The URL
+     lives in data-src rather than a <source> tag so that on a
+     phone it is never requested at all — moving a src around
+     after the fact still costs the download.
+
+     If the video is missing, undecodable, or autoplay is
+     refused, the still stays put, so the hero is never a blank
+     or black rectangle.
      ========================================================= */
+  var HERO_VIDEO_MIN = "(min-width: 900px)";
+
   function initHeroVideo() {
     var video = document.getElementById("heroVideo");
     if (!video) return;
 
-    var revealed = false;
+    var src = video.getAttribute("data-src");
+    if (!src) return;
+
+    // Reduced motion and Data Saver keep the still at every width.
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (prefersReducedMotion || saveData) return;
+
+    var attached = false;
+    var failed = false;
 
     function reveal() {
-      if (revealed) return;
-      revealed = true;
+      if (failed) return;
       video.classList.add("is-playing");
     }
 
     function tryPlay() {
       var p = video.play();
-      if (p && p.catch) p.catch(function () { /* autoplay refused; first frame still shows */ });
+      if (p && p.catch) p.catch(function () { /* autoplay refused; still stays */ });
     }
 
-    if (prefersReducedMotion) {
-      // Show a still frame rather than motion, but never a black box.
-      video.removeAttribute("autoplay");
-      video.addEventListener("loadeddata", reveal);
-      if (video.readyState >= 2) reveal();
-      video.pause();
-      return;
+    function attach() {
+      if (attached) return;
+      attached = true;
+
+      // Browsers disagree about which of these fires first, and waiting on
+      // only one of them is what leaves the video invisible.
+      ["loadeddata", "canplay", "canplaythrough", "playing"].forEach(function (evt) {
+        video.addEventListener(evt, function () { reveal(); tryPlay(); });
+      });
+
+      // Capture, because a <source> error does not bubble.
+      video.addEventListener("error", function () {
+        failed = true;
+        video.classList.remove("is-playing");
+      }, true);
+
+      var source = document.createElement("source");
+      source.type = "video/mp4";
+      source.src = src;
+      video.appendChild(source);
+      video.load();
+      tryPlay();
+
+      // Don't burn battery decoding video in a background tab.
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) video.pause();
+        else if (video.classList.contains("is-playing")) tryPlay();
+      });
     }
 
-    ["loadeddata", "canplay", "canplaythrough", "playing"].forEach(function (evt) {
-      video.addEventListener(evt, function () { reveal(); tryPlay(); });
-    });
+    var mq = window.matchMedia(HERO_VIDEO_MIN);
+    if (mq.matches) attach();
 
-    // Already buffered before this script ran.
-    if (video.readyState >= 2) { reveal(); tryPlay(); }
-
-    // A missing or undecodable file must leave the illustration in place.
-    video.addEventListener("error", function () {
-      revealed = true;                       // stop later events re-showing it
-      video.classList.remove("is-playing");
-    }, true);
-
-    // Don't burn battery decoding video in a background tab.
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) video.pause();
-      else if (video.classList.contains("is-playing")) tryPlay();
-    });
+    // A tablet turned to landscape, or a window dragged wider, gets the video
+    // too. Going the other way we leave it alone — it is already downloaded,
+    // and CSS hides it below the breakpoint.
+    var onChange = function (e) { if (e.matches) attach(); };
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else if (mq.addListener) mq.addListener(onChange);
   }
 
   /* =========================================================

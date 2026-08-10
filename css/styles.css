@@ -362,7 +362,7 @@ p { margin: 0 0 1em; }
   to { transform: scale(1.07) translate(-1.2%, 1%); }
 }
 
-/* Real footage covers the illustration once it can actually play. */
+/* Real footage covers the still once it can actually play. */
 .hero__video {
   position: absolute;
   inset: 0;
@@ -373,6 +373,13 @@ p { margin: 0 0 1em; }
   transition: opacity .9s ease;
 }
 .hero__video.is-playing { opacity: 1; }
+
+/* Phones show the still photo instead. This width must stay in step with
+   HERO_VIDEO_MIN in js/main.js, which is what stops the file downloading —
+   display:none alone would still cost the visitor the megabytes. */
+@media (max-width: 899.98px) {
+  .hero__video { display: none; }
+}
 
 /* The blue wash over the video — matches the reference design exactly:
    linear-gradient(20deg, #148FD7 0%, #002B47 100%) at 70% opacity. */

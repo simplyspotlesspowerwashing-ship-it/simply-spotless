@@ -127,8 +127,8 @@ python3 -m http.server 8080
    `build.js` and re-run `node build.js` so the canonical URLs match.
 9. **Social links** — the footer's Facebook / Instagram / Google icons point
     at `#`. Update them in `src/partials/footer.html`.
-10. **Logo** — drop your file at `assets/img/logo.png`; the header and footer
-    pick it up automatically.
+10. ~~**Logo**~~ — done: `assets/img/logo.png`, used in the header, footer and
+    as the browser-tab icon (favicons are generated from it).
 
 Full step-by-step instructions for all of the above are in
 [HOW-TO-UPDATE.md](HOW-TO-UPDATE.md).
@@ -136,7 +136,8 @@ Full step-by-step instructions for all of the above are in
 ## What's built in
 
 - Full-bleed hero background video with illustrated fallback
-- Logo image with an automatic drawn fallback if the file is absent
+- Logo image with an automatic drawn fallback if the file is absent,
+  reused as the favicon and Apple touch icon
 - Quote form built into the hero, with tap-to-call as the primary CTA
 - Services icon bar mirroring the reference site
 - Dropdown navigation (hover on desktop, accordion on mobile)

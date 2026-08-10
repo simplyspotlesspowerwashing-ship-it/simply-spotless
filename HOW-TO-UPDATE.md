@@ -96,15 +96,16 @@ Nothing else to change.
 2. On GitHub go to the **`assets/img`** folder
 3. **Add file → Upload files**, drag it in, **Commit changes**
 
-A transparent-background **PNG** works best. A square image is ideal, since
-it's displayed in a 52 × 52 box — your round badge fits that perfectly.
+**Your logo is already installed.** It appears in the header and footer next
+to the business name, and it is also the little icon on the browser tab.
 
-Until the file exists, the site shows a simple drawn water-drop mark, so the
-header never looks broken. As soon as `logo.png` is there, it takes over.
+If you ever change it, replace `assets/img/logo.png` with a square,
+transparent-background PNG. The tab icons (`favicon-32.png`,
+`favicon-192.png`, `apple-touch-icon.png`) are generated from it — send the
+new logo over and those can be regenerated to match.
 
-If your logo already contains the words "Simply Spotless Pressure Washing"
-and you'd rather not have the text repeated beside it, say so and the text
-next to the logo can be removed.
+If the file is ever missing, the site falls back to a simple drawn water-drop
+mark, so the header never looks broken.
 
 ---
 
@@ -291,6 +292,7 @@ terminal to stop it.
 - [x] Real email and hours — done
 - [x] Hero video added — done
 - [ ] Real before/after photos in the Gallery
+- [x] Logo installed (header, footer and browser tab)
 - [ ] Real customer reviews replacing the samples
 - [ ] Real town names on the Service Area page
 - [ ] Social links in `src/partials/footer.html` (they point nowhere yet)

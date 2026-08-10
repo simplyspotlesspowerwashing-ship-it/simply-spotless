@@ -70,12 +70,23 @@ function pageHero(meta, slug) {
   // A photograph needs a heavier scrim under the copy than the flat SVG
   // illustrations do — see .pagehero--photo in the stylesheet.
   const photo = /\.(jpe?g|png|webp|avif)$/i.test(art) ? " pagehero--photo" : "";
+  // A banner is ~3.6:1 on a laptop and ~1.2:1 on a phone. When one crop can't
+  // suit both, a page names a second file with `heroArtMobile:` and we emit a
+  // second layer; the media query for .pagehero--dual swaps them.
+  //
+  // The url() has to live in the inline style, not a CSS custom property: a
+  // url() inside a custom property is resolved against the stylesheet that
+  // reads it, so `assets/…` would be looked up under css/ and 404.
+  const dual = meta.heroArtMobile ? " pagehero--dual" : "";
+  const mobileLayer = meta.heroArtMobile
+    ? `\n    <div class="pagehero__art pagehero__art--m" style="background-image:url('${meta.heroArtMobile}')"></div>`
+    : "";
   const crumbs = meta.crumb
     ? `<a href="index.html">Home</a><span aria-hidden="true">/</span><span>${meta.crumb}</span>`
     : "";
   return `
-  <section class="pagehero${photo}" aria-label="${escapeAttr(meta.heroTitle || meta.title)}">
-    <div class="pagehero__art" style="background-image:url('${art}')"></div>
+  <section class="pagehero${photo}${dual}" aria-label="${escapeAttr(meta.heroTitle || meta.title)}">
+    <div class="pagehero__art" style="background-image:url('${art}')"></div>${mobileLayer}
     <div class="pagehero__shade"></div>
     <div class="container pagehero__content">
       <nav class="crumbs" aria-label="Breadcrumb">${crumbs}</nav>

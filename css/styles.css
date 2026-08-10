@@ -524,6 +524,14 @@ p { margin: 0 0 1em; }
   background-position: center;
 }
 
+/* Pages that supply a phone-framed banner (heroArtMobile:) get a second layer.
+   It is inert until the viewport is narrow, then it takes over. */
+.pagehero__art--m { display: none; }
+@media (max-width: 760px) {
+  .pagehero--dual .pagehero__art { display: none; }
+  .pagehero--dual .pagehero__art--m { display: block; }
+}
+
 .pagehero__shade {
   position: absolute;
   inset: 0;
@@ -548,6 +556,22 @@ p { margin: 0 0 1em; }
     rgba(0, 22, 37, .68) 36%,
     rgba(0, 22, 37, .22) 64%,
     transparent 86%);
+}
+
+/* On a phone the copy runs the full width, so there is no clear right-hand
+   side to protect — darken from the top down instead, which is where the
+   headline and body sit, and give the banner extra height so the photo has
+   somewhere to live below the buttons. Illustrated banners don't need either. */
+@media (max-width: 760px) {
+  .pagehero--photo { min-height: 430px; }
+  .pagehero--photo .pagehero__content { padding-bottom: 8.5rem; }
+  .pagehero--photo .pagehero__shade::after {
+    background: linear-gradient(180deg,
+      rgba(0, 22, 37, .84) 0%,
+      rgba(0, 22, 37, .62) 44%,
+      rgba(0, 22, 37, .1) 80%,
+      transparent 100%);
+  }
 }
 
 .pagehero__content { position: relative; z-index: 2; padding: 4.5rem 0 5rem; max-width: 780px; }
@@ -1212,6 +1236,30 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
 .quote-form__fine { text-align: center; color: var(--ink-400); font-size: .82rem; margin: .9em 0 0; }
 
 /* ---------- Footer ---------- */
+/* ---------- Service area band (sits between the CTA and the footer) ---------- */
+.areaband {
+  background: var(--navy-800);
+  border-bottom: 1px solid rgba(255, 255, 255, .07);
+  padding: 2.9rem 0;
+}
+.areaband__inner { text-align: center; }
+.areaband h2 {
+  color: var(--white);
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin: 0 0 .7em;
+}
+.areaband p {
+  color: #b6d0e1;
+  margin: 0 auto;
+  max-width: 68ch;
+  font-size: .98rem;
+  line-height: 1.75;
+}
+.areaband a { color: var(--yellow-500); font-weight: 700; }
+.areaband a:hover { text-decoration: underline; }
+
 .footer { background: var(--navy-900); color: #9cb8cb; }
 
 .footer__inner {

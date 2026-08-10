@@ -67,11 +67,14 @@ function parseFragment(raw) {
    its own full-height video hero inside its fragment). */
 function pageHero(meta, slug) {
   const art = meta.heroArt || "assets/img/hero-house.svg";
+  // A photograph needs a heavier scrim under the copy than the flat SVG
+  // illustrations do — see .pagehero--photo in the stylesheet.
+  const photo = /\.(jpe?g|png|webp|avif)$/i.test(art) ? " pagehero--photo" : "";
   const crumbs = meta.crumb
     ? `<a href="index.html">Home</a><span aria-hidden="true">/</span><span>${meta.crumb}</span>`
     : "";
   return `
-  <section class="pagehero" aria-label="${escapeAttr(meta.heroTitle || meta.title)}">
+  <section class="pagehero${photo}" aria-label="${escapeAttr(meta.heroTitle || meta.title)}">
     <div class="pagehero__art" style="background-image:url('${art}')"></div>
     <div class="pagehero__shade"></div>
     <div class="container pagehero__content">

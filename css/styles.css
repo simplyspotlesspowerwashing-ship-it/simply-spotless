@@ -537,6 +537,19 @@ p { margin: 0 0 1em; }
   background: linear-gradient(90deg, rgba(0, 22, 37, .5) 0%, rgba(0, 22, 37, .12) 60%, transparent 100%);
 }
 
+/* Photo banners need a heavier scrim than the illustrations do. A real
+   photograph carries its own detail and contrast — lettering on a yard sign,
+   windows on a wall — and the headline lands right on top of it. Darkening
+   the left, where the copy sits, keeps the text clean and still lets the
+   photo read on the right. */
+.pagehero--photo .pagehero__shade::after {
+  background: linear-gradient(90deg,
+    rgba(0, 22, 37, .9) 0%,
+    rgba(0, 22, 37, .68) 36%,
+    rgba(0, 22, 37, .22) 64%,
+    transparent 86%);
+}
+
 .pagehero__content { position: relative; z-index: 2; padding: 4.5rem 0 5rem; max-width: 780px; }
 .pagehero h1 {
   color: var(--white);

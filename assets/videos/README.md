@@ -9,8 +9,12 @@ The home page hero has two backgrounds:
 
 Both stills are crops of a frame from the video, so they match it.
 `assets/img/hero.jpg` is the wide version that sits behind the video on
-desktop; `hero-m.jpg` is a tall crop for phones, where the hero is roughly 1:3
-and its lower two thirds sit behind the quote form.
+desktop; `hero-m.jpg` is a wider crop shaped to the phone hero's box.
+
+The phone hero is capped at 600px tall on purpose. The visible width of a
+`cover` background is (box width / box height) x the image height, so the
+**only** way to show more of a photo is to make the box less tall — widening
+the crop alone does nothing, because `cover` just crops the extra back off.
 
 ## Mixing portrait and landscape clips
 
@@ -26,9 +30,15 @@ landscape ones), and laid over a blown-up blurred copy of itself that fills the
 16:9 frame. The blurred backing is the same footage, so the colours match and
 the edges read as depth of field rather than as a border.
 
-The rebuild lives in `hero-full.mp4`'s ffmpeg recipe — see the project history
-for the exact filter chain. If you send a new compilation, landscape throughout
-is still cleaner and sharper; the blur fill is a rescue, not a preference.
+The sharp picture is also placed deliberately, not centred: it sits at 34-76%
+of the frame so that on a laptop it spans the whole gap between the hero copy
+on the left and the quote form on the right — the strip is 675px of the 1600px
+frame, and that window is the only part of the background not covered by
+something. Measured at 1280, 1440 and 1680px; it fills the gap at all three.
+
+If you send a new compilation, landscape throughout is still cleaner and
+sharper — the portrait clips only fill about 42% of the frame with real
+picture. The blur fill is a rescue, not a preference.
 
 ## Why phones get the still
 

@@ -373,6 +373,27 @@ p { margin: 0 0 1em; }
      the second button instead — the form still lives on the contact page. */
   .hero__card { display: none; }
   .hero__quote-m { display: inline-flex; }
+  /* Same reason: less copy over the photo. */
+  .hero__sub { display: none; }
+  /* A shorter hero is what actually zooms the photo out. The visible width of
+     a background is (hero width / hero height) x the image height, so trimming
+     the height is the only lever that shows more of the scene. */
+  .hero { min-height: 600px; }
+
+  /* Both of these repeat what the services section and the "why us" copy below
+     already say, and on a phone that is a lot of scrolling before anything new.
+     Desktop keeps them — there the row costs one screen-width, not four. */
+  .iconbar, .trustbar { display: none; }
+
+  /* Put the before/after slider straight after the hero, ahead of the service
+     cards: it is the most convincing thing on the page and shouldn't be four
+     scrolls down. Ordering needs a flex parent, hence the display change; the
+     blanket rule keeps everything else in source order behind these three. */
+  body[data-page="index"] main { display: flex; flex-direction: column; }
+  body[data-page="index"] main > * { order: 5; }
+  body[data-page="index"] main > .hero { order: 1; }
+  body[data-page="index"] main > #before-after { order: 2; }
+  body[data-page="index"] main > #services { order: 3; }
 }
 
 @keyframes kenburns {

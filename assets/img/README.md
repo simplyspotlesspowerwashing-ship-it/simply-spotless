@@ -9,9 +9,14 @@
 | `hero-sign.jpg` | Banner at the top of the Reviews and Contact pages (the yard sign), on laptops and tablets. |
 | `hero-sign-m.jpg` | The same banner reframed for phones — sign lower and smaller, so it sits under the buttons rather than behind them. |
 | `hero-house.svg`, `hero-driveway.svg`, `hero-deck.svg` | Illustrated banners on the remaining inner pages. |
-| `ba-before.jpg` / `ba-after.jpg` | The before/after slider on the home page and the gallery. |
-| `ba2-before.jpg` / `ba2-after.jpg` | Gallery slider — the tan gable wall. |
-| `ba3-before.jpg` / `ba3-after.jpg` | Gallery side-by-side — the pale yellow wall. |
+| `ba-siding-before/after.jpg` | House page slider **and** gallery slider — the close siding crop. |
+| `ba-gable-before/after.jpg` | Gallery slider — the tan gable wall. |
+| `ba-fence-before/after.jpg` | Gallery side-by-side — the vinyl privacy fence. |
+| `ba-steps-before/after.jpg` | Gallery side-by-side — the front steps and landing. |
+| `ba-blue-before/after.jpg` | Gallery side-by-side — the blue siding and window. |
+| `ba-fenceline-before/after.jpg` | Gallery side-by-side — the long fence run. |
+| `ba-stairwell-before/after.jpg` | Gallery side-by-side — the basement stairwell. |
+| `ba-yellow-before/after.jpg` | Gallery side-by-side — the pale yellow wall. |
 | `logo.png` | The badge in the site header. |
 | `favicon-*.png`, `apple-touch-icon.png` | Browser tab and phone home-screen icons. |
 

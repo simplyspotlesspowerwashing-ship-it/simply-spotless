@@ -22,6 +22,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Scroll reveals start at opacity 0 and are switched on by main.js. If
+       scripting is off or blocked, everything below the fold would stay
+       invisible, so turn the animation off entirely in that case. -->
+  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body data-page="index">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -106,21 +110,16 @@
 
 
   <!-- ======================= HERO =======================
-       Single full-bleed background video (no slider). The illustration
-       behind it shows while the video loads, and stays if the video is
-       missing or the browser can't play it, so the hero is never blank.
+       Still photo background. The looping video is still in the repo at
+       assets/videos/hero-1.mp4 - to go back to video, restore the <video>
+       element described in assets/videos/README.md.
        ==================================================== -->
   <section class="hero" id="home" aria-label="Welcome">
     <div class="hero__media">
-      <div class="hero__art" style="background-image:url('assets/img/hero-house.svg')"></div>
-      <video class="hero__video" id="heroVideo"
-             autoplay muted loop playsinline preload="auto"
-             disablepictureinpicture aria-hidden="true" tabindex="-1">
-        <source src="assets/videos/hero-1.mp4" type="video/mp4">
-      </video>
+      <div class="hero__art" style="background-image:url('assets/img/hero.jpg')"></div>
     </div>
 
-    <!-- The blue gradient wash over the video, matching the reference
+    <!-- The blue gradient wash over the photo, matching the reference
          design: 20deg, #148FD7 -> #002B47 at 70% opacity. -->
     <div class="hero__shade" aria-hidden="true"></div>
 
@@ -231,7 +230,7 @@
       </div>
       <div class="trust reveal">
         <svg viewBox="0 0 24 24" class="trust__icon"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        <div><strong>5-Star Local Service</strong><span>Neighbors you can trust</span></div>
+        <div><strong>Careful, Detailed Work</strong><span>We don't leave until it's clean</span></div>
       </div>
       <div class="trust reveal">
         <svg viewBox="0 0 24 24" class="trust__icon"><path d="M20 7L10 17l-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -359,31 +358,39 @@
   <section class="section section--tint" id="reviews">
     <div class="container">
       <div class="section__head reveal">
-        <p class="eyebrow">Reviews</p>
-        <h2>Neighbors Are <span class="accent-text">Talking</span></h2>
-        <p class="section__sub">Real results speak loudest. Here's the kind of thing we love to hear after a wash day.</p>
+        <p class="eyebrow">What You Get</p>
+        <h2>Every Job, <span class="accent-text">Done Right</span></h2>
+        <p class="section__sub">We're a new business, so we don't have a wall of reviews yet — here's exactly what we promise you instead.</p>
       </div>
 
-      <!-- SAMPLE CONTENT: replace with your real customer reviews (see README). -->
+      <!--
+        These are promises, not customer quotes. When you have REAL reviews,
+        swap each block below for the review markup — for example:
+
+          <figure class="review reveal">
+            <div class="stars" aria-label="Five stars">★★★★★</div>
+            <blockquote>“Their actual words, copied exactly.”</blockquote>
+            <figcaption>First Name L. <span>House Washing</span></figcaption>
+          </figure>
+
+        Only ever paste words a real customer actually wrote.
+      -->
       <div class="reviews-grid">
         <figure class="review reveal">
-          <div class="stars" aria-label="Five stars">★★★★★</div>
-          <blockquote>“Our siding hadn't been cleaned in years — it honestly looks like a brand new house. They were on time, careful with the flower beds, and the price was exactly what they quoted.”</blockquote>
-          <figcaption>Jessica M. <span>House Washing</span></figcaption>
+          <blockquote>The price we quote is the price you pay. No add-ons discovered halfway through, no surprise line items at the end.</blockquote>
+          <figcaption>Straight Pricing <span>Quoted before we start</span></figcaption>
         </figure>
         <figure class="review reveal">
-          <div class="stars" aria-label="Five stars">★★★★★</div>
-          <blockquote>“The driveway transformation is unreal. You can see the exact line where they stopped to show us the difference. Booked them again for the patio before they even left.”</blockquote>
-          <figcaption>David R. <span>Power Washing</span></figcaption>
+          <blockquote>Soft washing on siding, proper pressure on hard surfaces. The right method for the surface, so nothing gets stripped, etched or forced behind the wall.</blockquote>
+          <figcaption>Careful Method <span>Surface-safe every time</span></figcaption>
         </figure>
         <figure class="review reveal">
-          <div class="stars" aria-label="Five stars">★★★★★</div>
-          <blockquote>“Professional from the first text to the final walkthrough. They cleared the gutters and cleaned the faces too — the black stripes are gone. Highly recommend.”</blockquote>
-          <figcaption>Sandra K. <span>Gutter Cleaning</span></figcaption>
+          <blockquote>You get before and after photos of your own home, and if something isn't right when we're done, we come back and fix it.</blockquote>
+          <figcaption>We Finish The Job <span>Photos on every visit</span></figcaption>
         </figure>
       </div>
       <div class="section__cta reveal">
-        <a class="btn btn--outline" href="reviews.html">Read More Reviews</a>
+        <a class="btn btn--outline" href="reviews.html">How We Work</a>
       </div>
     </div>
   </section>
@@ -393,8 +400,8 @@
     <div class="container about__inner">
       <div class="about__copy reveal">
         <p class="eyebrow">About Us</p>
-        <h2>Local. Family-Run. <span class="accent-text">Obsessed With Clean.</span></h2>
-        <p>Simply Spotless Pressure Washing is a local, owner-operated exterior cleaning company. That means the person quoting your job cares personally about how your home looks when we pull away — because your street is our street too.</p>
+        <h2>Local. Owner-Run. <span class="accent-text">Obsessed With Clean.</span></h2>
+        <p>Simply Spotless Pressure Washing is a local, owner-operated exterior cleaning company, run by a high school student who lives right here. That means the person quoting your job is the person doing it — and they care personally about how your home looks when we pull away.</p>
         <p>We proudly serve homeowners throughout our local area. Not sure if we cover your neighborhood? Reach out — if we can get our hoses there, we'll make it spotless.</p>
         <ul class="about__points">
           <li><svg viewBox="0 0 24 24" class="icon"><path d="M20 7L10 17l-6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Owner on every job</li>

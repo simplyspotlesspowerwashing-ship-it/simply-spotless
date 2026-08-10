@@ -1,15 +1,24 @@
-# Hero video
+# Hero background
 
-The home page hero plays one full-bleed looping background video:
+The home page hero currently shows a **still photo**: `assets/img/hero.jpg`
+(a frame lifted from the video below). To change it, replace that file.
 
+## Going back to video
+
+`hero-1.mp4` is still here. To use it again, open `src/pages/index.html` and
+put the video element back inside `<div class="hero__media">`, directly after
+the `hero__art` div:
+
+```html
+<video class="hero__video" id="heroVideo"
+       autoplay muted loop playsinline preload="auto"
+       disablepictureinpicture aria-hidden="true" tabindex="-1">
+  <source src="assets/videos/hero-1.mp4" type="video/mp4">
+</video>
 ```
-assets/videos/hero-1.mp4
-```
 
-Replace that file and the hero changes — no code edits, no rebuild needed.
-
-If the file is missing or the browser can't play it, the illustrated scene
-behind it stays visible, so the hero is never blank or black.
+Then run `node build.js`. The still stays behind it as the loading fallback,
+and the script handles playback automatically.
 
 ## Tips for great hero footage
 

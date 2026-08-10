@@ -22,6 +22,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Scroll reveals start at opacity 0 and are switched on by main.js. If
+       scripting is off or blocked, everything below the fold would stay
+       invisible, so turn the animation off entirely in that case. -->
+  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body data-page="about">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -125,8 +129,8 @@
     <div class="container split">
       <div class="split__copy reveal">
         <p class="eyebrow">Our Story</p>
-        <h2>Proffesional service <span class="accent-text">Run by a local high school student</span></h2>
-        <p> Hi my name is Daniel Strattner. Im the owner and operator of Simply Spotless. The pressure washer dedicated to delivering spotless results at an affordale price! Ive been in the business for four years now and can happily say that ive been able to deliver great results to hundreds of customer!</p>
+        <h2>Professional service, <span class="accent-text">run by a local high school student</span></h2>
+        <p>Hi, my name is Daniel Strattner. I'm the owner and operator of Simply Spotless — the pressure washer dedicated to delivering spotless results at an affordable price. I've been in the business for four years now, and I'm happy to say I've been able to deliver great results to hundreds of customers.</p>
         <a class="btn btn--primary" href="contact.html">Get A Fast Quote</a>
       </div>
       <div class="split__art reveal">
@@ -154,17 +158,10 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="eyebrow">Why Homeowners Choose Us</p>
-        <h2>The Simply Spotless <span class="accent-text">Difference</span></h2>
-      </div>
-      <div class="section__cta reveal">
-        <a class="btn btn--primary btn--lg" href="contact.html">Get A Fast Quote</a>
-      </div>
-    </div>
-  </section>
+  <!-- A "Why Homeowners Choose Us" section used to sit here. Its list was
+       removed, which left a heading with nothing under it and repeated the
+       four points above, so the section is gone; the CTA below still carries
+       the quote button. -->
 
   <!-- ======================= CTA BAND ======================= -->
   <section class="ctaband">

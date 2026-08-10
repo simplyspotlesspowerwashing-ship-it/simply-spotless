@@ -10,6 +10,8 @@
 | `hero-sign-m.jpg` | The same banner reframed for phones — sign lower and smaller, so it sits under the buttons rather than behind them. |
 | `hero-house.svg`, `hero-driveway.svg`, `hero-deck.svg` | Illustrated banners on the remaining inner pages. |
 | `ba-before.jpg` / `ba-after.jpg` | The before/after slider on the home page and the gallery. |
+| `ba2-before.jpg` / `ba2-after.jpg` | Gallery slider — the tan gable wall. |
+| `ba3-before.jpg` / `ba3-after.jpg` | Gallery side-by-side — the pale yellow wall. |
 | `logo.png` | The badge in the site header. |
 | `favicon-*.png`, `apple-touch-icon.png` | Browser tab and phone home-screen icons. |
 
@@ -52,3 +54,38 @@ middle of the photo is guaranteed to survive**, so:
   for exactly this reason, which pushes the sign to the right of the frame.
 - Anything with fine detail or small text will be hard to read under the blue
   wash. That's fine — the banner is a texture, not a billboard.
+
+## Adding a before & after to the gallery
+
+Open `src/pages/gallery.html`, copy an existing block inside `<div class="gallery">`,
+point its two `<img>` tags at your new files, rewrite the alt text and the
+caption, then run `node build.js`.
+
+There are two kinds of block, and picking the right one matters:
+
+- **A slider** (`<div class="ba" data-ba>`) — for a pair shot from close enough
+  to the same spot that the two frames line up. Dragging the handle swaps
+  between them, which is only convincing when the wall doesn't jump.
+- **A side-by-side** (`<div class="twoup">` inside a
+  `gallery__item--wide` figure) — for a pair shot from different spots or
+  distances. Still reads at a glance, and nothing looks broken.
+
+### Shooting a pair that can be a slider
+
+The slider only works when both photos line up, which takes a little care:
+
+- **Stand in the same spot both times.** Mark it — a chalk X, a paving slab,
+  anything. This is the one that matters most.
+- Same distance and same zoom. Stepping closer for the "after" is what forces
+  a pair into the side-by-side treatment.
+- Hold the phone level, not tilted, and at the same height.
+- Same time of day where you can, so the light matches.
+- Get the whole surface in frame, not just the worst patch.
+- **Take the "before" every single time**, even when you're in a hurry. You can
+  always skip using it; you can never go back for it.
+
+### Preparing the files
+
+Crop both to the **same shape** — 4:3 landscape, around 1400x1050, is what the
+existing ones use. Both images of a pair must be the same dimensions or the
+slider will drift as you drag it.

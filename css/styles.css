@@ -954,6 +954,22 @@ p { margin: 0 0 1em; }
 .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
 .gallery__item { margin: 0; }
 .gallery__item .ba__frame { aspect-ratio: 4 / 3; }
+
+/* Side-by-side pair, for jobs whose two photos were not shot from the same
+   spot and so cannot be dragged over one another convincingly. It takes the
+   full row so each half is still a reasonable size. */
+.gallery__item--wide { grid-column: 1 / -1; }
+.twoup { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.twoup__pane {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.twoup__pane img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+@media (max-width: 640px) {
+  .twoup { grid-template-columns: 1fr; }
+}
 .gallery__item figcaption {
   margin-top: 1rem;
   font-family: var(--font-head);

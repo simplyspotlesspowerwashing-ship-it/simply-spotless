@@ -132,7 +132,19 @@
         <p class="section__sub">Real jobs, real results. Drag the handle across a photo to reveal the difference. More going up as we finish them.</p>
       </div>
 
-      <div class="gallery gallery--single">
+      <!--
+        Two kinds of item live in this grid:
+
+        - A slider (.ba) for pairs shot from close enough to the same spot that
+          the two frames line up. Dragging one that doesn't line up looks
+          broken, so this is not the default.
+        - A side-by-side (.twoup) for pairs shot from different spots or
+          distances. Honest, and it still reads at a glance.
+
+        Adding a new job: copy whichever block fits, point the two <img> tags
+        at your new files, and rewrite the alt text and the caption.
+      -->
+      <div class="gallery">
         <figure class="gallery__item reveal">
           <div class="ba" data-ba>
             <div class="ba__frame">
@@ -149,25 +161,43 @@
           <figcaption><strong>House Washing &mdash; Algae Removal</strong><span>Years of green growth soft washed off vinyl siding</span></figcaption>
         </figure>
 
+        <figure class="gallery__item reveal">
+          <div class="ba" data-ba>
+            <div class="ba__frame">
+              <img class="ba__img" src="assets/img/ba2-before.jpg" alt="The side of a tan house with green growth running along the lower siding courses">
+              <div class="ba__after-wrap">
+                <img class="ba__img" src="assets/img/ba2-after.jpg" alt="The same wall after washing — the tan siding is even and the green growth is gone">
+              </div>
+              <span class="ba__label ba__label--before">Before</span>
+              <span class="ba__label ba__label--after">After</span>
+              <div class="ba__handle" aria-hidden="true"><span class="ba__handle-btn"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <input class="ba__range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Compare before and after — a full gable wall washed">
+            </div>
+          </div>
+          <figcaption><strong>House Washing &mdash; Full Gable Wall</strong><span>Growth along the lower courses taken back to the original colour</span></figcaption>
+        </figure>
+
+        <figure class="gallery__item gallery__item--wide reveal">
+          <div class="twoup">
+            <div class="twoup__pane">
+              <img src="assets/img/ba3-before.jpg" alt="Pale yellow vinyl siding dulled by grey and green weathering">
+              <span class="ba__label ba__label--before">Before</span>
+            </div>
+            <div class="twoup__pane">
+              <img src="assets/img/ba3-after.jpg" alt="The same yellow siding after washing — bright and evenly coloured">
+              <span class="ba__label ba__label--after">After</span>
+            </div>
+          </div>
+          <figcaption><strong>House Washing &mdash; Weathered Vinyl</strong><span>Grey-green film lifted off, leaving the original yellow</span></figcaption>
+        </figure>
+
       </div>
     </div>
   </section>
 
-  <section class="section section--tint">
-    <div class="container container--narrow prose reveal">
-      <p class="eyebrow">Adding Your Own</p>
-      <h2>How To Get <span class="accent-text">Great Before &amp; Afters</span></h2>
-      <p>The comparison only lands when both photos line up. A few habits make all the difference:</p>
-      <ul class="checklist checklist--tight">
-        <li>Shoot from the exact same spot — mark where you stood</li>
-        <li>Same time of day, so the light and shadows match</li>
-        <li>Hold the phone level and horizontal, not tilted</li>
-        <li>Get the whole surface in frame, not just the worst patch</li>
-        <li>Take the "before" every time, even when you're in a hurry</li>
-        <li>Crop both images to the same dimensions before uploading</li>
-      </ul>
-    </div>
-  </section>
+  <!-- A "How To Get Great Before & Afters" checklist used to sit here. It was
+       written for whoever maintains the site, not for customers, so it now
+       lives in assets/img/README.md where the rest of that guidance is. -->
 
   <!-- ======================= CTA BAND ======================= -->
   <section class="ctaband">

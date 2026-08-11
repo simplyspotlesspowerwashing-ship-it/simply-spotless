@@ -383,7 +383,6 @@ p { margin: 0 0 1em; }
   /* Both of these repeat what the services section and the "why us" copy below
      already say, and on a phone that is a lot of scrolling before anything new.
      Desktop keeps them — there the row costs one screen-width, not four. */
-  .iconbar, .trustbar { display: none; }
 
   /* Put the before/after slider straight after the hero, ahead of the service
      cards: it is the most convincing thing on the page and shouldn't be four
@@ -642,74 +641,8 @@ p { margin: 0 0 1em; }
 .pagehero__wave svg { width: 100%; height: clamp(28px, 4vw, 56px); }
 
 /* ---------- Services icon bar ---------- */
-.iconbar {
-  background: var(--navy-700);
-  padding: 2.6rem 0 2.4rem;
-}
-
-.iconbar__title {
-  color: var(--white);
-  text-align: center;
-  font-size: clamp(1.35rem, 2.6vw, 1.95rem);
-  font-weight: 800;
-  margin-bottom: 1.8rem;
-}
-
-.iconbar__grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1rem;
-}
-
-.iconbar__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .7rem;
-  text-align: center;
-  color: #dcedf8;
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: .85rem;
-  padding: .9rem .5rem;
-  border-radius: var(--radius-md);
-  transition: background .2s ease, color .2s ease, transform .2s ease;
-}
-.iconbar__item svg { width: 52px; height: 52px; }
-.iconbar__item:hover {
-  background: rgba(255, 255, 255, .08);
-  color: var(--yellow-500);
-  transform: translateY(-3px);
-  text-decoration: none;
-}
-.iconbar__item--quote { color: var(--yellow-500); }
 
 /* ---------- Trust bar ---------- */
-.trustbar { padding: 2.2rem 0 .4rem; }
-.trustbar__inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-
-.trust {
-  display: flex;
-  align-items: center;
-  gap: .85rem;
-  min-width: 0;   /* grid items default to min-width:auto and refuse to shrink */
-  padding: 1rem 1.1rem;
-  border-radius: var(--radius-md);
-  background: var(--white);
-  border: 1px solid var(--line-200);
-  box-shadow: var(--shadow-sm);
-}
-.trust__icon {
-  width: 44px; height: 44px;
-  padding: 9px;
-  border-radius: 12px;
-  background: var(--navy-700);
-  color: var(--yellow-500);
-  flex: none;
-}
-.trust > div { min-width: 0; }
-.trust strong { display: block; font-family: var(--font-head); font-size: .93rem; color: var(--navy-700); overflow-wrap: anywhere; }
-.trust span { font-size: .82rem; color: var(--ink-600); }
 
 /* ---------- Sections ---------- */
 .section { padding: 5.5rem 0; }
@@ -1403,14 +1336,14 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
 .reveal.is-visible { opacity: 1; transform: none; }
 
 .services-grid .reveal:nth-child(2), .steps .reveal:nth-child(2), .reviews-grid .reveal:nth-child(2),
-.trustbar__inner .reveal:nth-child(2), .tiles .reveal:nth-child(2), .gallery .reveal:nth-child(2),
+.tiles .reveal:nth-child(2), .gallery .reveal:nth-child(2),
 .prep .reveal:nth-child(2), .jobs .reveal:nth-child(2) { transition-delay: .1s; }
 
 .services-grid .reveal:nth-child(3), .steps .reveal:nth-child(3), .reviews-grid .reveal:nth-child(3),
-.trustbar__inner .reveal:nth-child(3), .tiles .reveal:nth-child(3), .gallery .reveal:nth-child(3),
+.tiles .reveal:nth-child(3), .gallery .reveal:nth-child(3),
 .prep .reveal:nth-child(3) { transition-delay: .2s; }
 
-.services-grid .reveal:nth-child(4), .trustbar__inner .reveal:nth-child(4), .steps .reveal:nth-child(4),
+.services-grid .reveal:nth-child(4), .steps .reveal:nth-child(4),
 .tiles .reveal:nth-child(4), .prep .reveal:nth-child(4) { transition-delay: .3s; }
 
 .services-grid .reveal:nth-child(5), .tiles .reveal:nth-child(5), .reviews-grid .reveal:nth-child(5) { transition-delay: .1s; }
@@ -1427,7 +1360,6 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
   .hero__inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 4.5rem 0 7rem; }
   .hero__card { justify-self: start; max-width: 520px; }
   .hero__content { max-width: none; }
-  .iconbar__grid { grid-template-columns: repeat(3, 1fr); }
   .steps--4 { grid-template-columns: repeat(2, 1fr); }
   .split, .about__inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .contact__inner { grid-template-columns: 1fr; }
@@ -1487,7 +1419,6 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
 
 @media (max-width: 720px) {
   .section { padding: 3.8rem 0; }
-  .trustbar__inner { grid-template-columns: 1fr 1fr; }
   .about__badge { bottom: -18px; }
   .services-grid, .services-grid--4, .tiles, .steps, .steps--4,
   .reviews-grid, .reviews-grid--page { grid-template-columns: 1fr; }
@@ -1495,8 +1426,6 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
   .quote-form__row { grid-template-columns: 1fr; gap: 0; }
   .quote-form { padding: 1.6rem 1.3rem; }
   .hero__inner { padding: 3.5rem 0 7rem; }
-  .iconbar__grid { grid-template-columns: repeat(2, 1fr); }
-  .iconbar__item svg { width: 44px; height: 44px; }
   .nav__phone { margin-top: .5rem; }
   .pagehero { min-height: 320px; }
   .pagehero__content { padding: 3.2rem 0 3.8rem; }
@@ -1510,7 +1439,6 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
 }
 
 @media (max-width: 480px) {
-  .trustbar__inner { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

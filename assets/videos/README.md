@@ -30,11 +30,13 @@ landscape ones), and laid over a blown-up blurred copy of itself that fills the
 16:9 frame. The blurred backing is the same footage, so the colours match and
 the edges read as depth of field rather than as a border.
 
-The sharp picture is also placed deliberately, not centred: it sits at 34-76%
-of the frame so that on a laptop it spans the whole gap between the hero copy
-on the left and the quote form on the right — the strip is 675px of the 1600px
-frame, and that window is the only part of the background not covered by
-something. Measured at 1280, 1440 and 1680px; it fills the gap at all three.
+The sharp picture is placed deliberately, not centred: it sits at 18-60% of the
+frame (675px of 1600, overlaid at x=290). The quote form card is opaque, so
+anything behind it is simply gone; the strip is positioned so its right edge
+stops where the card starts rather than disappearing under it. Measured at
+1280, 1440 and 1680px, the card begins at 61.7%, 60.4% and 58.9% of the
+viewport respectively, so 60.3% clears it at the first two and overlaps by
+23px at the widest.
 
 If you send a new compilation, landscape throughout is still cleaner and
 sharper — the portrait clips only fill about 42% of the frame with real

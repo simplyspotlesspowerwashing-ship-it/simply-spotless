@@ -207,6 +207,36 @@
   }
 
   /* =========================================================
+     3b. Click-to-play video
+     Nothing is requested from YouTube until someone presses
+     play, which keeps a few hundred KB of player script and
+     its cookies off every page view. See src/partials/about-video.html.
+     ========================================================= */
+  function initVideoBoxes() {
+    document.querySelectorAll("[data-yt-id]").forEach(function (box) {
+      var btn = box.querySelector(".videobox__btn");
+      var id = box.getAttribute("data-yt-id");
+      if (!btn || !id) return;
+
+      // The label doubles as the accessible name of the button.
+      var label = box.querySelector(".videobox__label");
+      btn.setAttribute("aria-label",
+        "Play video: " + (label ? label.childNodes[0].textContent.trim() : "About Simply Spotless"));
+
+      btn.addEventListener("click", function () {
+        var frame = document.createElement("iframe");
+        frame.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) +
+          "?autoplay=1&rel=0&modestbranding=1";
+        frame.title = "Simply Spotless Pressure Washing";
+        frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        frame.allowFullscreen = true;
+        box.innerHTML = "";
+        box.appendChild(frame);
+      });
+    });
+  }
+
+  /* =========================================================
      4. Before / after comparison sliders
      Works for any number of [data-ba] widgets on a page.
      ========================================================= */
@@ -220,6 +250,50 @@
         frame.style.setProperty("--pos", range.value + "%");
         range.setAttribute("aria-valuetext", Math.round(range.value) + "% revealed");
       }
+
+      /* Dragging is handled here rather than by the range input itself.
+         Desktop browsers jump a range's thumb to wherever you press the
+         track, but iOS Safari does not — there you have to grab the thumb,
+         and this one is invisible, so on a phone the slider felt dead.
+         Pointer events behave the same everywhere.
+
+         The input stays in the markup, and stays focusable, so arrow keys
+         and screen readers keep working; CSS just stops it swallowing
+         touches. */
+      function setFromX(clientX) {
+        var r = frame.getBoundingClientRect();
+        if (!r.width) return;
+        var pct = ((clientX - r.left) / r.width) * 100;
+        range.value = Math.max(0, Math.min(100, pct));
+        update();
+      }
+
+      var dragging = false;
+
+      frame.addEventListener("pointerdown", function (e) {
+        // Ignore secondary buttons so a right-click doesn't yank the handle.
+        if (e.button && e.button !== 0) return;
+        dragging = true;
+        if (frame.setPointerCapture) frame.setPointerCapture(e.pointerId);
+        setFromX(e.clientX);
+        e.preventDefault();
+      });
+
+      frame.addEventListener("pointermove", function (e) {
+        if (!dragging) return;
+        setFromX(e.clientX);
+        e.preventDefault();
+      });
+
+      ["pointerup", "pointercancel"].forEach(function (evt) {
+        frame.addEventListener(evt, function (e) {
+          dragging = false;
+          if (frame.releasePointerCapture && frame.hasPointerCapture && frame.hasPointerCapture(e.pointerId)) {
+            frame.releasePointerCapture(e.pointerId);
+          }
+        });
+      });
+
       range.addEventListener("input", update);
       update();
     });
@@ -253,6 +327,7 @@
     initHeader();
     initBrandLogo();
     initHeroVideo();
+    initVideoBoxes();
     initBeforeAfter();
     initReveals();
   }

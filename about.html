@@ -132,12 +132,29 @@
         <p>Hi, my name is Daniel Strattner. I'm the owner and operator of Simply Spotless — the pressure washer dedicated to delivering spotless results at an affordable price. I've been in the business for four years now, and I'm happy to say I've been able to deliver great results to hundreds of customers.</p>
         <a class="btn btn--primary" href="contact.html">Get A Fast Quote</a>
       </div>
-      <div class="split__art reveal">
-        <img src="assets/img/hero-house.svg" alt="Simply Spotless technician washing a home exterior">
-        <div class="about__badge">
-          <span class="about__badge-big">100%</span>
-          <span>Spotless<br>Guarantee</span>
+      <div class="split__art">
+        <!-- Click-to-play facade for the YouTube clip.
+
+             The YouTube player is heavy — several hundred KB of script plus
+             cookies — and most visitors never press play, so loading it on
+             every page view would slow the site down for nothing. Instead we
+             show a locally hosted poster frame and only build the iframe once
+             someone actually clicks. Nothing is requested from YouTube until
+             then, and the embed uses youtube-nocookie.com when it happens.
+
+             To point this at a different video, change data-yt-id (the part
+             of the YouTube URL after youtu.be/) and replace the poster image.
+             See assets/img/README.md. -->
+        <div class="videobox reveal" data-yt-id="k8vJiYJKods">
+          <button class="videobox__btn" type="button">
+            <img class="videobox__poster" src="assets/img/about-video-poster.jpg" alt="" width="960" height="540" loading="lazy">
+            <span class="videobox__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+            </span>
+            <span class="videobox__label">Meet Simply Spotless <span>Watch the video</span></span>
+          </button>
         </div>
+
       </div>
     </div>
   </section>

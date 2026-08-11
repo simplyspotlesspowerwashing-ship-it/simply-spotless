@@ -6,6 +6,8 @@
 | --- | --- |
 | `hero.jpg` | Home page hero behind the video on desktop, **and** the banner on both the House Washing and Benefits of Soft Washing pages. See `assets/videos/README.md`. |
 | `hero-m.jpg` | Home page hero on phones — a crop of the same frame shaped to the phone hero box (which is capped at 600px tall so more of the photo shows). |
+| `hero-power.jpg` | Banner at the top of the Power Washing page — a frame from the hero video's surface-cleaner clip. |
+| `about-video-poster.jpg` | Still shown before the About video is played. Replace it if you point the player at a different video — see `src/partials/about-video.html`. |
 | `hero-gallery.jpg` | Banner at the top of the Gallery page (the tan apartment building). |
 | `hero-sign.jpg` | Banner at the top of the Reviews and Contact pages (the yard sign), on laptops and tablets. |
 | `hero-sign-m.jpg` | The same banner reframed for phones — sign lower and smaller, so it sits under the buttons rather than behind them. |

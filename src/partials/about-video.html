@@ -1,0 +1,21 @@
+        <!-- Click-to-play facade for the YouTube clip.
+
+             The YouTube player is heavy — several hundred KB of script plus
+             cookies — and most visitors never press play, so loading it on
+             every page view would slow the site down for nothing. Instead we
+             show a locally hosted poster frame and only build the iframe once
+             someone actually clicks. Nothing is requested from YouTube until
+             then, and the embed uses youtube-nocookie.com when it happens.
+
+             To point this at a different video, change data-yt-id (the part
+             of the YouTube URL after youtu.be/) and replace the poster image.
+             See assets/img/README.md. -->
+        <div class="videobox reveal" data-yt-id="k8vJiYJKods">
+          <button class="videobox__btn" type="button">
+            <img class="videobox__poster" src="assets/img/about-video-poster.jpg" alt="" width="960" height="540" loading="lazy">
+            <span class="videobox__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+            </span>
+            <span class="videobox__label">Meet Simply Spotless <span>Watch the video</span></span>
+          </button>
+        </div>

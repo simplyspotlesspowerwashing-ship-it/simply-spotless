@@ -30,6 +30,8 @@ const CTA = partial("cta");
 const QUOTE_FORM = partial("quote-form");
 const HERO_FORM = partial("hero-form");
 const ABOUT_VIDEO = partial("about-video");
+const BARE_HEADER = partial("bare-header");
+const BARE_FOOTER = partial("bare-footer");
 
 const SITE = {
   name: "Simply Spotless Pressure Washing",
@@ -114,6 +116,13 @@ function layout({ meta, body, slug }) {
       ? `${meta.title} | House Washing, Driveways &amp; Gutters`
       : `${meta.title} | ${SITE.name}`;
 
+  // `bare: true` in a page's front matter drops the nav, the page banner and
+  // the full footer. It exists for the quote page: someone who clicked "Get A
+  // Fast Quote" has already decided, and every extra link is a chance to
+  // wander off. The logo still goes home and the phone number is still one
+  // tap, so nobody is trapped.
+  const bare = String(meta.bare || "").trim() === "true";
+
   // Mark the active nav item so the current page is highlighted.
   let header = HEADER;
   const navKey = meta.nav || slug;
@@ -129,7 +138,7 @@ function layout({ meta, body, slug }) {
     header = header.replace('data-nav="services-group"', 'data-nav="services-group" data-active-group');
   }
 
-  const hero = slug === "index" ? "" : pageHero(meta, slug);
+  const hero = bare || slug === "index" ? "" : pageHero(meta, slug);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -160,14 +169,14 @@ function layout({ meta, body, slug }) {
        invisible, so turn the animation off entirely in that case. -->
   <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
-<body data-page="${slug}">
+<body data-page="${slug}"${bare ? ' class="is-bare"' : ""}>
   <a class="skip-link" href="#main">Skip to content</a>
-${header}
+${bare ? BARE_HEADER : header}
   <main id="main">
 ${hero}
 ${body.trimEnd()}
   </main>
-${FOOTER}
+${bare ? BARE_FOOTER : FOOTER}
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>

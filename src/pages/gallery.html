@@ -16,18 +16,6 @@ heroArt: assets/img/hero-gallery.jpg
         <p class="section__sub">Real jobs, real results. Drag the handle across a photo to reveal the difference. More going up as we finish them.</p>
       </div>
 
-      <!--
-        Two kinds of item live in this grid:
-
-        - A slider (.ba) for pairs shot from close enough to the same spot that
-          the two frames line up. Dragging one that doesn't line up looks
-          broken, so this is not the default.
-        - A side-by-side (.twoup) for pairs shot from different spots or
-          distances. Honest, and it still reads at a glance.
-
-        Adding a new job: copy whichever block fits, point the two <img> tags
-        at your new files, and rewrite the alt text and the caption.
-      -->
       <div class="gallery">
         <figure class="gallery__item reveal">
           <div class="ba" data-ba>
@@ -98,7 +86,21 @@ heroArt: assets/img/hero-gallery.jpg
           </div>
           <figcaption><strong>House Washing &mdash; Blue Siding</strong><span>Heavy growth cleared off the wall and window trim</span></figcaption>
         </figure>
-        <figure class="gallery__item gallery__item--wide reveal">
+         <figure class="gallery__item gallery__item--wide reveal">
+          <div class="twoup">
+            <div class="twoup__pane">
+              <img src="assets/img/ba-deck-before.jpg" alt="A wooden deck gone grey and green with weathering and algae" loading="lazy">
+              <span class="ba__label ba__label--before">Before</span>
+            </div>
+            <div class="twoup__pane">
+              <img src="assets/img/ba-deck-after.jpg" alt="The same deck after washing — warm brown timber, grain showing again" loading="lazy">
+              <span class="ba__label ba__label--after">After</span>
+            </div>
+          </div>
+          <figcaption><strong>Deck Washing &mdash; Pressure-Treated Pine</strong><span>Years of grey weathering and green growth taken off the boards</span></figcaption>
+        </figure>
+
+       <figure class="gallery__item gallery__item--wide reveal">
           <div class="twoup">
             <div class="twoup__pane">
               <img src="assets/img/ba-fenceline-before.jpg" alt="A long run of vinyl fence gone grey-green with algae" loading="lazy">
@@ -138,12 +140,22 @@ heroArt: assets/img/hero-gallery.jpg
           <figcaption><strong>House Washing &mdash; Weathered Vinyl</strong><span>Grey-green film lifted off, leaving the original yellow</span></figcaption>
         </figure>
 
+        <figure class="gallery__item gallery__item--wide reveal">
+          <div class="twoup">
+            <div class="twoup__pane">
+              <img src="assets/img/ba-porch-before.jpg" alt="Concrete porch steps darkened by moss and matted leaf litter" loading="lazy">
+              <span class="ba__label ba__label--before">Before</span>
+            </div>
+            <div class="twoup__pane">
+              <img src="assets/img/ba-porch-after.jpg" alt="The same steps after washing — clean aggregate, sharp edges" loading="lazy">
+              <span class="ba__label ba__label--after">After</span>
+            </div>
+          </div>
+          <figcaption><strong>Concrete &mdash; Porch Steps</strong><span>Moss and leaf staining cleared out of the aggregate</span></figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- A "How To Get Great Before & Afters" checklist used to sit here. It was
-       written for whoever maintains the site, not for customers, so it now
-       lives in assets/img/README.md where the rest of that guidance is. -->
 
 {{CTA}}

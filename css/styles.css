@@ -931,6 +931,78 @@ p { margin: 0 0 1em; }
 .ba__range::-moz-range-thumb { width: 60px; height: 100%; border: 0; background: transparent; }
 .ba__frame:has(.ba__range:focus-visible) { outline: 3px solid rgba(2, 116, 190, .55); outline-offset: 3px; }
 
+/* ---------- Bare quote page (bare: true in a page's front matter) ---------- */
+.bare-header {
+  background: var(--white);
+  box-shadow: 0 1px 0 var(--line-200);
+}
+.bare-header__inner {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.quotepage {
+  background:
+    radial-gradient(800px 500px at 78% 18%, rgba(20, 143, 215, .35), transparent 62%),
+    linear-gradient(20deg, var(--blue-400) 0%, var(--navy-700) 100%);
+  padding: clamp(2.4rem, 6vw, 4.4rem) 0 clamp(2.8rem, 6vw, 4.4rem);
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+}
+.quotepage__inner {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 460px);
+  gap: clamp(1.8rem, 5vw, 4rem);
+  align-items: center;
+}
+.quotepage h1 {
+  color: var(--white);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  margin: 0 0 .35em;
+}
+.quotepage__sub {
+  color: #dcedf8;
+  font-size: 1.08rem;
+  max-width: 44ch;
+  margin-bottom: 1.6rem;
+}
+.quotepage__or { color: #bcd8ec; font-size: .92rem; margin: .9rem 0 0; }
+.quotepage__email { margin: .5rem 0 0; }
+.quotepage__email a { color: var(--white); font-weight: 600; text-decoration: underline; }
+
+.bare-footer {
+  background: var(--navy-900);
+  color: #9cb8cb;
+  font-size: .85rem;
+}
+.bare-footer__inner {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.bare-footer a { color: var(--sky-300); }
+
+/* The sticky mobile call bar is for browsing pages — on the quote page the
+   call button and the form are already the whole screen. */
+body.is-bare .mobile-cta { display: none; }
+body.is-bare { padding-bottom: 0; }
+
+@media (max-width: 900px) {
+  .quotepage__inner { grid-template-columns: 1fr; }
+  .quotepage { min-height: 0; }
+}
+@media (max-width: 520px) {
+  .bare-header__phone { display: none; }
+}
+
 /* ---------- Click-to-play video ---------- */
 .videobox {
   position: relative;

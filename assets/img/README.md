@@ -9,8 +9,7 @@
 | `hero-power.jpg` | Banner at the top of the Power Washing page — a frame from the hero video's surface-cleaner clip. |
 | `about-video-poster.jpg` | Still shown before the About video is played. Replace it if you point the player at a different video — see `src/partials/about-video.html`. |
 | `hero-gallery.jpg` | Banner at the top of the Gallery page (the tan apartment building). |
-| `hero-sign.jpg` | Banner at the top of the Reviews and Contact pages (the yard sign), on laptops and tablets. |
-| `hero-sign-m.jpg` | The same banner reframed for phones — sign lower and smaller, so it sits under the buttons rather than behind them. |
+| `hero-sign.jpg` | Banner at the top of the Reviews page. The portrait photo is scaled to fit the height and set right of centre, over a blurred copy of itself — a portrait shot cropped to a 3.6:1 banner otherwise zooms in past the subject. |
 | `hero-house.svg`, `hero-driveway.svg`, `hero-deck.svg` | Illustrated banners on the remaining inner pages. |
 | `ba-siding-before/after.jpg` | House page slider **and** gallery slider — the close siding crop. |
 | `ba-gable-before/after.jpg` | Gallery slider — the tan gable wall. |
@@ -20,6 +19,8 @@
 | `ba-fenceline-before/after.jpg` | Gallery side-by-side — the long fence run. |
 | `ba-stairwell-before/after.jpg` | Gallery side-by-side — the basement stairwell. |
 | `ba-yellow-before/after.jpg` | Gallery side-by-side — the pale yellow wall. |
+| `ba-deck-before/after.jpg` | Gallery side-by-side — the pressure-treated deck. |
+| `ba-porch-before/after.jpg` | Gallery side-by-side — the concrete porch steps. |
 | `logo.png` | The badge in the site header. |
 | `favicon-*.png`, `apple-touch-icon.png` | Browser tab and phone home-screen icons. |
 

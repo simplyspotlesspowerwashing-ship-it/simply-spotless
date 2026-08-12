@@ -8,15 +8,12 @@ nav: home
        Two backgrounds, one behind the other. The still photo always loads;
        on wider screens the looping video fades in over it. The video's URL
        sits in data-src rather than a <source> tag on purpose - main.js only
-       attaches it above the desktop breakpoint, so phones never download
-       the 4 MB file. See assets/videos/README.md.
+       attaches it above the desktop breakpoint, so phones never download it.
        ==================================================== -->
   <section class="hero" id="home" aria-label="Welcome">
     <div class="hero__media">
       <div class="hero__art" style="background-image:url('assets/img/hero.jpg')"></div>
-      <!-- The hero is roughly 1:3.3 on a phone because it carries the quote
-           form, and cover crops a landscape photo down to a sliver of blank
-           siding. This portrait crop of the same frame takes over there. -->
+      <!-- Phones get a crop of the same frame shaped to their taller hero. -->
       <div class="hero__art hero__art--m" style="background-image:url('assets/img/hero-m.jpg')"></div>
       <video class="hero__video" id="heroVideo"
              data-src="assets/videos/hero-1.mp4"

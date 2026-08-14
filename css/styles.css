@@ -595,10 +595,6 @@ p { margin: 0 0 1em; }
     rgba(0, 22, 37, .22) 64%,
     transparent 86%);
 }
-/* The blue wash is what makes a photograph read as part of the site, but at
-   full strength it drains a person's face. Banners of a person say
-   `heroScrim: light`; the left-hand darkening above still protects the copy. */
-.pagehero--scrim-light .pagehero__shade { opacity: .64; }
 
 /* On a phone the copy runs the full width, so there is no clear right-hand
    side to protect — darken from the top down instead, which is where the
@@ -693,6 +689,9 @@ p { margin: 0 0 1em; }
 .split__copy p { color: var(--ink-600); }
 .split__copy .btn { margin-top: .6rem; }
 .split__art { position: relative; }
+/* A real photograph rather than one of the flat illustrations — keep more of
+   its width than the 4:3 illustration slot allows. */
+.split__art--photo img { aspect-ratio: 16 / 10; }
 .split__art img {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
@@ -1181,8 +1180,24 @@ body.is-bare { padding-bottom: 0; }
   opacity: .13;
   pointer-events: none;
 }
-.review .stars { margin-bottom: .85rem; }
-.review .stars svg { width: 104px; height: 20px; fill: var(--yellow-500); }
+/* Holds the shared <defs> for the star shape — never rendered itself. */
+.svgdefs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* The stars sit grey until the card scrolls into view, then turn gold one
+   after another, left to right. .is-visible is added by the reveal
+   observer in main.js. */
+.review .stars { margin-bottom: .8rem; }
+.review .stars svg { width: 88px; height: 17px; }
+.review .stars use {
+  fill: #dde5eb;
+  transition: fill .3s ease;
+}
+.review.is-visible .stars use { fill: var(--yellow-500); }
+.review.is-visible .stars use:nth-of-type(1) { transition-delay: .18s; }
+.review.is-visible .stars use:nth-of-type(2) { transition-delay: .32s; }
+.review.is-visible .stars use:nth-of-type(3) { transition-delay: .46s; }
+.review.is-visible .stars use:nth-of-type(4) { transition-delay: .60s; }
+.review.is-visible .stars use:nth-of-type(5) { transition-delay: .74s; }
 .review blockquote {
   position: relative;
   margin: 0 0 1.4rem;
@@ -1192,36 +1207,21 @@ body.is-bare { padding-bottom: 0; }
   flex: 1;
 }
 .review figcaption {
-  display: flex;
-  align-items: center;
-  gap: .7rem;
   font-family: var(--font-head);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--navy-700);
-  font-size: .95rem;
+  font-size: 1.18rem;
+  line-height: 1.25;
   border-top: 1px solid var(--line-200);
   padding-top: 1rem;
 }
-.review__avatar {
-  flex: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(140deg, var(--blue-400), var(--navy-700));
-  color: var(--white);
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-.review figcaption span span,
-.review__who span {
+.review figcaption span {
   display: block;
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: .8rem;
+  font-size: .84rem;
   color: var(--ink-400);
-  margin-top: .1em;
+  margin-top: .2em;
 }
 
 .ratingbar {
@@ -1741,4 +1741,7 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
     transition-duration: .01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+  /* The block above shortens durations but not delays — without this the
+     stars would still wait most of a second before snapping to gold. */
+  .review .stars use { transition-delay: 0s !important; }
 }

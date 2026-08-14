@@ -121,9 +121,9 @@
 
   <main id="main">
 
-  <section class="pagehero pagehero--photo pagehero--dual pagehero--scrim-light" aria-label="Reviews">
+  <section class="pagehero pagehero--photo pagehero--dual" aria-label="Reviews">
     <div class="pagehero__art" style="background-image:url('assets/img/hero-story.jpg');background-position:right center"></div>
-    <div class="pagehero__art pagehero__art--m" style="background-image:url('assets/img/hero-story-m.jpg')"></div>
+    <div class="pagehero__art pagehero__art--m" style="background-image:url('assets/img/hero-story-m.jpg');background-position:center top"></div>
     <div class="pagehero__shade"></div>
     <div class="container pagehero__content">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Reviews</span></nav>
@@ -151,21 +151,27 @@
   <!-- ======================= REVIEWS =======================
        Real customers, in their own words — copied exactly as they wrote
        them, typos and all. Do not edit the wording. To add another, copy
-       one <figure> block and fill in the quote, the name and the initial
-       in review__avatar. This file is shared by reviews.html and
-       about.html through the {{REVIEWS}} placeholder.
+       one <figure> block and fill in the quote and the name. This file is
+       shared by reviews.html and about.html through {{REVIEWS}}.
+
+       The star shape is defined once below and referenced by every card.
+       The stars start grey and turn gold one after another when the card
+       scrolls into view — see .stars in the stylesheet.
        ======================================================= -->
+  <svg class="svgdefs" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="revStar" d="M10 1.4l2.6 5.3 5.9.9-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L1.5 7.6l5.9-.9z"/>
+    </defs>
+  </svg>
+
   <div class="reviews-grid reviews-grid--page">
     <figure class="review reveal">
       <span class="review__quote" aria-hidden="true">&ldquo;</span>
       <div class="stars" role="img" aria-label="Five out of five stars">
-        <svg viewBox="0 0 104 20" aria-hidden="true"><defs><path id="revStar" d="M10 1.4l2.6 5.3 5.9.9-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L1.5 7.6l5.9-.9z"/></defs><use href="#revStar" x="0"/><use href="#revStar" x="21"/><use href="#revStar" x="42"/><use href="#revStar" x="63"/><use href="#revStar" x="84"/></svg>
+        <svg viewBox="0 0 104 20" aria-hidden="true"><use href="#revStar" x="0"/><use href="#revStar" x="21"/><use href="#revStar" x="42"/><use href="#revStar" x="63"/><use href="#revStar" x="84"/></svg>
       </div>
       <blockquote>I have hired Daniel Strattner several times to powerwash the fencing around our entire complex. He not only does a great job with a fair price but he is professional and so polite. He will definitely be our hire for the next time around. I wish him all the best.</blockquote>
-      <figcaption>
-        <span class="review__avatar" aria-hidden="true">G</span>
-        <span class="review__who">Gayle<span>Cherry Brook Condos</span></span>
-      </figcaption>
+      <figcaption>Gayle<span>Cherry Brook Condos</span></figcaption>
     </figure>
 
     <figure class="review reveal">
@@ -174,10 +180,7 @@
         <svg viewBox="0 0 104 20" aria-hidden="true"><use href="#revStar" x="0"/><use href="#revStar" x="21"/><use href="#revStar" x="42"/><use href="#revStar" x="63"/><use href="#revStar" x="84"/></svg>
       </div>
       <blockquote>I recommend them highly professional on time does the job very well prices are reasonable and I just love this little entrepreneur and I love to support new Young businesses</blockquote>
-      <figcaption>
-        <span class="review__avatar" aria-hidden="true">S</span>
-        <span class="review__who">Suzette</span>
-      </figcaption>
+      <figcaption>Suzette</figcaption>
     </figure>
 
     <figure class="review reveal">
@@ -186,10 +189,7 @@
         <svg viewBox="0 0 104 20" aria-hidden="true"><use href="#revStar" x="0"/><use href="#revStar" x="21"/><use href="#revStar" x="42"/><use href="#revStar" x="63"/><use href="#revStar" x="84"/></svg>
       </div>
       <blockquote>Thanks so much !! I will let neighbors &amp; friends know what a great job you did !!</blockquote>
-      <figcaption>
-        <span class="review__avatar" aria-hidden="true">K</span>
-        <span class="review__who">Katie</span>
-      </figcaption>
+      <figcaption>Katie</figcaption>
     </figure>
   </div>
 

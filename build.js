@@ -82,8 +82,9 @@ function pageHero(meta, slug) {
   // url() inside a custom property is resolved against the stylesheet that
   // reads it, so `assets/…` would be looked up under css/ and 404.
   const dual = meta.heroArtMobile ? " pagehero--dual" : "";
+  const posM = meta.heroArtPosMobile ? `;background-position:${meta.heroArtPosMobile}` : "";
   const mobileLayer = meta.heroArtMobile
-    ? `\n    <div class="pagehero__art pagehero__art--m" style="background-image:url('${meta.heroArtMobile}')"></div>`
+    ? `\n    <div class="pagehero__art pagehero__art--m" style="background-image:url('${meta.heroArtMobile}')${posM}"></div>`
     : "";
   // The banner's height is set by its text, so its aspect ratio swings from
   // about 2.9:1 on a laptop to 5:1 on a wide monitor and `cover` crops a
@@ -91,14 +92,11 @@ function pageHero(meta, slug) {
   // `heroArtPos: right center`, is built with them against that edge, and
   // then keeps them whole at every width.
   const pos = meta.heroArtPos ? `;background-position:${meta.heroArtPos}` : "";
-  // `heroScrim: light` thins the blue wash. Use it when the subject is a
-  // person rather than a wall — the default weight drains them.
-  const scrim = String(meta.heroScrim || "").trim() === "light" ? " pagehero--scrim-light" : "";
   const crumbs = meta.crumb
     ? `<a href="index.html">Home</a><span aria-hidden="true">/</span><span>${meta.crumb}</span>`
     : "";
   return `
-  <section class="pagehero${photo}${dual}${scrim}" aria-label="${escapeAttr(meta.heroTitle || meta.title)}">
+  <section class="pagehero${photo}${dual}" aria-label="${escapeAttr(meta.heroTitle || meta.title)}">
     <div class="pagehero__art" style="background-image:url('${art}')${pos}"></div>${mobileLayer}
     <div class="pagehero__shade"></div>
     <div class="container pagehero__content">

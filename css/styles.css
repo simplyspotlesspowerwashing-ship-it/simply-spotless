@@ -1402,6 +1402,26 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
 .areaband a { color: var(--yellow-500); font-weight: 700; }
 .areaband a:hover { text-decoration: underline; }
 
+/* The town lists sit on the dark band, so the chips flip to a light-on-dark
+   treatment rather than the white pills used on a pale background. */
+.areaband__sub {
+  color: var(--sky-300);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin: 1.9rem 0 .9rem;
+}
+.areaband .area-grid { gap: .45rem .5rem; }
+.areaband .area-chip {
+  background: rgba(255, 255, 255, .07);
+  border-color: rgba(255, 255, 255, .16);
+  color: #dbe9f4;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: .38em .85em;
+}
+.areaband__note { margin-top: 1.8rem; font-size: .92rem; }
+
 .footer { background: var(--navy-900); color: #9cb8cb; }
 
 .footer__inner {

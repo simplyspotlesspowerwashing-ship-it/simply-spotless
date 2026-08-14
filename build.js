@@ -34,6 +34,39 @@ const REVIEWS = partial("reviews");
 const BARE_HEADER = partial("bare-header");
 const BARE_FOOTER = partial("bare-footer");
 
+/* ---------------------------------------------------------------------
+   Business facts for the search engines.
+
+   Read straight out of js/config.js so the phone number and email have
+   exactly one home. Change them there and both the page text and the
+   structured data below follow.
+   ------------------------------------------------------------------- */
+const CONFIG = (() => {
+  const src = fs.readFileSync(path.join(ROOT, "js", "config.js"), "utf8");
+  const body = src.slice(src.indexOf("{"), src.lastIndexOf("}") + 1);
+  return Function("return (" + body + ")")();
+})();
+
+// Pearl River, NY 10965 — Town of Orangetown, Rockland County.
+const PLACE = {
+  locality: "Pearl River",
+  region: "NY",
+  postalCode: "10965",
+  lat: 41.0557,
+  lon: -74.0076,
+};
+
+// The towns named in the service-area band, so the two never disagree.
+const AREA_SERVED = [
+  "Pearl River", "Nanuet", "Blauvelt", "Orangeburg", "Tappan",
+  "Montvale", "River Vale",
+];
+
+const SERVICES = [
+  "House Washing", "Power Washing", "Driveway Cleaning", "Gutter Cleaning",
+  "Deck and Fence Cleaning", "Soft Washing",
+];
+
 const SITE = {
   name: "Simply Spotless Pressure Washing",
   // Live URL — used for canonical + social-preview tags.
@@ -118,11 +151,65 @@ function escapeAttr(s) {
   return String(s).replace(/"/g, "&quot;");
 }
 
+
+/* Structured data. One LocalBusiness node, the same @id on every page, so
+   Google reads nine pages as one business rather than nine.
+
+   Deliberately absent: aggregateRating and review. Ratings a site awards
+   itself are not eligible for rich results and inviting a manual penalty
+   is not worth a star graphic. The real reviews live on the page as text.  */
+function structuredData() {
+  const b = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": SITE.url + "/#business",
+    name: CONFIG.businessName,
+    url: SITE.url + "/",
+    logo: SITE.url + "/assets/img/logo.png",
+    image: SITE.url + "/assets/img/og-cover.jpg",
+    telephone: CONFIG.phoneDial,
+    email: CONFIG.email,
+    description:
+      "Owner-operated exterior cleaning in " + PLACE.locality + ", " + PLACE.region +
+      ": house washing, power washing for driveways and patios, and gutter cleaning.",
+    founder: { "@type": "Person", name: "Daniel Strattner" },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: PLACE.locality,
+      addressRegion: PLACE.region,
+      postalCode: PLACE.postalCode,
+      addressCountry: "US",
+    },
+    geo: { "@type": "GeoCoordinates", latitude: PLACE.lat, longitude: PLACE.lon },
+    areaServed: AREA_SERVED.map((name) => ({ "@type": "City", name })),
+    openingHoursSpecification: [{
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "08:00",
+      closes: "18:00",
+    }],
+    sameAs: ["https://www.facebook.com/profile.php?id=61573564414062"],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Exterior cleaning services",
+      itemListElement: SERVICES.map((name) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name, areaServed: PLACE.locality + ", " + PLACE.region },
+      })),
+    },
+  };
+  return `<script type="application/ld+json">${JSON.stringify(b)}<\/script>`;
+}
+
 function layout({ meta, body, slug }) {
+  // `titleTag:` is the <title> Google shows in results — it carries the town,
+  // because local searches are "pressure washing pearl river", not the brand.
+  // `title:` stays the short human name used for headings and breadcrumbs.
   const title =
-    slug === "index"
+    meta.titleTag ||
+    (slug === "index"
       ? `${meta.title} | House Washing, Driveways &amp; Gutters`
-      : `${meta.title} | ${SITE.name}`;
+      : `${meta.title} | ${SITE.name}`);
 
   // `bare: true` in a page's front matter drops the nav, the page banner and
   // the full footer. It exists for the quote page: someone who clicked "Get A
@@ -180,6 +267,7 @@ function layout({ meta, body, slug }) {
   <meta property="og:image" content="${SITE.url}/assets/img/og-cover.jpg">
   <meta property="og:image:alt" content="Daniel soft washing the siding of a home">
   <meta name="twitter:card" content="summary_large_image">
+  ${structuredData()}
   <!-- Tab-sized icons use a simplified mark from the logo's palette: three
        lines of type cannot resolve at 16-32px. Larger icons use the badge. -->
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">

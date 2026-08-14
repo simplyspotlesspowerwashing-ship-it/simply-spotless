@@ -115,6 +115,8 @@
         </div>
         <fieldset class="field field--services">
           <legend>What can we clean for you?</legend>
+          <!-- Laid out as a grid of tiles rather than a wrapped pill row —
+               there is room for it since the message box came out. -->
           <div class="chips">
             <label class="chip"><input type="checkbox" name="services[]" value="House Washing"><span>House Washing</span></label>
             <label class="chip"><input type="checkbox" name="services[]" value="Driveway / Concrete"><span>Driveway / Concrete</span></label>
@@ -124,10 +126,6 @@
             <label class="chip"><input type="checkbox" name="services[]" value="Not sure yet"><span>Not sure yet</span></label>
           </div>
         </fieldset>
-        <div class="field">
-          <label for="qfMessage">Anything else we should know?</label>
-          <textarea id="qfMessage" name="message" rows="4" placeholder="Tell us about the job — size, surfaces, problem spots…"></textarea>
-        </div>
         <button class="btn btn--primary btn--lg quote-form__submit" type="submit">
           Send My Free Quote Request
           <svg viewBox="0 0 24 24" class="icon"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>

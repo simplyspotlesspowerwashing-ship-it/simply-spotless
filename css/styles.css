@@ -1779,3 +1779,137 @@ a.contact__channel:hover { background: rgba(255, 255, 255, .14); transform: tran
      stars would still wait most of a second before snapping to gold. */
   .review .stars use { transition-delay: 0s !important; }
 }
+
+/* ---------- Exit offer ----------
+   A single modal, shown once per visitor when they look like they're
+   leaving. z-index sits above the header (200) and the mobile call bar. */
+.offer {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem;
+}
+.offer[hidden] { display: none; }
+.offer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 22, 37, .68);
+  backdrop-filter: blur(3px);
+  animation: offerFade .25s ease both;
+}
+.offer__card {
+  position: relative;
+  width: min(430px, 100%);
+  max-height: calc(100vh - 2.4rem);
+  overflow-y: auto;
+  text-align: center;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 2.6rem 2rem 2rem;
+  animation: offerRise .3s cubic-bezier(.2, .8, .3, 1) both;
+}
+/* Yellow band across the top, the same signature as the review cards. */
+.offer__card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: linear-gradient(90deg, var(--yellow-500), var(--blue-400));
+}
+.offer__close {
+  position: absolute;
+  top: .7rem;
+  right: .7rem;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--ink-400);
+  cursor: pointer;
+  transition: background .16s ease, color .16s ease;
+}
+.offer__close svg { width: 20px; height: 20px; }
+.offer__close:hover { background: var(--bg-tint); color: var(--navy-700); }
+.offer__eyebrow {
+  margin: 0 0 .6rem;
+  font-family: var(--font-head);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+}
+.offer__amount {
+  margin: 0;
+  font-family: var(--font-head);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--navy-700);
+}
+.offer__dollars { font-size: 4.2rem; letter-spacing: -.02em; }
+.offer__off {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--blue-400);
+}
+.offer__title {
+  margin: .35em 0 .5em;
+  font-size: 1.5rem;
+  color: var(--navy-700);
+}
+.offer__text {
+  margin: 0 auto 1.5rem;
+  max-width: 34ch;
+  color: var(--ink-600);
+  font-size: .96rem;
+  line-height: 1.65;
+}
+.offer__cta { width: 100%; }
+.offer__dismiss {
+  display: block;
+  margin: .9rem auto 0;
+  border: 0;
+  background: none;
+  color: var(--ink-400);
+  font-family: var(--font-body);
+  font-size: .88rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.offer__dismiss:hover { color: var(--navy-700); }
+
+/* The quote page confirms the discount came across with the visitor. */
+.offer-note {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 0 1.2rem;
+  padding: .75rem .9rem;
+  border-radius: var(--radius-md);
+  background: rgba(20, 143, 215, .08);
+  border: 1.5px solid var(--blue-400);
+  color: var(--navy-700);
+  font-size: .92rem;
+  font-weight: 600;
+}
+.offer-note svg { width: 20px; height: 20px; flex: none; color: var(--blue-400); }
+
+@keyframes offerFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes offerRise {
+  from { opacity: 0; transform: translateY(18px) scale(.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (max-width: 480px) {
+  .offer__card { padding: 2.3rem 1.4rem 1.6rem; }
+  .offer__dollars { font-size: 3.4rem; }
+  .offer__title { font-size: 1.3rem; }
+}

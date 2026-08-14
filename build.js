@@ -31,6 +31,7 @@ const QUOTE_FORM = partial("quote-form");
 const HERO_FORM = partial("hero-form");
 const ABOUT_VIDEO = partial("about-video");
 const REVIEWS = partial("reviews");
+const OFFER_POPUP = partial("offer-popup");
 const BARE_HEADER = partial("bare-header");
 const BARE_FOOTER = partial("bare-footer");
 
@@ -293,6 +294,7 @@ ${hero}
 ${body.trimEnd()}
   </main>
 ${bare ? BARE_FOOTER : FOOTER}
+${bare ? "" : OFFER_POPUP}
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>

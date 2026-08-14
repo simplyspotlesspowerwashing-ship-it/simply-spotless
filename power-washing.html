@@ -423,6 +423,44 @@
     <a href="contact.html" class="mobile-cta__quote">Free Quote</a>
   </div>
 
+  <!-- ======================= EXIT OFFER =======================
+       Shown once per visitor, and only when they look like they are
+       leaving — the mouse heading out through the top of the window on a
+       desktop, or a decisive scroll back up on a phone. Never on a timer,
+       and never on the quote page, where the whole point is no friction.
+       See initOfferPopup() in js/main.js.
+
+       To change the offer, edit the text here. To switch it off entirely,
+       delete the {{OFFER_POPUP}} line from build.js.
+       ========================================================== -->
+  <div class="offer" id="offerPopup" hidden>
+    <div class="offer__backdrop" data-offer-close></div>
+
+    <div class="offer__card" role="dialog" aria-modal="true"
+         aria-labelledby="offerTitle" aria-describedby="offerText">
+      <button class="offer__close" type="button" data-offer-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+
+      <p class="offer__eyebrow">Before you go</p>
+
+      <p class="offer__amount"><span class="offer__dollars">$25</span> <span class="offer__off">off</span></p>
+
+      <h2 class="offer__title" id="offerTitle">Any House Wash</h2>
+
+      <p class="offer__text" id="offerText">
+        Take $25 off the quoted price on any house wash. Send us your details
+        and we'll come back with a price &mdash; free, and no obligation.
+      </p>
+
+      <a class="btn btn--primary btn--lg offer__cta" href="contact.html?offer=house-wash-25">
+        Claim My $25 Off
+      </a>
+
+      <button class="offer__dismiss" type="button" data-offer-close>No thanks</button>
+    </div>
+  </div>
+
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>

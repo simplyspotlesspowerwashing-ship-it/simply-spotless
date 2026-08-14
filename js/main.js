@@ -319,6 +319,147 @@
     items.forEach(function (el) { io.observe(el); });
   }
 
+
+  /* =========================================================
+     8. Exit offer
+     One modal, once per visitor, and only when they look like
+     they are leaving:
+       desktop — the mouse crosses out through the TOP of the
+                 window, which is where the tab bar, the back
+                 button and the address bar all live;
+       phone   — no mouse exists, so the equivalent signal is a
+                 decisive scroll back up after they have read a
+                 good way down the page.
+     Never on a timer, never twice, and never on the quote page
+     (the markup isn't emitted there at all).
+     ========================================================= */
+  var OFFER_KEY = "ss_offer_seen";
+  // A cursor can leave the window in the first moment of a page load
+  // without the visitor having done anything. Wait a few seconds.
+  var OFFER_ARM_MS = 4000;
+
+  function initOfferPopup() {
+    var offer = document.getElementById("offerPopup");
+    if (!offer) return;
+
+    var seen = false;
+    try { seen = window.localStorage.getItem(OFFER_KEY) === "1"; } catch (e) {}
+    if (seen) return;
+
+    var card = offer.querySelector(".offer__card");
+    var armed = false;
+    var open = false;
+    var lastFocus = null;
+
+    window.setTimeout(function () { armed = true; }, OFFER_ARM_MS);
+
+    function remember() {
+      try { window.localStorage.setItem(OFFER_KEY, "1"); } catch (e) {}
+    }
+
+    function show() {
+      if (open || !armed) return;
+      open = true;
+      remember();
+      lastFocus = document.activeElement;
+      offer.hidden = false;
+      document.body.style.overflow = "hidden";
+      var first = card.querySelector(".offer__cta");
+      if (first) first.focus();
+      detach();
+    }
+
+    function hide() {
+      if (!open) return;
+      open = false;
+      offer.hidden = true;
+      document.body.style.overflow = "";
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    /* --- desktop: mouse leaving through the top --- */
+    function onMouseOut(e) {
+      if (e.relatedTarget || e.toElement) return;   // still inside the page
+      if (e.clientY > 4) return;                    // left sideways or downward
+      show();
+    }
+
+    /* --- phone: read a way down, then scroll decisively back up --- */
+    var lastY = window.scrollY;
+    var upwards = 0;
+    var wentDown = false;
+    function onScroll() {
+      var y = window.scrollY;
+      var doc = document.documentElement.scrollHeight - window.innerHeight;
+      if (doc > 0 && y / doc > 0.35) wentDown = true;
+      if (y < lastY) {
+        upwards += lastY - y;
+        // 700px of upward travel, ending near the top: they're done reading.
+        if (wentDown && upwards > 700 && y < 400) show();
+      } else {
+        upwards = 0;
+      }
+      lastY = y;
+    }
+
+    function detach() {
+      document.removeEventListener("mouseout", onMouseOut);
+      window.removeEventListener("scroll", onScroll);
+    }
+
+    document.addEventListener("mouseout", onMouseOut);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    offer.addEventListener("click", function (e) {
+      if (e.target.closest("[data-offer-close]")) hide();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (!open) return;
+      if (e.key === "Escape") { hide(); return; }
+      // Keep tabbing inside the dialog while it is open.
+      if (e.key !== "Tab") return;
+      var f = card.querySelectorAll("a[href], button");
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+
+    // Following the CTA counts as accepting it; don't show it again.
+    var cta = offer.querySelector(".offer__cta");
+    if (cta) cta.addEventListener("click", remember);
+  }
+
+  /* =========================================================
+     9. Carrying the offer through to the quote
+     The popup's button lands on the quote page with ?offer= on
+     the URL. Stash it in the form so the emailed request says
+     which discount was promised, and tell the visitor it came
+     across so they aren't left wondering.
+     ========================================================= */
+  var OFFERS = { "house-wash-25": "$25 off a house wash" };
+
+  function initOfferClaim() {
+    var code = new URLSearchParams(window.location.search).get("offer");
+    var label = code && OFFERS[code];
+    if (!label) return;
+
+    document.querySelectorAll("form[data-quote-form]").forEach(function (form) {
+      var input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "Offer claimed";
+      input.value = label;
+      form.appendChild(input);
+
+      var note = document.createElement("p");
+      note.className = "offer-note";
+      note.innerHTML =
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7L10 17l-6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        "<span>" + label + " applied \u2014 we'll include it in your quote.</span>";
+      form.insertBefore(note, form.firstChild);
+    });
+  }
+
   /* =========================================================
      Boot
      ========================================================= */
@@ -330,6 +471,8 @@
     initVideoBoxes();
     initBeforeAfter();
     initReveals();
+    initOfferPopup();
+    initOfferClaim();
   }
 
   if (document.readyState === "loading") {

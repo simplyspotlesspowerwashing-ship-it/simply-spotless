@@ -16,14 +16,18 @@ Cloudflare Pages, or ordinary shared hosting.
 | Power Washing | `power-washing.html` |
 | Gutter Cleaning | `gutter-cleaning.html` |
 | Benefits of Soft Washing | `benefits-of-soft-washing.html` |
-| Service Area | `service-area.html` |
 | Gallery | `gallery.html` |
 | Reviews | `reviews.html` |
 | Contact | `contact.html` |
 
 Navigation: Home · About · Services (House Washing, Power Washing, Gutter
-Cleaning, Benefits of Soft Washing) · Service Area · Gallery · Reviews ·
-Contact, with a yellow **Get A Fast Quote** button always visible.
+Cleaning, Benefits of Soft Washing) · Gallery · Reviews, with a yellow
+**Get A Fast Quote** button always visible. There is deliberately no Contact
+tab — the button goes to the same place. `contact.html` is a stripped
+quote page: no nav, no footer links, nothing to click but the form.
+
+The service area lives in a band above the footer (a drawn map plus the town
+list) rather than on its own page.
 
 Services offered are house washing, power washing (driveways, patios, decks,
 fences, walkways) and gutter cleaning — residential only.
@@ -92,11 +96,13 @@ which the workflow's `paths` filter excludes, so it cannot loop.
 
 ## Live site
 
-**https://simplyspotlesspowerwashing-ship-it.github.io/simply-spotless/**
+**https://simplyspotlesspressurewash.com**
 
 Published by GitHub Pages from the `claude/spotless-pressure-washing-site-dc5jzw`
 branch (repo root). Every push redeploys automatically. A `.nojekyll` file is
 present so Pages serves the files as-is instead of running them through Jekyll.
+The old `simplyspotlesspowerwashing-ship-it.github.io/simply-spotless` address
+still works and redirects here. See **Hosting and DNS** below.
 
 ## Run it locally
 
@@ -109,29 +115,52 @@ python3 -m http.server 8080
 
 1. ~~**Phone number**~~ — done: `(845) 650 7548`, set in `js/config.js`.
 2. ~~**Hours and email**~~ — done: Mon–Sun 8am–6pm.
-3. **Quote form** — posts to [FormSubmit](https://formsubmit.co) using your
-   Gmail address. After deploying, submit the form once yourself: FormSubmit
-   emails a one-time activation link. Click it and every request after that
-   lands in your inbox. (Netlify Forms or Formspree work too — just change
-   `formEndpoint` in `js/config.js`.)
-4. **Reviews** — the testimonials on `reviews.html` and the home page are
-   clearly-marked **sample text**. Replace them with real customer reviews.
-5. **Service area** — `service-area.html` has placeholder town names. Put
-   your real towns, cities and ZIP codes there; it is one of the highest-impact
-   things you can do for local search.
-6. ~~**Hero video**~~ — done: `assets/videos/hero-1.mp4` is in place.
-7. **Gallery photos** — one real before/after pair is in place
-   (`assets/img/ba-before.jpg` / `ba-after.jpg`, used on the home page and the
-   Gallery). Add more pairs as jobs finish.
-8. **Domain** — when you move to a custom domain, set `url` at the top of
-   `build.js` and re-run `node build.js` so the canonical URLs match.
-9. **Social links** — the footer's Facebook / Instagram / Google icons point
-    at `#`. Update them in `src/partials/footer.html`.
-10. ~~**Logo**~~ — done: `assets/img/logo.png`, used in the header, footer and
-    as the browser-tab icon (favicons are generated from it).
+3. **Quote form — DO THIS FIRST AFTER GOING LIVE.** The form posts to
+   [FormSubmit](https://formsubmit.co) using your Gmail address. It does not
+   deliver anything until it is activated: submit the form once yourself,
+   then click the one-time link FormSubmit emails you. Until you do, quote
+   requests are silently lost. Test it again afterwards to confirm.
+4. ~~**Reviews**~~ — done: three real customer reviews, in their own words.
+5. ~~**Service area**~~ — done: real towns and a drawn ten-mile map in the
+   band above the footer.
+6. ~~**Hero video**~~ — done: `assets/videos/hero-1.mp4`.
+7. **Gallery photos** — ten before/after pairs are in place. Add more as
+   jobs finish; see HOW-TO-UPDATE.md.
+8. ~~**Domain**~~ — done: `simplyspotlesspressurewash.com`, set in the
+   `CNAME` file and as `url` in `build.js`.
+9. **Social links** — Facebook is live. The Instagram and Google icons in
+   the footer still point at `#`. Either add the real URLs in
+   `src/partials/footer.html` or delete those two `<a>` blocks; a dead link
+   on a live site looks worse than no link.
+10. ~~**Logo**~~ — done: `assets/img/logo.png`, also used for the favicons.
+11. **Google Business Profile** — not part of this repo, but it is the
+    single highest-impact thing for local search. Create one, put this
+    domain in it, and ask the customers who left reviews to leave them
+    there too.
 
-Full step-by-step instructions for all of the above are in
-[HOW-TO-UPDATE.md](HOW-TO-UPDATE.md).
+Full step-by-step instructions are in [HOW-TO-UPDATE.md](HOW-TO-UPDATE.md).
+
+## Hosting and DNS
+
+The site is served by GitHub Pages from the `claude/spotless-pressure-washing-site-dc5jzw`
+branch of this repo, on the custom domain `simplyspotlesspressurewash.com`.
+
+Two things make the domain work, and both must agree:
+
+- **`CNAME`** in the repo root holds the domain. GitHub reads it on every
+  deploy. Deleting it drops the site back to the `github.io` address.
+- **DNS at the registrar** points the domain at GitHub:
+
+  | Type | Name | Value |
+  |---|---|---|
+  | A | `@` | `185.199.108.153` |
+  | A | `@` | `185.199.109.153` |
+  | A | `@` | `185.199.110.153` |
+  | A | `@` | `185.199.111.153` |
+  | CNAME | `www` | `simplyspotlesspowerwashing-ship-it.github.io` |
+
+Changing domain later means editing three things together: the `CNAME` file,
+`url` in `build.js` (then `node build.js`), and the DNS records.
 
 ## What's built in
 

@@ -38,7 +38,7 @@ const SITE = {
   name: "Simply Spotless Pressure Washing",
   // Live URL — used for canonical + social-preview tags.
   // Change this if you move to a custom domain, then re-run: node build.js
-  url: "https://simplyspotlesspowerwashing-ship-it.github.io/simply-spotless",
+  url: "https://simplyspotlesspressurewash.com",
 };
 
 /* ---------------------------------------------------------------------
@@ -175,6 +175,11 @@ function layout({ meta, body, slug }) {
   <meta property="og:title" content="${escapeAttr(title.replace(/&amp;/g, "&"))}">
   <meta property="og:description" content="${escapeAttr(meta.description || "")}">
   <meta property="og:site_name" content="${SITE.name}">
+  <meta property="og:url" content="${SITE.url}/${slug === "index" ? "" : slug + ".html"}">
+  <!-- Without these two, sharing the link on Facebook posts a bare grey box. -->
+  <meta property="og:image" content="${SITE.url}/assets/img/og-cover.jpg">
+  <meta property="og:image:alt" content="Daniel soft washing the siding of a home">
+  <meta name="twitter:card" content="summary_large_image">
   <!-- Tab-sized icons use a simplified mark from the logo's palette: three
        lines of type cannot resolve at 16-32px. Larger icons use the badge. -->
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">

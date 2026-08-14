@@ -30,6 +30,7 @@ const CTA = partial("cta");
 const QUOTE_FORM = partial("quote-form");
 const HERO_FORM = partial("hero-form");
 const ABOUT_VIDEO = partial("about-video");
+const REVIEWS = partial("reviews");
 const BARE_HEADER = partial("bare-header");
 const BARE_FOOTER = partial("bare-footer");
 
@@ -84,12 +85,21 @@ function pageHero(meta, slug) {
   const mobileLayer = meta.heroArtMobile
     ? `\n    <div class="pagehero__art pagehero__art--m" style="background-image:url('${meta.heroArtMobile}')"></div>`
     : "";
+  // The banner's height is set by its text, so its aspect ratio swings from
+  // about 2.9:1 on a laptop to 5:1 on a wide monitor and `cover` crops a
+  // different slice at each. A banner with a person in it says
+  // `heroArtPos: right center`, is built with them against that edge, and
+  // then keeps them whole at every width.
+  const pos = meta.heroArtPos ? `;background-position:${meta.heroArtPos}` : "";
+  // `heroScrim: light` thins the blue wash. Use it when the subject is a
+  // person rather than a wall — the default weight drains them.
+  const scrim = String(meta.heroScrim || "").trim() === "light" ? " pagehero--scrim-light" : "";
   const crumbs = meta.crumb
     ? `<a href="index.html">Home</a><span aria-hidden="true">/</span><span>${meta.crumb}</span>`
     : "";
   return `
-  <section class="pagehero${photo}${dual}" aria-label="${escapeAttr(meta.heroTitle || meta.title)}">
-    <div class="pagehero__art" style="background-image:url('${art}')"></div>${mobileLayer}
+  <section class="pagehero${photo}${dual}${scrim}" aria-label="${escapeAttr(meta.heroTitle || meta.title)}">
+    <div class="pagehero__art" style="background-image:url('${art}')${pos}"></div>${mobileLayer}
     <div class="pagehero__shade"></div>
     <div class="container pagehero__content">
       <nav class="crumbs" aria-label="Breadcrumb">${crumbs}</nav>
@@ -212,7 +222,8 @@ files.forEach((file) => {
     .replace(/\{\{CTA\}\}/g, CTA)
     .replace(/\{\{QUOTE_FORM\}\}/g, QUOTE_FORM)
     .replace(/\{\{HERO_FORM\}\}/g, HERO_FORM)
-    .replace(/\{\{ABOUT_VIDEO\}\}/g, ABOUT_VIDEO);
+    .replace(/\{\{ABOUT_VIDEO\}\}/g, ABOUT_VIDEO)
+    .replace(/\{\{REVIEWS\}\}/g, REVIEWS);
 
   fs.writeFileSync(path.join(ROOT, slug + ".html"), layout({ meta, body: expanded, slug }));
   built++;

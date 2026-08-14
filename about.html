@@ -121,8 +121,9 @@
 
   <main id="main">
 
-  <section class="pagehero pagehero--photo" aria-label="About Simply Spotless">
-    <div class="pagehero__art" style="background-image:url('assets/img/hero-story.jpg')"></div>
+  <section class="pagehero pagehero--photo pagehero--dual pagehero--scrim-light" aria-label="About Simply Spotless">
+    <div class="pagehero__art" style="background-image:url('assets/img/hero-story.jpg');background-position:right center"></div>
+    <div class="pagehero__art pagehero__art--m" style="background-image:url('assets/img/hero-story-m.jpg')"></div>
     <div class="pagehero__shade"></div>
     <div class="container pagehero__content">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>About Us</span></nav>
@@ -171,23 +172,64 @@
     </div>
   </section>
 
-  <!-- The promises that used to be headed "Four Things We Don't Compromise
-       On". Same six as the home page's "What You Get" — this is the page
-       that earns them, sitting right under the story. -->
+  <!-- This slot used to hold a "What You Get" list of promises, written
+       because there were no reviews to show yet. There are now, so the
+       promises are gone and the customers speak instead. -->
   <section class="section section--tint">
     <div class="container">
       <div class="section__head reveal">
-        <p class="eyebrow">What You Get</p>
-        <h2>Every Job, <span class="accent-text">Done Right</span></h2>
-        <p class="section__sub">We're a new business, so we don't have a wall of reviews yet — here's exactly what we promise you instead.</p>
+        <p class="eyebrow">Reviews</p>
+        <h2>What Our Customers <span class="accent-text">Say</span></h2>
       </div>
-      <div class="tiles">
-        <div class="tile reveal"><h3>Honest Pricing</h3><p>The number we quote you is the number you pay. If we find something that changes the job, we stop and tell you before we do it — never after.</p></div>
-        <div class="tile reveal"><h3>The Right Method</h3><p>Siding gets soft washing at low pressure, not a blast that forces water behind it. Concrete gets the pressure it can take.</p></div>
-        <div class="tile reveal"><h3>Careful On Site</h3><p>Plants rinsed and protected before and after. Furniture back exactly where we found it. You shouldn't be able to tell we were there except that it's clean.</p></div>
-        <div class="tile reveal"><h3>Proof, Not Claims</h3><p>We take before and after photos of your own home and send them to you — so you can see the difference rather than take our word for it.</p></div>
-        <div class="tile reveal"><h3>On Time</h3><p>We show up when we say we will. If something comes up, you get a message — not silence.</p></div>
-        <div class="tile reveal"><h3>Spotless Guarantee</h3><p>If you're not happy with an area when we're finished, tell us and we come back and re-wash it. No argument, no extra charge.</p></div>
+
+  <!-- ======================= REVIEWS =======================
+       Real customers, in their own words — copied exactly as they wrote
+       them, typos and all. Do not edit the wording. To add another, copy
+       one <figure> block and fill in the quote, the name and the initial
+       in review__avatar. This file is shared by reviews.html and
+       about.html through the {{REVIEWS}} placeholder.
+       ======================================================= -->
+  <div class="reviews-grid reviews-grid--page">
+    <figure class="review reveal">
+      <span class="review__quote" aria-hidden="true">&ldquo;</span>
+      <div class="stars" role="img" aria-label="Five out of five stars">
+        <svg viewBox="0 0 104 20" aria-hidden="true"><defs><path id="revStar" d="M10 1.4l2.6 5.3 5.9.9-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9L1.5 7.6l5.9-.9z"/></defs><use href="#revStar" x="0"/><use href="#revStar" x="21"/><use href="#revStar" x="42"/><use href="#revStar" x="63"/><use href="#revStar" x="84"/></svg>
+      </div>
+      <blockquote>I have hired Daniel Strattner several times to powerwash the fencing around our entire complex. He not only does a great job with a fair price but he is professional and so polite. He will definitely be our hire for the next time around. I wish him all the best.</blockquote>
+      <figcaption>
+        <span class="review__avatar" aria-hidden="true">G</span>
+        <span class="review__who">Gayle<span>Cherry Brook Condos</span></span>
+      </figcaption>
+    </figure>
+
+    <figure class="review reveal">
+      <span class="review__quote" aria-hidden="true">&ldquo;</span>
+      <div class="stars" role="img" aria-label="Five out of five stars">
+        <svg viewBox="0 0 104 20" aria-hidden="true"><use href="#revStar" x="0"/><use href="#revStar" x="21"/><use href="#revStar" x="42"/><use href="#revStar" x="63"/><use href="#revStar" x="84"/></svg>
+      </div>
+      <blockquote>I recommend them highly professional on time does the job very well prices are reasonable and I just love this little entrepreneur and I love to support new Young businesses</blockquote>
+      <figcaption>
+        <span class="review__avatar" aria-hidden="true">S</span>
+        <span class="review__who">Suzette</span>
+      </figcaption>
+    </figure>
+
+    <figure class="review reveal">
+      <span class="review__quote" aria-hidden="true">&ldquo;</span>
+      <div class="stars" role="img" aria-label="Five out of five stars">
+        <svg viewBox="0 0 104 20" aria-hidden="true"><use href="#revStar" x="0"/><use href="#revStar" x="21"/><use href="#revStar" x="42"/><use href="#revStar" x="63"/><use href="#revStar" x="84"/></svg>
+      </div>
+      <blockquote>Thanks so much !! I will let neighbors &amp; friends know what a great job you did !!</blockquote>
+      <figcaption>
+        <span class="review__avatar" aria-hidden="true">K</span>
+        <span class="review__who">Katie</span>
+      </figcaption>
+    </figure>
+  </div>
+
+
+      <div class="section__cta reveal">
+        <a class="btn btn--primary btn--lg" href="reviews.html">Read The Reviews</a>
       </div>
     </div>
   </section>

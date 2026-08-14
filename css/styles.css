@@ -595,6 +595,10 @@ p { margin: 0 0 1em; }
     rgba(0, 22, 37, .22) 64%,
     transparent 86%);
 }
+/* The blue wash is what makes a photograph read as part of the site, but at
+   full strength it drains a person's face. Banners of a person say
+   `heroScrim: light`; the left-hand darkening above still protects the copy. */
+.pagehero--scrim-light .pagehero__shade { opacity: .64; }
 
 /* On a phone the copy runs the full width, so there is no clear right-hand
    side to protect — darken from the top down instead, which is where the
@@ -1143,25 +1147,81 @@ body.is-bare { padding-bottom: 0; }
 .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
 
 .review {
+  position: relative;
+  overflow: hidden;
   margin: 0;
   background: var(--white);
   border: 1px solid var(--line-200);
   border-radius: var(--radius-lg);
-  padding: 1.8rem 1.6rem;
+  padding: 1.9rem 1.7rem 1.6rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-.review .stars { font-size: 1.05rem; margin-bottom: .8rem; }
-.review blockquote { margin: 0 0 1.2rem; color: var(--ink-600); font-size: .96rem; flex: 1; }
-.review figcaption { font-family: var(--font-head); font-weight: 700; color: var(--navy-700); font-size: .95rem; }
-.review figcaption span {
+.review:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+/* Yellow rule across the top, matching the CTA buttons. */
+.review::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--yellow-500), var(--blue-400));
+}
+/* Oversized opening quote, sitting behind the text. */
+.review__quote {
+  position: absolute;
+  top: .06em;
+  right: .16em;
+  font-family: var(--font-head);
+  font-size: 5.4rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--blue-400);
+  opacity: .13;
+  pointer-events: none;
+}
+.review .stars { margin-bottom: .85rem; }
+.review .stars svg { width: 104px; height: 20px; fill: var(--yellow-500); }
+.review blockquote {
+  position: relative;
+  margin: 0 0 1.4rem;
+  color: var(--ink-600);
+  font-size: .98rem;
+  line-height: 1.72;
+  flex: 1;
+}
+.review figcaption {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--navy-700);
+  font-size: .95rem;
+  border-top: 1px solid var(--line-200);
+  padding-top: 1rem;
+}
+.review__avatar {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg, var(--blue-400), var(--navy-700));
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+.review figcaption span span,
+.review__who span {
   display: block;
   font-family: var(--font-body);
   font-weight: 400;
   font-size: .8rem;
   color: var(--ink-400);
-  margin-top: .15em;
+  margin-top: .1em;
 }
 
 .ratingbar {

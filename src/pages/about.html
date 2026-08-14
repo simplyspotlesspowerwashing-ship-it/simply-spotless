@@ -6,6 +6,9 @@ crumb: About Us
 heroTitle: About Simply Spotless
 heroSub: A local, owner-operated exterior cleaning company that treats your home the way we'd want ours treated.
 heroArt: assets/img/hero-story.jpg
+heroArtMobile: assets/img/hero-story-m.jpg
+heroArtPos: right center
+heroScrim: light
 -->
 
   <section class="section">
@@ -22,23 +25,20 @@ heroArt: assets/img/hero-story.jpg
     </div>
   </section>
 
-  <!-- The promises that used to be headed "Four Things We Don't Compromise
-       On". Same six as the home page's "What You Get" — this is the page
-       that earns them, sitting right under the story. -->
+  <!-- This slot used to hold a "What You Get" list of promises, written
+       because there were no reviews to show yet. There are now, so the
+       promises are gone and the customers speak instead. -->
   <section class="section section--tint">
     <div class="container">
       <div class="section__head reveal">
-        <p class="eyebrow">What You Get</p>
-        <h2>Every Job, <span class="accent-text">Done Right</span></h2>
-        <p class="section__sub">We're a new business, so we don't have a wall of reviews yet — here's exactly what we promise you instead.</p>
+        <p class="eyebrow">Reviews</p>
+        <h2>What Our Customers <span class="accent-text">Say</span></h2>
       </div>
-      <div class="tiles">
-        <div class="tile reveal"><h3>Honest Pricing</h3><p>The number we quote you is the number you pay. If we find something that changes the job, we stop and tell you before we do it — never after.</p></div>
-        <div class="tile reveal"><h3>The Right Method</h3><p>Siding gets soft washing at low pressure, not a blast that forces water behind it. Concrete gets the pressure it can take.</p></div>
-        <div class="tile reveal"><h3>Careful On Site</h3><p>Plants rinsed and protected before and after. Furniture back exactly where we found it. You shouldn't be able to tell we were there except that it's clean.</p></div>
-        <div class="tile reveal"><h3>Proof, Not Claims</h3><p>We take before and after photos of your own home and send them to you — so you can see the difference rather than take our word for it.</p></div>
-        <div class="tile reveal"><h3>On Time</h3><p>We show up when we say we will. If something comes up, you get a message — not silence.</p></div>
-        <div class="tile reveal"><h3>Spotless Guarantee</h3><p>If you're not happy with an area when we're finished, tell us and we come back and re-wash it. No argument, no extra charge.</p></div>
+
+{{REVIEWS}}
+
+      <div class="section__cta reveal">
+        <a class="btn btn--primary btn--lg" href="reviews.html">Read The Reviews</a>
       </div>
     </div>
   </section>
